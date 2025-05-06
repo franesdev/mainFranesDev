@@ -34,7 +34,7 @@ export default function About() {
     en: {
       title: "Who is behind the keyboard?",
       description:
-        "With over 10 years of experience as a full-stack engineer, I'm passionate about tackling complex challenges and delivering innovative solutions. I take a holistic approach, covering both front-end and back-end development, which allows me to build high-quality web and mobile applications.",
+        "With over 11 years of experience as a full-stack engineer, I'm passionate about tackling complex challenges and delivering innovative solutions. I take a holistic approach, covering both front-end and back-end development, which allows me to build high-quality web and mobile applications.",
       skills: "Skills",
       experience: "Experience",
       education: "Education",
@@ -42,22 +42,22 @@ export default function About() {
         {
           name: "Frontend Development",
           icon: <Code className="h-6 w-6 text-lime-500" />,
-          details: "React, Angular, Vue.js, HTML5, CSS3, JavaScript, TypeScript",
+          details: "React, Angular, HTML5, CSS3, JavaScript, TypeScript",
         },
         {
           name: "Backend Development",
           icon: <Server className="h-6 w-6 text-lime-500" />,
-          details: ".NET Core, C#, Java, Node.js, REST APIs, GraphQL",
+          details: ".NET Core, C#, Java, Node.js, REST APIs, .NET Asp",
         },
         {
           name: "Mobile Development",
           icon: <Smartphone className="h-6 w-6 text-lime-500" />,
-          details: ".NET MAUI, Xamarin Forms, React Native, Flutter",
+          details: ".NET MAUI, Xamarin Forms, Flutter",
         },
         {
           name: "Database Management",
           icon: <Database className="h-6 w-6 text-lime-500" />,
-          details: "SQL Server, PostgreSQL, MongoDB, Firebase, Redis",
+          details: "SQL Server, PostgreSQL, MongoDB, Firebase, My SQLServer",
         },
         {
           name: "Problem Solving",
@@ -103,7 +103,7 @@ export default function About() {
     es: {
       title: "¿Quién está detrás del teclado?",
       description:
-        "Con más de 10 años de experiencia como ingeniero full-stack, me apasiona enfrentar desafíos complejos y ofrecer soluciones innovadoras. Adopto un enfoque holístico, cubriendo tanto el desarrollo frontend como backend, lo que me permite construir aplicaciones web y móviles de alta calidad.",
+        "Con más de 11 años de experiencia como ingeniero full-stack, me apasiona enfrentar desafíos complejos y ofrecer soluciones innovadoras. Adopto un enfoque holístico, cubriendo tanto el desarrollo frontend como backend, lo que me permite construir aplicaciones web y móviles de alta calidad.",
       skills: "Habilidades",
       experience: "Experiencia",
       education: "Educación",
@@ -111,22 +111,22 @@ export default function About() {
         {
           name: "Desarrollo Frontend",
           icon: <Code className="h-6 w-6 text-lime-500" />,
-          details: "React, Angular, Vue.js, HTML5, CSS3, JavaScript, TypeScript",
+          details: "React, Angular, HTML5, CSS3, JavaScript, TypeScript",
         },
         {
           name: "Desarrollo Backend",
           icon: <Server className="h-6 w-6 text-lime-500" />,
-          details: ".NET Core, C#, Java, Node.js, REST APIs, GraphQL",
+          details: ".NET Core, C#, Java, Node.js, REST APIs, .NET Asp",
         },
         {
           name: "Desarrollo Móvil",
           icon: <Smartphone className="h-6 w-6 text-lime-500" />,
-          details: ".NET MAUI, Xamarin Forms, React Native, Flutter",
+          details: ".NET MAUI, Xamarin Forms, Flutter",
         },
         {
           name: "Gestión de Bases de Datos",
           icon: <Database className="h-6 w-6 text-lime-500" />,
-          details: "SQL Server, PostgreSQL, MongoDB, Firebase, Redis",
+          details: "SQL Server, PostgreSQL, MongoDB, Firebase, MY SQLServer",
         },
         {
           name: "Resolución de Problemas",
@@ -192,14 +192,14 @@ export default function About() {
           <Card className="bg-zinc-900/50 backdrop-blur-sm border-zinc-800">
             <CardContent className="p-6">
               <Tabs defaultValue="skills" className="w-full">
-                <TabsList className="grid w-full grid-cols-3 bg-zinc-800/70 backdrop-blur-sm">
+                <TabsList className="w-full bg-zinc-800/70 backdrop-blur-sm">
                   <TabsTrigger
                     value="skills"
-                    className="data-[state=active]:bg-lime-500 data-[state=active]:text-zinc-900 text-zinc-300"
+                    className="w-full text-center data-[state=active]:bg-lime-500 data-[state=active]:text-zinc-900 text-zinc-300"
                   >
                     {content[language].skills}
                   </TabsTrigger>
-                  <TabsTrigger
+               {/*   <TabsTrigger
                     value="experience"
                     className="data-[state=active]:bg-lime-500 data-[state=active]:text-zinc-900 text-zinc-300"
                   >
@@ -210,7 +210,7 @@ export default function About() {
                     className="data-[state=active]:bg-lime-500 data-[state=active]:text-zinc-900 text-zinc-300"
                   >
                     {content[language].education}
-                  </TabsTrigger>
+                  </TabsTrigger>*/}
                 </TabsList>
 
                 <TabsContent value="skills" className="mt-6">

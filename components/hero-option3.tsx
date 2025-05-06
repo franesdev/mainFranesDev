@@ -36,7 +36,7 @@ export default function Hero() {
       intro: "I'm Franklin Paute Machuca",
       description:
         "Full Stack Developer | .NET | MAUI | React | 🇪🇨 Ecuadorian, passionate about what I do. I love tackling technical challenges and building innovative solutions.",
-      cta: "View My Work",
+      cta: "View My Skills",
       contact: "Contact Me",
     },
     es: {
@@ -44,7 +44,7 @@ export default function Hero() {
       intro: "Soy Franklin Paute Machuca",
       description:
         "Desarrollador Full Stack | .NET | MAUI | React | 🇪🇨 Ecuatoriano, apasionado por lo que hago. Me encanta enfrentar desafíos técnicos y construir soluciones innovadoras.",
-      cta: "Ver Mi Trabajo",
+      cta: "Ver Mi Conocmiento",
       contact: "Contáctame",
     },
   }
