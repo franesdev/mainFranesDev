@@ -7,6 +7,7 @@ import LanguageToggle from "@/components/language-toggle-option3"
 import Footer from "@/components/footer-option3"
 import Loading from "@/components/loading-option3"
 
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
