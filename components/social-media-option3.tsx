@@ -90,13 +90,25 @@ export default function SocialMedia() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
                 >
                   <a href={social.url} target="_blank" rel="noopener noreferrer" className="block h-full">
-                    <Card className="h-full bg-zinc-900/50 backdrop-blur-sm border-zinc-800 hover:border-lime-500 transition-all duration-300">
-                      <CardContent className="flex flex-col items-center justify-center p-6">
-                        <div className={`${social.color} transition-colors duration-300`}>{social.icon}</div>
-                        <span className="mt-2 text-sm font-medium text-zinc-300">{social.name}</span>
+                    <Card className="group h-full bg-zinc-900/30 backdrop-blur-sm border-zinc-800 hover:border-zinc-700 transition-all duration-500 overflow-hidden">
+                      <CardContent className="flex flex-col items-center justify-center p-6 relative">
+                        {/* Efecto de resplandor en hover */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+                        
+                        {/* Fondo con gradiente sutil */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        {/* Contenido */}
+                        <div className="relative z-10 transform group-hover:-translate-y-1 transition-transform duration-500">
+                          <div className={`${social.color} transform group-hover:scale-110 transition-all duration-500`}>
+                            {social.icon}
+                          </div>
+                          <span className="mt-3 text-sm font-medium text-zinc-400 group-hover:text-white transition-colors duration-500 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
+                            {social.name}
+                          </span>
+                        </div>
                       </CardContent>
                     </Card>
                   </a>

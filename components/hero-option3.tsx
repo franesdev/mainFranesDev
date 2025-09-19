@@ -52,27 +52,27 @@ export default function Hero() {
 
   const socialLinks = [
     {
-      icon: <FaInstagram className="h-5 w-5" />,
+      icon: <FaInstagram className="h-7 w-7" />,
       href: "https://instagram.com/franesdev", // Reemplaza con tu enlace de Instagram
       alt: "Instagram",
     },
     {
-      icon: <FaFacebookF className="h-5 w-5" />,
+      icon: <FaFacebookF className="h-7 w-7" />,
       href: "https://facebook.com/franesdev", // Reemplaza con tu enlace de Facebook
       alt: "Facebook",
     },
     {
-      icon: <FaYoutube className="h-5 w-5" />,
+      icon: <FaYoutube className="h-7 w-7" />,
       href: "https://youtube.com/@franesdev", // Reemplaza con tu enlace de YouTube
       alt: "YouTube",
     },
     {
-      icon: <FaTiktok className="h-5 w-5" />,
+      icon: <FaTiktok className="h-7 w-7" />,
       href: "https://tiktok.com/@franesdev", // Reemplaza con tu enlace de TikTok
       alt: "TikTok",
     },
     {
-      icon: <FaLinkedinIn className="h-5 w-5" />,
+      icon: <FaLinkedinIn className="h-7 w-7" />,
       href: "https://linkedin.com/in/franesdev",
       alt: "LinkedIn",
     },
@@ -112,36 +112,54 @@ export default function Hero() {
                 {content[language].description}
               </p>
 
-              <div className="flex flex-wrap gap-4 items-center">
+              <div className="flex flex-wrap gap-6 items-center">
                 <Button
                     onClick={() => scrollToSection("about")}
-                    className="bg-lime-500 hover:bg-lime-600 text-zinc-900 font-medium px-6"
+                    className="group relative bg-gradient-to-r from-lime-500 to-lime-400 text-zinc-900 font-medium px-8 py-5 rounded-2xl transform hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_20px_-10px_rgba(132,204,22,0.5)] hover:shadow-[0_20px_40px_-10px_rgba(132,204,22,0.4)]"
                 >
-                  {content[language].cta}
+                  <span className="relative z-10 flex items-center gap-2">
+                    {content[language].cta}
+                    <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-lime-400 to-lime-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"></span>
                 </Button>
 
                 <Button
                     onClick={() => scrollToSection("contact")}
-                    variant="outline"
-                    className="border-lime-500 text-lime-500 hover:bg-lime-500/10"
+                    className="group relative bg-gradient-to-r from-lime-500 to-lime-400 text-zinc-900 font-medium px-8 py-5 rounded-2xl transform hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_20px_-10px_rgba(132,204,22,0.5)] hover:shadow-[0_20px_40px_-10px_rgba(132,204,22,0.4)]"
                 >
-                  {content[language].contact}
+                  <span className="relative z-10 flex items-center gap-2">
+                    {content[language].contact}
+                    <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-lime-400 to-lime-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"></span>
                 </Button>
+              </div>
 
-                <div className="flex gap-2 ml-4">
-                  {socialLinks.map((social, index) => (
-                      <a
-                          key={index}
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-zinc-400 hover:text-lime-500 transition-colors duration-300"
-                      >
-                        {social.icon}
+              <div className="flex mt-6 items-center justify-between w-full max-w-xl">
+                {socialLinks.map((social, index) => (
+                    <a
+                        key={index}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative p-3"
+                    >
+                        <div className="absolute inset-0 bg-lime-500/10 rounded-xl scale-0 group-hover:scale-100 transition-transform duration-300 ease-out"></div>
+                        <div className="absolute inset-0 bg-lime-500/0 group-hover:bg-lime-500/5 rounded-xl transform rotate-45 group-hover:rotate-0 transition-all duration-300"></div>
+                        <div className="relative w-10 h-10 flex items-center justify-center transform group-hover:-translate-y-1 transition-transform duration-300">
+                          <div className="text-zinc-400 group-hover:text-lime-500 transform group-hover:scale-110 transition-all duration-300">
+                            {social.icon}
+                          </div>
+                          <div className="absolute -bottom-1 left-1/2 w-6 h-[2px] bg-lime-500 transform -translate-x-1/2 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                        </div>
                         <span className="sr-only">{social.alt}</span>
-                      </a>
-                  ))}
-                </div>
+                    </a>
+                ))}
               </div>
             </motion.div>
 
@@ -151,10 +169,54 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="md:w-1/2 flex justify-center"
             >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-lime-500/20 to-transparent rounded-full filter blur-xl"></div>
-                <div className="relative bg-zinc-900/50 backdrop-blur-sm p-8 rounded-2xl border border-zinc-800 shadow-xl">
-                  <Image src="/logo.png" alt="FRANESDEV Logo" width={400} height={400} className="max-w-full h-auto" />
+              <div className="relative group">
+                {/* Main container with enhanced effects */}
+                <div className="relative bg-zinc-900/50 backdrop-blur-sm p-8 rounded-2xl border border-zinc-800 shadow-xl transform transition-all duration-500 hover:scale-105">
+                  {/* Animated gradient border */}
+                  <div className="absolute inset-0 rounded-2xl">
+                    <div className="absolute inset-px bg-gradient-to-r from-lime-500/20 to-lime-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                  </div>
+                  
+                  {/* Tech stack ring */}
+                  <div className="absolute inset-0 rounded-2xl">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-lime-500/10 via-transparent to-lime-500/10 rounded-2xl animate-spin-slow"></div>
+                  </div>
+                  
+                  {/* Logo container with glow */}
+                  <div className="relative z-10 bg-zinc-900/80 p-6 rounded-xl">
+                    <div className="relative">
+                      <Image 
+                        src="/logo.png" 
+                        alt="FRANESDEV Logo" 
+                        width={400} 
+                        height={400} 
+                        className="max-w-full h-auto transform transition-transform duration-500 group-hover:scale-105 relative z-10"
+                      />
+                      
+                      {/* Subtle glow behind logo */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-lime-500/20 to-transparent blur-2xl transform scale-110"></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating tech badges */}
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex gap-4 transition-all duration-500 group-hover:gap-6">
+                  <div className="px-3 py-1 bg-zinc-900/90 backdrop-blur-md rounded-full border border-lime-500/20 shadow-lg animate-float-slow">
+                    <span className="text-lime-500 text-sm font-mono">&lt;React /&gt;</span>
+                  </div>
+                  <div className="px-3 py-1 bg-zinc-900/90 backdrop-blur-md rounded-full border border-lime-500/20 shadow-lg animate-float">
+                    <span className="text-lime-500 text-sm font-mono">.NET</span>
+                  </div>
+                  <div className="px-3 py-1 bg-zinc-900/90 backdrop-blur-md rounded-full border border-lime-500/20 shadow-lg animate-float-slower">
+                    <span className="text-lime-500 text-sm font-mono">MAUI</span>
+                  </div>
+                </div>
+
+                {/* Corner decorations */}
+                <div className="absolute -bottom-4 left-0 right-0 flex justify-center">
+                  <div className="px-4 py-1 bg-zinc-900/90 backdrop-blur-md rounded-full border border-lime-500/20 shadow-lg">
+                    <span className="text-lime-500/70 text-xs font-mono">const passion = "code";</span>
+                  </div>
                 </div>
               </div>
             </motion.div>

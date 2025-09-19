@@ -173,10 +173,20 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-20 px-4 bg-zinc-900/50 backdrop-blur-sm relative overflow-hidden">
-      {/* Glassmorphism elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-lime-500/5 rounded-full -translate-x-1/2 -translate-y-1/2 filter blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-lime-500/5 rounded-full translate-x-1/2 translate-y-1/2 filter blur-3xl"></div>
+    <section id="about" className="py-20 px-4 relative overflow-hidden">
+      {/* Background gradients */}
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950"></div>
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-lime-500/10 rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-lime-500/5 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
+      {/* Animated particles */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute h-2 w-2 bg-lime-500 rounded-full top-1/4 left-1/4 animate-float-slow"></div>
+        <div className="absolute h-2 w-2 bg-lime-500 rounded-full top-3/4 right-1/4 animate-float"></div>
+        <div className="absolute h-3 w-3 bg-lime-500 rounded-full top-1/2 left-3/4 animate-float-slower"></div>
+      </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
@@ -184,37 +194,51 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
+          className="relative"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-white">{content[language].title}</h2>
+          {/* Title section with enhanced styling */}
+          <div className="text-center mb-16 relative">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-white mb-6 relative"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              {content[language].title}
+              <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-lime-500/0 via-lime-500 to-lime-500/0"></div>
+            </motion.h2>
 
-          <p className="text-zinc-300 text-lg max-w-3xl mx-auto text-center mb-12">{content[language].description}</p>
+            <motion.p 
+              className="text-zinc-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed relative z-10"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              {content[language].description}
+            </motion.p>
+          </div>
 
-          <Card className="bg-zinc-900/50 backdrop-blur-sm border-zinc-800">
-            <CardContent className="p-6">
-              <Tabs defaultValue="skills" className="w-full">
-                <TabsList className="w-full bg-zinc-800/70 backdrop-blur-sm">
-                  <TabsTrigger
-                    value="skills"
-                    className="w-full text-center data-[state=active]:bg-lime-500 data-[state=active]:text-zinc-900 text-zinc-300"
-                  >
-                    {content[language].skills}
-                  </TabsTrigger>
-               {/*   <TabsTrigger
-                    value="experience"
-                    className="data-[state=active]:bg-lime-500 data-[state=active]:text-zinc-900 text-zinc-300"
-                  >
-                    {content[language].experience}
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="education"
-                    className="data-[state=active]:bg-lime-500 data-[state=active]:text-zinc-900 text-zinc-300"
-                  >
-                    {content[language].education}
-                  </TabsTrigger>*/}
+          {/* Main content card with enhanced styling */}
+          <Card className="bg-zinc-900/40 backdrop-blur-md border-zinc-800/50 shadow-2xl relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-r from-lime-500/5 via-transparent to-lime-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <CardContent className="p-8 relative z-10">
+                            <Tabs defaultValue="skills" className="w-full">
+                <TabsList className="w-full flex justify-center mb-12">
+                  <div className="relative group">
+                    <TabsTrigger
+                      value="skills"
+                      className="text-[13px] font-medium text-zinc-400 tracking-wider uppercase transition-all duration-300 hover:text-lime-500"
+                    >
+                      {content[language].skills}
+                    </TabsTrigger>
+                    <div className="absolute left-0 -bottom-2 w-full h-[2px] bg-gradient-to-r from-transparent via-lime-500/30 to-transparent"></div>
+                  </div>
                 </TabsList>
 
                 <TabsContent value="skills" className="mt-6">
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-1">
                     {content[language].skillsList.map((skill, index) => (
                       <motion.div
                         key={index}
@@ -222,14 +246,45 @@ export default function About() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="group h-full"
                       >
-                        <Card className="bg-zinc-800/50 backdrop-blur-sm border-zinc-700 h-full hover:border-lime-500 transition-all duration-300">
-                          <CardContent className="p-6">
-                            <div className="flex items-center mb-4">
-                              <div className="p-2 bg-zinc-900/70 rounded-lg mr-3">{skill.icon}</div>
-                              <h3 className="text-xl font-medium text-white">{skill.name}</h3>
+                        <Card className="relative bg-zinc-800/30 backdrop-blur-md border-zinc-700/50 h-full hover:border-lime-500 transition-all duration-500 hover:-translate-y-1 overflow-hidden">
+                          {/* Gradient overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-lime-500/0 via-lime-500/0 to-lime-500/0 group-hover:from-lime-500/5 group-hover:via-transparent group-hover:to-transparent transition-all duration-500 rounded-lg"></div>
+                          
+                          {/* Glowing corners */}
+                          <div className="absolute -inset-px bg-gradient-to-r from-transparent via-lime-500/10 to-transparent opacity-0 group-hover:opacity-100 rounded-lg transition-opacity duration-500"></div>
+                          
+                          <CardContent className="p-6 relative">
+                            {/* Icon container with animations */}
+                            <div className="flex items-start space-x-4 mb-4">
+                              <div className="flex-shrink-0 p-3 bg-zinc-900/70 rounded-xl border border-zinc-800 group-hover:border-lime-500/50 transform group-hover:scale-110 transition-all duration-500 relative">
+                                <div className="absolute inset-0 bg-lime-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div className="relative z-10">
+                                  {skill.icon}
+                                </div>
+                              </div>
+                              <div className="flex-1 min-w-0"> {/* Added min-w-0 to prevent text overflow */}
+                                <h3 className="text-lg font-medium text-white mb-2 group-hover:text-lime-500 transition-colors duration-300 truncate">
+                                  {skill.name}
+                                </h3>
+                                <div className="h-0.5 w-12 bg-gradient-to-r from-lime-500/50 to-transparent rounded-full transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                              </div>
                             </div>
-                            <p className="text-zinc-400">{skill.details}</p>
+                            
+                            {/* Skills details with enhanced typography and better wrapping */}
+                            <div className="relative">
+                              <p className="text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300 leading-relaxed text-sm break-words">
+                                {skill.details.split(', ').map((detail, i, arr) => (
+                                  <span key={i} className="inline-block">
+                                    <span className="relative z-10 hover:text-lime-500 transition-colors duration-200">
+                                      {detail}
+                                    </span>
+                                    {i < arr.length - 1 && <span className="mx-2 text-zinc-600 select-none">•</span>}
+                                  </span>
+                                ))}
+                              </p>
+                            </div>
                           </CardContent>
                         </Card>
                       </motion.div>
