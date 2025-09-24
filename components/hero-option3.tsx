@@ -36,16 +36,16 @@ export default function Hero() {
       tagline: "Imagine | Code | Create",
       intro: "I'm Franklin Paute Machuca",
       description:
-          "Full Stack Developer | .NET | MAUI | React | 🇪🇨 Ecuadorian, passionate about what I do. I love tackling technical challenges and building innovative solutions.",
-      cta: "View My Skills",
+          "As a Full Stack Developer specializing in .NET and React, I'm dedicated to creating solutions that solve real problems. What drives me is finding the smartest approach to every technical challenge, transforming complex requirements into efficient and innovative solutions. 🇪🇨",
+      cta: "View Projects",
       contact: "Contact Me",
     },
     es: {
       tagline: "Imagina | Codifica | Crea",
       intro: "Soy Franklin Paute Machuca",
       description:
-          "Desarrollador Full Stack | .NET | MAUI | React | 🇪🇨 Ecuatoriano, apasionado por lo que hago. Me encanta enfrentar desafíos técnicos y construir soluciones innovadoras.",
-      cta: "Ver Mi Conocmiento",
+          "Como Desarrollador Full Stack especializado en .NET y React, me dedico a crear soluciones que resuelven problemas reales. Me motiva encontrar el enfoque más inteligente para cada desafío técnico, transformando requerimientos complejos en soluciones eficientes e innovadoras. 🇪🇨",
+      cta: "Ver Proyectos",
       contact: "Contáctame",
     },
   }
@@ -108,8 +108,9 @@ export default function Hero() {
 
               <div className="h-1 w-20 bg-lime-500 rounded-full mb-6"></div>
 
-              <p className="text-zinc-300 text-lg md:text-xl max-w-xl leading-relaxed mb-8">
-                {content[language].description}
+              <p className="text-zinc-300 text-lg md:text-xl max-w-xl leading-relaxed mb-8 relative group">
+                <span className="relative z-10">{content[language].description}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-lime-500/0 via-lime-500/5 to-lime-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
               </p>
 
               <div className="flex flex-wrap gap-6 items-center">

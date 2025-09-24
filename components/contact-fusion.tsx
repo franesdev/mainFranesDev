@@ -45,28 +45,40 @@ export default function Contact() {
 
   const content = {
     en: {
-      title: "Are you looking for developing talent?",
-      subtitle: "I'm here for new challenges!",
-      namePlaceholder: "Your Name",
-      emailPlaceholder: "Your Email",
-      messagePlaceholder: "Your Message",
+      title: "Are you looking for development talent?",
+      subtitle: "Ready to tackle new challenges!",
+      namePlaceholder: "Enter your name",
+      emailPlaceholder: "Enter your email",
+      messagePlaceholder: "Tell me about your project or opportunity...",
       sendButton: "Send Message",
       sending: "Sending...",
       successMessage: "Message sent successfully! I'll get back to you soon.",
       getInTouch: "Get in Touch",
-      contactInfo: "Have a project in mind or just want to say hello? Feel free to reach out!",
+      contactInfo: "Have a project in mind or want to explore collaboration opportunities? I'd love to hear from you!",
+      availability: "Currently available for:",
+      availabilityItems: [
+        "Full-time positions",
+        "Freelance projects",
+        "Technical consultancy"
+      ]
     },
     es: {
-      title: "¿Estás buscando talento para desarrollo?",
-      subtitle: "¡Estoy aquí para nuevos desafíos!",
-      namePlaceholder: "Tu Nombre",
-      emailPlaceholder: "Tu Email",
-      messagePlaceholder: "Tu Mensaje",
+      title: "¿Buscas talento para desarrollo?",
+      subtitle: "¡Listo para nuevos desafíos!",
+      namePlaceholder: "Ingresa tu nombre",
+      emailPlaceholder: "Ingresa tu email",
+      messagePlaceholder: "Cuéntame sobre tu proyecto u oportunidad...",
       sendButton: "Enviar Mensaje",
       sending: "Enviando...",
       successMessage: "¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.",
       getInTouch: "Ponte en Contacto",
-      contactInfo: "¿Tienes un proyecto en mente o simplemente quieres saludar? ¡No dudes en contactarme!",
+      contactInfo: "¿Tienes un proyecto en mente o quieres explorar oportunidades de colaboración? ¡Me encantaría escucharte!",
+      availability: "Actualmente disponible para:",
+      availabilityItems: [
+        "Posiciones tiempo completo",
+        "Proyectos freelance",
+        "Consultoría técnica"
+      ]
     },
   }
 
@@ -160,10 +172,33 @@ export default function Contact() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-lime-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
-                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-lime-500 transition-colors duration-300">
-                      {content[language].getInTouch}
-                    </h3>
-                    <p className="text-zinc-400 mb-8 leading-relaxed">{content[language].contactInfo}</p>
+                    <div className="mb-8">
+                      <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-lime-500 transition-colors duration-300">
+                        {content[language].getInTouch}
+                      </h3>
+                      <p className="text-zinc-400 leading-relaxed">{content[language].contactInfo}</p>
+                    </div>
+
+                    <div className="mb-8 p-4 bg-zinc-800/30 backdrop-blur-sm rounded-lg border border-zinc-700/30">
+                      <h4 className="text-white text-sm font-medium mb-3">{content[language].availability}</h4>
+                      <ul className="space-y-2">
+                        {content[language].availabilityItems.map((item, index) => (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            className="flex items-center text-zinc-400"
+                          >
+                            <svg className="w-4 h-4 text-lime-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                            {item}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+
                     <div className="space-y-6">
                       <motion.div 
                         className="group/item flex items-center"
@@ -296,7 +331,8 @@ export default function Contact() {
                               value={formState.name}
                               onChange={handleChange}
                               required
-                              className="bg-zinc-800/30 backdrop-blur-sm border-zinc-700/50 focus:border-lime-500 text-white hover:border-zinc-600 transition-colors duration-300"
+                              aria-label="Name"
+                              className="bg-zinc-800/30 backdrop-blur-sm border-zinc-700/50 focus:border-lime-500 text-white hover:border-zinc-600 transition-colors duration-300 h-12"
                           />
                         </motion.div>
 
@@ -312,7 +348,8 @@ export default function Contact() {
                               value={formState.email}
                               onChange={handleChange}
                               required
-                              className="bg-zinc-800/30 backdrop-blur-sm border-zinc-700/50 focus:border-lime-500 text-white hover:border-zinc-600 transition-colors duration-300"
+                              aria-label="Email"
+                              className="bg-zinc-800/30 backdrop-blur-sm border-zinc-700/50 focus:border-lime-500 text-white hover:border-zinc-600 transition-colors duration-300 h-12"
                           />
                         </motion.div>
 
@@ -327,7 +364,8 @@ export default function Contact() {
                               value={formState.message}
                               onChange={handleChange}
                               required
-                              className="bg-zinc-800/30 backdrop-blur-sm border-zinc-700/50 focus:border-lime-500 text-white hover:border-zinc-600 transition-colors duration-300 min-h-[150px]"
+                              className="bg-zinc-800/30 backdrop-blur-sm border-zinc-700/50 focus:border-lime-500 text-white hover:border-zinc-600 transition-colors duration-300 min-h-[200px] resize-y"
+                              aria-label="Message"
                           />
                         </motion.div>
 

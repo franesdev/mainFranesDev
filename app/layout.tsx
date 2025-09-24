@@ -28,7 +28,7 @@ export default function RootLayout({
           data-id="franesdev" 
           data-description="Support me on Buy me a coffee!" 
           data-message="¡Gracias por pasar por aquí! Si gustas??, puedes dejar tu aporte en este lugar. Recuerda aquí aprendemos juntos!!" 
-          data-color="#FF813F" 
+          data-color="#40DCA5" 
           data-position="Right" 
           data-x_margin="18" 
           data-y_margin="18"

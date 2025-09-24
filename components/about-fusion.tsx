@@ -32,10 +32,11 @@ export default function About() {
 
   const content = {
     en: {
-      title: "Who is behind the keyboard?",
+      title: "My Story",
+      subtitle: "Who is behind the keyboard?",
       description:
-        "With over 11 years of experience as a full-stack engineer, I'm passionate about tackling complex challenges and delivering innovative solutions. I take a holistic approach, covering both front-end and back-end development, which allows me to build high-quality web and mobile applications.",
-      skills: "Skills",
+        "With over 11 years of experience as a full-stack engineer, I'm passionate about creating innovative web and mobile solutions. My holistic approach, spanning from front-end to back-end development, enables me to build high-quality applications that solve complex challenges effectively. Every line of code I write is driven by a commitment to excellence and a deep understanding of modern development practices.",
+      skills: "Skills & Expertise",
       experience: "Experience",
       education: "Education",
       skillsList: [
@@ -101,7 +102,8 @@ export default function About() {
       ],
     },
     es: {
-      title: "¿Quién está detrás del teclado?",
+      title: "Mi Historia",
+      subtitle: "¿Quién está detrás del teclado?",
       description:
         "Con más de 11 años de experiencia como ingeniero full-stack, me apasiona enfrentar desafíos complejos y ofrecer soluciones innovadoras. Adopto un enfoque holístico, cubriendo tanto el desarrollo frontend como backend, lo que me permite construir aplicaciones web y móviles de alta calidad.",
       skills: "Habilidades",
@@ -198,19 +200,20 @@ export default function About() {
         >
           {/* Title section with enhanced styling */}
           <div className="text-center mb-16 relative">
-            <motion.h2 
-              className="text-4xl md:text-5xl font-bold text-white mb-6 relative"
+            <motion.div
+              className="flex flex-col items-center space-y-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              {content[language].title}
-              <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-lime-500/0 via-lime-500 to-lime-500/0"></div>
-            </motion.h2>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">{content[language].title}</h2>
+              <p className="text-lime-500 text-lg font-light tracking-wider uppercase">{content[language].subtitle}</p>
+              <div className="w-32 h-1 bg-gradient-to-r from-lime-500/0 via-lime-500 to-lime-500/0"></div>
+            </motion.div>
 
             <motion.p 
-              className="text-zinc-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed relative z-10"
+              className="text-zinc-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mt-8 relative z-10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
