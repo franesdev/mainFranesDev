@@ -17,9 +17,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}
-      <SpeedInsights />
-      <Analytics />
+      <body>
+        {children}
+        <SpeedInsights />
+        <Analytics />
+        <script 
+          data-name="BMC-Widget" 
+          data-cfasync="false" 
+          src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" 
+          data-id="franesdev" 
+          data-description="Support me on Buy me a coffee!" 
+          data-message="¡Gracias por pasar por aquí! Si gustas??, puedes dejar tu aporte en este lugar. Recuerda aquí aprendemos juntos!!" 
+          data-color="#FF813F" 
+          data-position="Right" 
+          data-x_margin="18" 
+          data-y_margin="18"
+        />
       </body>
     </html>
   )
