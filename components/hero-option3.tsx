@@ -170,55 +170,117 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="md:w-1/2 flex justify-center"
             >
-              <div className="relative group">
-                {/* Main container with enhanced effects */}
-                <div className="relative bg-zinc-900/50 backdrop-blur-sm p-8 rounded-2xl border border-zinc-800 shadow-xl transform transition-all duration-500 hover:scale-105">
-                  {/* Animated gradient border */}
-                  <div className="absolute inset-0 rounded-2xl">
-                    <div className="absolute inset-px bg-gradient-to-r from-lime-500/20 to-lime-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                              <div className="relative group perspective-1000">
+                  {/* Orbital Ring Animation */}
+                  <div className="absolute inset-0 z-0">
+                    <div className="absolute inset-0 border-2 border-dashed border-lime-500/20 rounded-full animate-spin-slow"></div>
+                    <div className="absolute inset-4 border border-lime-500/10 rounded-full animate-spin-reverse-slower"></div>
+                    <div className="absolute inset-8 border border-lime-500/5 rounded-full animate-spin-slower"></div>
                   </div>
-                  
-                  {/* Tech stack ring */}
-                  <div className="absolute inset-0 rounded-2xl">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-lime-500/10 via-transparent to-lime-500/10 rounded-2xl animate-spin-slow"></div>
-                  </div>
-                  
-                  {/* Logo container with glow */}
-                  <div className="relative z-10 bg-zinc-900/80 p-6 rounded-xl">
-                    <div className="relative">
-                      <Image 
-                        src="/logo.png" 
-                        alt="FRANESDEV Logo" 
-                        width={400} 
-                        height={400} 
-                        className="max-w-full h-auto transform transition-transform duration-500 group-hover:scale-105 relative z-10"
-                      />
-                      
-                      {/* Subtle glow behind logo */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-lime-500/20 to-transparent blur-2xl transform scale-110"></div>
+
+                  {/* Main container with 3D effects */}
+                  <div className="relative bg-zinc-900/50 backdrop-blur-xl p-8 rounded-2xl border border-zinc-800/50 shadow-2xl transform transition-all duration-700 hover:scale-105 group-hover:rotate-6 will-change-transform">
+                    {/* Animated gradient borders */}
+                    <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-lime-500/0 via-lime-500/20 to-lime-500/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+                      <div className="absolute inset-0 bg-gradient-to-b from-lime-500/10 via-transparent to-lime-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    </div>
+                    
+                    {/* Logo container with enhanced effects */}
+                    <div className="relative z-10 bg-zinc-900/90 p-6 rounded-xl overflow-hidden group-hover:bg-zinc-900/70 transition-colors duration-500">
+                      <div className="relative transform group-hover:scale-110 transition-transform duration-700 ease-out">
+                        {/* Enhanced glow effects */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-lime-500/30 via-lime-500/0 to-lime-500/20 blur-2xl transform scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-lime-500/20 via-transparent to-lime-500/10 animate-pulse"></div>
+                        
+                        {/* Logo image with reflection effect */}
+                        <div className="relative">
+                          <Image 
+                            src="/logo.png" 
+                            alt="FRANESDEV Logo" 
+                            width={400} 
+                            height={400} 
+                            className="max-w-full h-auto relative z-10 drop-shadow-2xl"
+                            style={{
+                              filter: 'drop-shadow(0 0 10px rgba(132,204,22,0.3))'
+                            }}
+                          />
+                          
+                          {/* Reflection effect */}
+                          <div className="absolute top-full left-0 right-0 h-1/2 bg-gradient-to-b from-lime-500/10 to-transparent transform -translate-y-1/2 blur-md opacity-50"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Floating tech badges */}
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex gap-4 transition-all duration-500 group-hover:gap-6">
-                  <div className="px-3 py-1 bg-zinc-900/90 backdrop-blur-md rounded-full border border-lime-500/20 shadow-lg animate-float-slow">
-                    <span className="text-lime-500 text-sm font-mono">&lt;React /&gt;</span>
+                  {/* Floating tech badges with enhanced animations */}
+                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 flex gap-6 transition-all duration-700 group-hover:gap-8">
+                    <motion.div
+                      initial={{ y: 0 }}
+                      animate={{ y: [-5, 5, -5] }}
+                      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                      className="px-4 py-2 bg-zinc-900/90 backdrop-blur-md rounded-full border border-lime-500/30 shadow-lg shadow-lime-500/10 hover:border-lime-500/50 transition-colors duration-300"
+                    >
+                      <span className="text-lime-500 text-sm font-mono bg-gradient-to-r from-lime-500 to-lime-300 bg-clip-text text-transparent">&lt;React /&gt;</span>
+                    </motion.div>
+                    <motion.div
+                      initial={{ y: 0 }}
+                      animate={{ y: [5, -5, 5] }}
+                      transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+                      className="px-4 py-2 bg-zinc-900/90 backdrop-blur-md rounded-full border border-lime-500/30 shadow-lg shadow-lime-500/10 hover:border-lime-500/50 transition-colors duration-300"
+                    >
+                      <span className="text-lime-500 text-sm font-mono bg-gradient-to-r from-lime-500 to-lime-300 bg-clip-text text-transparent">.NET</span>
+                    </motion.div>
+                    <motion.div
+                      initial={{ y: 0 }}
+                      animate={{ y: [-5, 5, -5] }}
+                      transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
+                      className="px-4 py-2 bg-zinc-900/90 backdrop-blur-md rounded-full border border-lime-500/30 shadow-lg shadow-lime-500/10 hover:border-lime-500/50 transition-colors duration-300"
+                    >
+                      <span className="text-lime-500 text-sm font-mono bg-gradient-to-r from-lime-500 to-lime-300 bg-clip-text text-transparent">MAUI</span>
+                    </motion.div>
                   </div>
-                  <div className="px-3 py-1 bg-zinc-900/90 backdrop-blur-md rounded-full border border-lime-500/20 shadow-lg animate-float">
-                    <span className="text-lime-500 text-sm font-mono">.NET</span>
-                  </div>
-                  <div className="px-3 py-1 bg-zinc-900/90 backdrop-blur-md rounded-full border border-lime-500/20 shadow-lg animate-float-slower">
-                    <span className="text-lime-500 text-sm font-mono">MAUI</span>
-                  </div>
-                </div>
 
-                {/* Corner decorations */}
-                <div className="absolute -bottom-4 left-0 right-0 flex justify-center">
-                  <div className="px-4 py-1 bg-zinc-900/90 backdrop-blur-md rounded-full border border-lime-500/20 shadow-lg">
-                    <span className="text-lime-500/70 text-xs font-mono">const passion = "code";</span>
+                  {/* Bottom decorative element with animation */}
+                  <motion.div 
+                    className="absolute -bottom-6 left-0 right-0 flex justify-center"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    <div className="px-6 py-2 bg-zinc-900/90 backdrop-blur-md rounded-full border border-lime-500/30 shadow-lg shadow-lime-500/10">
+                      <span className="text-lime-500/90 text-sm font-mono">
+                        <span className="text-lime-500/50">&lt;</span>
+                        <span className="text-lime-500/90">code with passion</span>
+                        <span className="text-lime-500/50">/&gt;</span>
+                      </span>
+                    </div>
+                  </motion.div>
+
+                  {/* Floating particles */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    {[...Array(6)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-1 h-1 bg-lime-500/30 rounded-full"
+                        initial={{
+                          x: Math.random() * 400,
+                          y: Math.random() * 400,
+                          scale: 0
+                        }}
+                        animate={{
+                          x: Math.random() * 400,
+                          y: Math.random() * 400,
+                          scale: [0, 1, 0]
+                        }}
+                        transition={{
+                          duration: Math.random() * 3 + 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      />
+                    ))}
                   </div>
-                </div>
               </div>
             </motion.div>
           </div>
