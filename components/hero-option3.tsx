@@ -33,20 +33,36 @@ export default function Hero() {
 
   const content = {
     en: {
-      tagline: "Imagine | Code | Create",
+      tagline: "Transform | Innovate | Excel",
       intro: "I'm Franklin Paute Machuca",
+      role: "Full Stack Innovation Expert",
+      stats: [
+        { number: "11+", label: "Years Experience" },
+        { number: "50+", label: "Projects Delivered" },
+        { number: "100%", label: "Client Satisfaction" }
+      ],
       description:
-          "As a Full Stack Developer specializing in .NET and React, I'm dedicated to creating solutions that solve real problems. What drives me is finding the smartest approach to every technical challenge, transforming complex requirements into efficient and innovative solutions. 🇪🇨",
-      cta: "View Projects",
-      contact: "Contact Me",
+          "Transforming complex challenges into elegant digital solutions. Specializing in enterprise-grade applications with .NET and React, I bring innovation, performance, and reliability to every project. Let's create something extraordinary together. 🇪🇨",
+      badges: ["Available for Projects", "Remote-Ready", "Enterprise Solutions"],
+      cta: "Explore My Work",
+      contact: "Start a Project",
+      scroll: "Discover More"
     },
     es: {
-      tagline: "Imagina | Codifica | Crea",
+      tagline: "Transforma | Innova | Destaca",
       intro: "Soy Franklin Paute Machuca",
+      role: "Experto en Innovación Full Stack",
+      stats: [
+        { number: "11+", label: "Años de Experiencia" },
+        { number: "50+", label: "Proyectos Entregados" },
+        { number: "100%", label: "Satisfacción Cliente" }
+      ],
       description:
-          "Como Desarrollador Full Stack especializado en .NET y React, me dedico a crear soluciones que resuelven problemas reales. Me motiva encontrar el enfoque más inteligente para cada desafío técnico, transformando requerimientos complejos en soluciones eficientes e innovadoras. 🇪🇨",
-      cta: "Ver Proyectos",
-      contact: "Contáctame",
+          "Transformando desafíos complejos en soluciones digitales elegantes. Especializado en aplicaciones empresariales con .NET y React, aporto innovación, rendimiento y fiabilidad a cada proyecto. Creemos algo extraordinario juntos. 🇪🇨",
+      badges: ["Disponible para Proyectos", "Trabajo Remoto", "Soluciones Empresariales"],
+      cta: "Ver mi Trabajo",
+      contact: "Iniciar Proyecto",
+      scroll: "Descubre Más"
     },
   }
 
@@ -86,13 +102,13 @@ export default function Hero() {
   }
 
   return (
-      <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-lime-500/10 via-zinc-950 to-zinc-950 z-0"></div>
+    <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-lime-500/10 via-zinc-950 to-zinc-950 z-0"></div>
 
-        {/* Glassmorphism effect */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-lime-500/10 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-lime-500/5 rounded-full filter blur-3xl"></div>
+      {/* Glassmorphism effect */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-lime-500/10 rounded-full filter blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-lime-500/5 rounded-full filter blur-3xl"></div>
 
         <div className="container mx-auto max-w-6xl z-10">
           <div className="flex flex-col md:flex-row items-center gap-12">
@@ -102,17 +118,91 @@ export default function Hero() {
                 transition={{ duration: 0.8 }}
                 className="md:w-1/2"
             >
-              <h2 className="text-lime-500 text-xl md:text-2xl font-light mb-4">{content[language].tagline}</h2>
+              {/* Enhanced tagline with animation */}
+              <motion.h2 
+                className="text-lime-500 text-xl md:text-2xl font-light mb-4 tracking-wider"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {content[language].tagline.split(' | ').map((word, index) => (
+                  <span key={index} className="inline-block">
+                    {index > 0 && (
+                      <span className="mx-2 text-lime-500/50">|</span>
+                    )}
+                    <span className="hover:text-lime-400 transition-colors duration-300">
+                      {word}
+                    </span>
+                  </span>
+                ))}
+              </motion.h2>
 
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">{content[language].intro}</h1>
+              {/* Dynamic name presentation */}
+              <motion.h1 
+                className="text-4xl md:text-6xl lg:text-7xl font-bold mb-3 text-white bg-clip-text"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                {content[language].intro}
+              </motion.h1>
 
-              <div className="h-1 w-20 bg-lime-500 rounded-full mb-6"></div>
+              {/* Professional role with highlight */}
+              <motion.h3
+                className="text-xl md:text-2xl text-zinc-400 mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                {content[language].role}
+              </motion.h3>
 
-              <p className="text-zinc-300 text-lg md:text-xl max-w-xl leading-relaxed mb-8 relative group">
-                <span className="relative z-10">{content[language].description}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-lime-500/0 via-lime-500/5 to-lime-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
-              </p>
+              {/* Stats display */}
+              <motion.div 
+                className="flex gap-8 mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                {content[language].stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-2xl font-bold text-lime-500">{stat.number}</div>
+                    <div className="text-sm text-zinc-400">{stat.label}</div>
+                  </div>
+                ))}
+              </motion.div>
 
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-lime-500/20 to-transparent mb-8"></div>
+
+              {/* Enhanced description with badge highlights */}
+              <motion.div
+                className="space-y-6 mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                <p className="text-zinc-300 text-lg md:text-xl max-w-xl leading-relaxed relative group cursor-default">
+                  <span className="relative z-10">{content[language].description}</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-lime-500/0 via-lime-500/5 to-lime-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+                </p>
+              </motion.div>
+
+              {/* Status badges */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {content[language].badges.map((badge, index) => (
+                  <motion.span
+                    key={index}
+                    className="px-3 py-1 bg-lime-500/10 border border-lime-500/20 rounded-full text-lime-500 text-sm"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.6 + (index * 0.1) }}
+                  >
+                    {badge}
+                  </motion.span>
+                ))}
+              </div>
+
+              {/* Enhanced CTAs */}
               <div className="flex flex-wrap gap-6 items-center">
                 <Button
                     onClick={() => scrollToSection("about")}
@@ -297,7 +387,10 @@ export default function Hero() {
                 size="icon"
                 className="text-lime-500 hover:text-lime-400 hover:bg-transparent animate-bounce"
             >
-              <ArrowDown className="h-6 w-6" />
+              <div className="flex flex-col items-center">
+                <span className="text-lime-500/70 text-sm mb-2">{content[language].scroll}</span>
+                <ArrowDown className="h-6 w-6" />
+              </div>
             </Button>
           </motion.div>
         </div>

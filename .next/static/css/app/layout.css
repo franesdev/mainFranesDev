@@ -2215,6 +2215,9 @@ video {
 .text-lime-500\/50 {
   color: rgb(132 204 22 / 0.5);
 }
+.text-lime-500\/70 {
+  color: rgb(132 204 22 / 0.7);
+}
 .text-lime-500\/90 {
   color: rgb(132 204 22 / 0.9);
 }
