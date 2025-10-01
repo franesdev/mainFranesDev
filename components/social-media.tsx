@@ -6,7 +6,7 @@ import { Youtube, Facebook, Twitter, Linkedin, Instagram, InstagramIcon as Tikto
 import { Card, CardContent } from "@/components/ui/card"
 
 export default function SocialMedia() {
-  const [language, setLanguage] = useState<"en" | "es">("en")
+  const [language, setLanguage] = useState<"en" | "es">("es")
 
   useEffect(() => {
     // Get language from localStorage

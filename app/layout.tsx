@@ -27,7 +27,7 @@ export default function RootLayout({
           src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" 
           data-id="franesdev" 
           data-description="Support me on Buy me a coffee!" 
-          data-message="¡Gracias por pasar por aquí! Si gustas??, puedes dejar tu aporte en este lugar. Recuerda aquí aprendemos juntos!!" 
+          data-message="¡Gracias por tu apoyo! Un café me da el empujón para seguir compartiendo lo que aprendo contigo." 
           data-color="#40DCA5" 
           data-position="Right" 
           data-x_margin="18" 

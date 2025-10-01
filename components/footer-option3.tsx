@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa"
 
 export default function Footer() {
-  const [language, setLanguage] = useState<"en" | "es">("en")
+  const [language, setLanguage] = useState<"en" | "es">("es")
 
   useEffect(() => {
     // Get language from localStorage

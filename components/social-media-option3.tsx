@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { FaYoutube, FaFacebookF, FaLinkedinIn, FaInstagram, FaTiktok } from 'react-icons/fa'
+import { ShoppingBag, Code2, ShirtIcon } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card"
 
 export default function SocialMedia() {
-  const [language, setLanguage] = useState("en")
+  const [language, setLanguage] = useState("es")
 
   useEffect(() => {
     // Get language from localStorage
@@ -35,52 +36,50 @@ export default function SocialMedia() {
       icon: <FaYoutube className="h-8 w-8" />,
       url: "https://youtube.com/@franesdev",
       color: "text-red-500 hover:text-red-400",
-      description: {
-        en: "Tutorials and more",
-        es: "Tutoriales y más"
-      },
-      featured: true
-    },
-    {
-      name: "TikTok",
-      icon: <FaTiktok className="h-8 w-8" />,
-      url: "https://tiktok.com/@franesdev",
-      color: "text-white hover:text-gray-300",
-      description: {
-        en: "Quick coding tips",
-        es: "Tips rápidos de programación"
-      }
     },
     {
       name: "LinkedIn",
       icon: <FaLinkedinIn className="h-8 w-8" />,
       url: "https://linkedin.com/in/franesdev",
       color: "text-blue-500 hover:text-blue-400",
-      description: {
-        en: "Let's connect professionally",
-        es: "Conectemos profesionalmente"
-      }
     },
     {
       name: "Instagram",
       icon: <FaInstagram className="h-8 w-8" />,
       url: "https://instagram.com/franesdev",
       color: "text-pink-500 hover:text-pink-400",
-      description: {
-        en: "My dev life journey",
-        es: "Mi día a día como dev"
-      }
+    },
+    {
+      name: "TikTok",
+      icon: <FaTiktok className="h-8 w-8" />,
+      url: "https://tiktok.com/@franesdev",
+      color: "text-white hover:text-gray-300",
     },
     {
       name: "Facebook",
       icon: <FaFacebookF className="h-8 w-8" />,
       url: "https://facebook.com/franesdev",
       color: "text-blue-600 hover:text-blue-500",
-      description: {
-        en: "Community updates",
-        es: "Actualizaciones de la comunidad"
-      }
     },
+    {
+      name: "Dev Shop",
+      icon: (
+        <div className="relative group-hover:rotate-12 transition-transform duration-300">
+          <ShirtIcon className="h-8 w-8 absolute text-lime-500/50 transform translate-x-[2px] translate-y-[2px]" />
+          <Code2 className="h-8 w-8 absolute opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
+          <ShoppingBag className="h-8 w-8 relative z-10" />
+          <div className="absolute -right-1 -top-1 w-3 h-3 bg-lime-500 rounded-full animate-ping"></div>
+          <div className="absolute -right-1 -top-1 w-3 h-3 bg-lime-500 rounded-full"></div>
+        </div>
+      ),
+      url: "https://franesdev-shop.fourthwall.com",
+      color: "text-lime-500 hover:text-lime-400",
+      featured: true,
+      shopLabel: {
+        en: "Get Your Dev Merch!",
+        es: "¡Consigue tu Ropa Dev!"
+      }
+    }
   ]
 
   return (
@@ -156,7 +155,7 @@ export default function SocialMedia() {
                             {social.name}
                           </h3>
                           <p className="mt-1 text-xs text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300">
-                            {social.description[language as keyof typeof social.description]}
+                            {social.shopLabel && social.shopLabel[language as keyof typeof social.shopLabel]}
                           </p>
                         </div>
                       </CardContent>

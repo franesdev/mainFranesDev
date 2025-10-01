@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { Facebook, Twitter, Linkedin, Instagram, Youtube, InstagramIcon as TiktokIcon } from "lucide-react"
 
 export default function Footer() {
-  const [language, setLanguage] = useState<"en" | "es">("en")
+  const [language, setLanguage] = useState<"en" | "es">("es")
 
   useEffect(() => {
     // Get language from localStorage

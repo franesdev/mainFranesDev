@@ -3,12 +3,12 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowDown } from "lucide-react" // Mantenemos ArrowDown
+import { ArrowDown, ShoppingBag, Code2, ShirtIcon } from "lucide-react" // Añadimos iconos relacionados con dev shop
 import { Button } from "@/components/ui/button"
 import { FaGithub, FaLinkedinIn, FaTwitter, FaYoutube, FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa'
 
 export default function Hero() {
-  const [language, setLanguage] = useState<"en" | "es">("en")
+  const [language, setLanguage] = useState<"en" | "es">("es")
 
   useEffect(() => {
     // Get language from localStorage
@@ -68,29 +68,44 @@ export default function Hero() {
 
   const socialLinks = [
     {
-      icon: <FaInstagram className="h-7 w-7" />,
-      href: "https://instagram.com/franesdev", // Reemplaza con tu enlace de Instagram
-      alt: "Instagram",
-    },
-    {
-      icon: <FaFacebookF className="h-7 w-7" />,
-      href: "https://facebook.com/franesdev", // Reemplaza con tu enlace de Facebook
-      alt: "Facebook",
-    },
-    {
       icon: <FaYoutube className="h-7 w-7" />,
-      href: "https://youtube.com/@franesdev", // Reemplaza con tu enlace de YouTube
+      href: "https://youtube.com/@franesdev",
       alt: "YouTube",
     },
     {
       icon: <FaTiktok className="h-7 w-7" />,
-      href: "https://tiktok.com/@franesdev", // Reemplaza con tu enlace de TikTok
+      href: "https://tiktok.com/@franesdev",
       alt: "TikTok",
     },
     {
       icon: <FaLinkedinIn className="h-7 w-7" />,
       href: "https://linkedin.com/in/franesdev",
       alt: "LinkedIn",
+    },
+    {
+      icon: <FaInstagram className="h-7 w-7" />,
+      href: "https://instagram.com/franesdev",
+      alt: "Instagram",
+    },
+    {
+      icon: <FaFacebookF className="h-7 w-7" />,
+      href: "https://facebook.com/franesdev",
+      alt: "Facebook",
+    },
+    {
+      icon: (
+        <div className="relative group-hover:rotate-12 transition-transform duration-300">
+          <ShirtIcon className="h-7 w-7 absolute text-lime-500/50 transform translate-x-[2px] translate-y-[2px]" />
+          <Code2 className="h-7 w-7 absolute opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
+          <ShoppingBag className="h-7 w-7 relative z-10" />
+          <div className="absolute -right-1 -top-1 w-3 h-3 bg-lime-500 rounded-full animate-ping"></div>
+          <div className="absolute -right-1 -top-1 w-3 h-3 bg-lime-500 rounded-full"></div>
+        </div>
+      ),
+      href: "https://franesdev-shop.fourthwall.com",
+      alt: "Dev Shop",
+      featured: true,
+      label: "Check Out Dev Merch"
     },
   ]
 
@@ -231,23 +246,59 @@ export default function Hero() {
                 </Button>
               </div>
 
-              <div className="flex mt-6 items-center justify-between w-full max-w-xl">
+              <div className="flex mt-6 items-center justify-between w-full max-w-xl relative">
+                {/* Línea decorativa con gradiente */}
+                <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lime-500/20 to-transparent transform -translate-y-1/2"></div>
+                
                 {socialLinks.map((social, index) => (
                     <a
                         key={index}
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group relative p-3"
+                        className={`group relative p-3 ${social.featured ? 'scale-110' : ''}`}
                     >
-                        <div className="absolute inset-0 bg-lime-500/10 rounded-xl scale-0 group-hover:scale-100 transition-transform duration-300 ease-out"></div>
+                        {/* Animated background effects */}
+                        <div className={`absolute inset-0 ${social.featured ? 'bg-gradient-to-r from-lime-500/20 via-lime-400/20 to-lime-500/20' : 'bg-lime-500/10'} rounded-xl scale-0 group-hover:scale-100 transition-transform duration-300 ease-out`}></div>
                         <div className="absolute inset-0 bg-lime-500/0 group-hover:bg-lime-500/5 rounded-xl transform rotate-45 group-hover:rotate-0 transition-all duration-300"></div>
-                        <div className="relative w-10 h-10 flex items-center justify-center transform group-hover:-translate-y-1 transition-transform duration-300">
-                          <div className="text-zinc-400 group-hover:text-lime-500 transform group-hover:scale-110 transition-all duration-300">
+                        
+                        {/* Icon container with enhanced effects */}
+                        <div className={`relative w-12 h-12 flex items-center justify-center transform group-hover:-translate-y-1 transition-transform duration-300 ${social.featured ? 'text-lime-500' : ''}`}>
+                          {/* Glowing effect for featured icon */}
+                          {social.featured && (
+                            <div className="absolute inset-0 bg-lime-500/20 rounded-full blur-xl scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                          )}
+                          
+                          {/* Icon with enhanced styling */}
+                          <div className={`${social.featured ? 'text-lime-500' : 'text-zinc-400'} group-hover:text-lime-500 transform group-hover:scale-110 transition-all duration-300 relative z-10`}>
                             {social.icon}
                           </div>
+                          
+                          {/* Animated underline */}
                           <div className="absolute -bottom-1 left-1/2 w-6 h-[2px] bg-lime-500 transform -translate-x-1/2 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
                         </div>
+
+                        {/* Enhanced tooltip for featured items */}
+                        {social.featured && (
+                          <>
+                            {/* Main tooltip */}
+                            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 px-4 py-2 bg-gradient-to-r from-lime-500 to-lime-400 text-zinc-900 text-sm rounded-lg font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg shadow-lime-500/20">
+                              <div className="relative">
+                                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-lime-500 rotate-45"></div>
+                                <span className="relative z-10 whitespace-nowrap flex items-center gap-2">
+                                  {social.label || social.alt}
+                                  <span className="animate-pulse">🔥</span>
+                                </span>
+                              </div>
+                            </div>
+                            
+                            {/* "New" badge */}
+                            <div className="absolute -right-2 -top-2 bg-lime-500 text-zinc-900 text-xs px-2 py-1 rounded-full font-bold transform rotate-12 shadow-lg">
+                              New!
+                            </div>
+                          </>
+                        )}
+                        
                         <span className="sr-only">{social.alt}</span>
                     </a>
                 ))}

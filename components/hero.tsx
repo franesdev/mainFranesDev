@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import { TypeAnimation } from "react-type-animation"
 
 export default function Hero() {
-  const [language, setLanguage] = useState<"en" | "es">("en")
+  const [language, setLanguage] = useState<"en" | "es">("es")
 
   useEffect(() => {
     // Get language from localStorage

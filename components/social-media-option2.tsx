@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { Youtube, Facebook, Twitter, Linkedin, Instagram, InstagramIcon as TiktokIcon } from "lucide-react"
 
 export default function SocialMedia() {
-  const [language, setLanguage] = useState<"en" | "es">("en")
+  const [language, setLanguage] = useState<"en" | "es">("es")
 
   useEffect(() => {
     // Get language from localStorage
