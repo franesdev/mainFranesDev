@@ -13,7 +13,7 @@ export default function Hero() {
   const content = {
     en: {
       badge: "🚀 Head of Digital Development",
-      tagline: "11+ Years Building Enterprise Systems. Now Teaching.",
+      tagline: "11+ Years Building Enterprise Systems. Now Teaching",
       intro: "Franklin Paute Machuca",
       role: "Senior Full Stack Developer & Educator",
       subtitle: "From FinTech to Leadership. Real experience. Real teaching. Real impact.",
