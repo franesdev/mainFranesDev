@@ -15,14 +15,14 @@ export default function CourseContact() {
 
   const content = {
     en: {
-      title: "Stay Updated",
-      subtitle: "Get notified when new content is available",
-      cta_text: "If you're interested in learning from real-world experience (no hype), join the newsletter to stay informed.",
+      title: "Follow the Journey",
+      subtitle: "Stay connected as I build and share",
+      cta_text: "If you want to follow the journey and get in touch, here's where you can find me. No spam, just real updates and open conversations.",
       email_placeholder: "your@email.com",
-      cta_button: "Join",
-      success: "✓ Check your email for confirmation!",
-      contact_title: "Let's Connect",
-      contact_subtitle: "Questions or collaboration opportunities?",
+      cta_button: "Subscribe",
+      success: "✓ Thanks! Check your email to confirm.",
+      contact_title: "Get In Touch",
+      contact_subtitle: "Questions? Want to collaborate or chat about code?",
       email_label: "Email",
       email_value: "contact@franesdev.com",
       whatsapp_label: "WhatsApp",
@@ -39,14 +39,14 @@ export default function CourseContact() {
       }
     },
     es: {
-      title: "Mantente Actualizado",
-      subtitle: "Recibe notificaciones cuando haya nuevo contenido",
-      cta_text: "Si te interesa aprender de experiencia real (sin hype), únete a la newsletter para mantenerte informado.",
+      title: "Sigue el Viaje",
+      subtitle: "Mantente conectado mientras construyo y comparto",
+      cta_text: "Si quieres seguir el viaje y estar en contacto, aquí es donde puedes encontrarme. Sin spam, solo actualizaciones reales y conversaciones abiertas.",
       email_placeholder: "tu@email.com",
-      cta_button: "Unirme",
-      success: "✓ ¡Revisa tu correo para confirmar!",
-      contact_title: "Conectemos",
-      contact_subtitle: "¿Preguntas u oportunidades de colaboración?",
+      cta_button: "Suscribirse",
+      success: "✓ ¡Gracias! Revisa tu correo para confirmar.",
+      contact_title: "Ponte en Contacto",
+      contact_subtitle: "¿Preguntas? ¿Quieres colaborar o hablar sobre código?",
       email_label: "Email",
       email_value: "contact@franesdev.com",
       whatsapp_label: "WhatsApp",
@@ -168,7 +168,7 @@ export default function CourseContact() {
               </div>
 
               <p className="text-zinc-500 text-sm">
-                We'll never spam you. Unsubscribe at any time.
+                Real updates, no spam. Unsubscribe anytime.
               </p>
             </div>
           </div>
@@ -222,14 +222,14 @@ export default function CourseContact() {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <p className="text-zinc-400 mb-6">
-            Have feedback or want to discuss ideas?
+            Got ideas, feedback, or just want to chat about code? Let's talk.
           </p>
           <Button
             asChild
             className="bg-lime-500 hover:bg-lime-600 text-black font-bold px-8 py-6 text-lg"
           >
             <a href={data.links.whatsapp} target="_blank" rel="noopener noreferrer">
-              Start a Conversation
+              Send a Message
               <MessageSquare className="h-5 w-5 ml-2" />
             </a>
           </Button>

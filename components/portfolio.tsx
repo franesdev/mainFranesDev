@@ -10,99 +10,99 @@ export default function PortfolioSection() {
 
   const content = {
     en: {
-      title: "Featured Projects",
-      subtitle: "Enterprise solutions that drive real business impact",
-      view_project: "View Project",
+      title: "My Work",
+      subtitle: "Things I've built and problems I've solved",
+      view_project: "Learn More",
       tech: "Technologies",
-      impact: "Business Impact",
+      impact: "What I Learned",
       projects: [
         {
           id: 1,
-          title: "Financial Payment Platform",
-          description: "Enterprise payment processing system handling 100K+ daily transactions across multiple financial institutions.",
+          title: "Financial Payment System",
+          description: "Built a payment processing system that handles high-volume transactions reliably and securely.",
           image: "💳",
           technologies: [".NET Core", "React", "SQL Server", "Azure", "Microservices"],
-          impact: "Processed $500M+ in annual transactions | Reduced processing time by 60%",
-          results: ["High-availability architecture", "Real-time transaction processing", "Enterprise-grade security"],
+          impact: "Solved complex transaction handling | Learned about distributed systems and reliability",
+          results: ["Scalable architecture", "Real-time processing", "Solid security practices"],
           featured: true
         },
         {
           id: 2,
-          title: "Digital Banking Portal",
-          description: "Modern customer-facing portal for digital banking operations with advanced analytics and real-time reporting.",
+          title: "Banking Portal",
+          description: "Created a responsive portal that users across multiple devices could rely on every day.",
           image: "🏦",
           technologies: ["React", ".NET 6", "Redux", "TypeScript", "D3.js"],
-          impact: "2M+ active users | 99.99% uptime | 40% increase in digital adoption",
-          results: ["Responsive design for 10+ devices", "Real-time dashboards", "Advanced security features"],
+          impact: "Built for millions of users | Learned UX at scale",
+          results: ["Multi-device support", "Real-time dashboards", "User-centered design"],
           featured: true
         },
         {
           id: 3,
           title: "Loan Management System",
-          description: "End-to-end loan origination and management system with automated workflows and compliance tracking.",
+          description: "Designed a workflow system that streamlined complex business processes and made them transparent.",
           image: "📊",
           technologies: ["ASP.NET", "PostgreSQL", "Vue.js", "Docker", "Kubernetes"],
-          impact: "Processed 10,000+ loan applications | 50% faster approval times",
-          results: ["Automated workflow engine", "Compliance audit trails", "Real-time notifications"],
+          impact: "Simplified complex workflows | Learned about automation",
+          results: ["Automated workflows", "Audit compliance", "Real-time tracking"],
           featured: false
         },
         {
           id: 4,
-          title: "Analytics & Reporting Dashboard",
-          description: "Real-time analytics platform providing insights across multiple business units with custom report generation.",
+          title: "Analytics Dashboard",
+          description: "Built tools that turned raw data into insights teams could actually use to make better decisions.",
           image: "📈",
           technologies: ["React", ".NET", "Power BI", "Azure Data Lake", "Python"],
-          impact: "Reduced reporting time from 2 days to 30 minutes | Saved 500+ hours annually",
-          results: ["Custom visualizations", "Data export capabilities", "Scheduled reports"],
+          impact: "Data visualization at scale | Learned storytelling with data",
+          results: ["Custom insights", "Data accessibility", "Actionable reports"],
           featured: false
         }
       ]
     },
     es: {
-      title: "Proyectos Destacados",
-      subtitle: "Soluciones empresariales que generan impacto comercial real",
-      view_project: "Ver Proyecto",
+      title: "Mi Trabajo",
+      subtitle: "Cosas que he construido y problemas que he resuelto",
+      view_project: "Saber Más",
       tech: "Tecnologías",
-      impact: "Impacto Empresarial",
+      impact: "Lo Que Aprendí",
       projects: [
         {
           id: 1,
-          title: "Plataforma de Pagos Financieros",
-          description: "Sistema de procesamiento de pagos empresarial manejando 100K+ transacciones diarias en múltiples instituciones financieras.",
+          title: "Sistema de Pagos Financiero",
+          description: "Construí un sistema de procesamiento de pagos que maneja transacciones de alto volumen de manera confiable y segura.",
           image: "💳",
           technologies: [".NET Core", "React", "SQL Server", "Azure", "Microservices"],
-          impact: "Procesó $500M+ en transacciones anuales | Redujo tiempo de procesamiento 60%",
-          results: ["Arquitectura de alta disponibilidad", "Procesamiento de transacciones en tiempo real", "Seguridad de nivel empresarial"],
+          impact: "Resolví manejo complejo de transacciones | Aprendí sobre sistemas distribuidos",
+          results: ["Arquitectura escalable", "Procesamiento en tiempo real", "Prácticas sólidas de seguridad"],
           featured: true
         },
         {
           id: 2,
-          title: "Portal de Banca Digital",
-          description: "Portal moderno orientado al cliente para operaciones de banca digital con análisis avanzado e informes en tiempo real.",
+          title: "Portal Bancario",
+          description: "Creé un portal responsivo en el que los usuarios en múltiples dispositivos pudieran confiar todos los días.",
           image: "🏦",
           technologies: ["React", ".NET 6", "Redux", "TypeScript", "D3.js"],
-          impact: "2M+ usuarios activos | 99.99% de disponibilidad | Aumento de 40% en adopción digital",
-          results: ["Diseño responsivo para 10+ dispositivos", "Paneles en tiempo real", "Características de seguridad avanzadas"],
+          impact: "Construí para millones de usuarios | Aprendí UX a escala",
+          results: ["Soporte multi-dispositivo", "Paneles en tiempo real", "Diseño centrado en el usuario"],
           featured: true
         },
         {
           id: 3,
           title: "Sistema de Gestión de Préstamos",
-          description: "Sistema integral de originación y gestión de préstamos con flujos de trabajo automatizados y seguimiento de cumplimiento.",
+          description: "Diseñé un sistema de flujo de trabajo que simplificó procesos comerciales complejos y los hizo transparentes.",
           image: "📊",
           technologies: ["ASP.NET", "PostgreSQL", "Vue.js", "Docker", "Kubernetes"],
-          impact: "Procesó 10,000+ aplicaciones de préstamos | 50% más rápido en aprobaciones",
-          results: ["Motor de flujos de trabajo automatizados", "Pistas de auditoría de cumplimiento", "Notificaciones en tiempo real"],
+          impact: "Simplifiqué flujos de trabajo complejos | Aprendí sobre automatización",
+          results: ["Flujos de trabajo automatizados", "Cumplimiento de auditoría", "Seguimiento en tiempo real"],
           featured: false
         },
         {
           id: 4,
-          title: "Panel de Análisis y Reportes",
-          description: "Plataforma de análisis en tiempo real que proporciona información en múltiples unidades de negocio con generación de reportes personalizados.",
+          title: "Panel de Análisis",
+          description: "Construí herramientas que convirtieron datos crudos en información que los equipos realmente pudieran usar.",
           image: "📈",
           technologies: ["React", ".NET", "Power BI", "Azure Data Lake", "Python"],
-          impact: "Redujo tiempo de reporte de 2 días a 30 minutos | Ahorró 500+ horas anuales",
-          results: ["Visualizaciones personalizadas", "Capacidades de exportación de datos", "Reportes programados"],
+          impact: "Visualización de datos a escala | Aprendí a contar historias con datos",
+          results: ["Información personalizada", "Accesibilidad de datos", "Reportes accionables"],
           featured: false
         }
       ]

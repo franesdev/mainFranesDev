@@ -72,12 +72,12 @@ export default function SocialMedia() {
               className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white">
-              {language === "en" ? "Connect With Me" : "Conéctate Conmigo"}
+              {language === "en" ? "Stay Connected" : "Mantente Conectado"}
             </h2>
             <p className="mt-4 text-zinc-400 max-w-2xl mx-auto">
               {language === "en"
-                  ? "Follow me on social media to stay updated with my latest projects, tutorials, and tech insights."
-                  : "Sígueme en redes sociales para mantenerte actualizado con mis últimos proyectos, tutoriales y conocimientos tecnológicos."}
+                  ? "Follow my journey across platforms—videos, code, and the real process of building."
+                  : "Sigue mi viaje en las plataformas—videos, código, y el proceso real de construir."}
             </p>
           </motion.div>
 

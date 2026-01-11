@@ -12,36 +12,38 @@ export default function Hero() {
 
   const content = {
     en: {
-      tagline: "Building | Sharing | Growing",
+      tagline: "Full Stack Developer",
       intro: "Franklin Paute Machuca",
-      role: "Senior .NET Developer & Systems Engineer",
+      role: ".NET · MAUI · React",
+      subtitle: "I enjoy technical challenges, building useful software, and sharing the journey of programming and development.",
       stats: [
-        { number: "11+", label: "Years Experience" },
-        { number: "FinTech", label: "Enterprise Systems" },
-        { number: "20+", label: "Engineers Mentored" }
+        { number: "Systems Engineer", label: "Full Stack Developer" },
+        { number: "Open Source", label: "Community Focused" },
+        { number: "Building", label: "Educational Content" }
       ],
       description:
-          "11+ years building enterprise and financial systems. Sharing real-world experience in software development, architecture, and career growth.",
-      badges: ["Real Experience", "Under Construction", "No Hype"],
-      cta: "View my experience",
-      contact: "Join the newsletter",
-      scroll: "Discover More"
+          ".NET · MAUI · React\nI enjoy technical challenges, building useful software, and sharing the journey of programming and development.",
+      badges: ["Authentic", "In Progress", "Developer-Focused"],
+      cta: "View my work",
+      contact: "Follow the journey",
+      scroll: "Learn More"
     },
     es: {
-      tagline: "Construyendo | Compartiendo | Creciendo",
+      tagline: "Desarrollador Full Stack",
       intro: "Franklin Paute Machuca",
-      role: "Senior Developer .NET & Ingeniero de Sistemas",
+      role: ".NET · MAUI · React",
+      subtitle: "Disfruto enfrentando desafíos técnicos, construyendo software útil, y compartiendo el viaje de la programación y el desarrollo.",
       stats: [
-        { number: "11+", label: "Años de Experiencia" },
-        { number: "FinTech", label: "Sistemas Empresariales" },
-        { number: "20+", label: "Ingeniero Mentorados" }
+        { number: "Ingeniero de Sistemas", label: "Desarrollador Full Stack" },
+        { number: "Open Source", label: "Enfoque Comunitario" },
+        { number: "Construyendo", label: "Contenido Educativo" }
       ],
       description:
-          "11+ años construyendo sistemas empresariales y financieros. Compartiendo experiencia real en desarrollo de software, arquitectura y crecimiento profesional.",
-      badges: ["Experiencia Real", "En Construcción", "Sin Hype"],
-      cta: "Ver mi experiencia",
-      contact: "Únete a la newsletter",
-      scroll: "Descubre Más"
+          ".NET · MAUI · React\nDisfruto enfrentando desafíos técnicos, construyendo software útil, y compartiendo el viaje de la programación y el desarrollo.",
+      badges: ["Auténtico", "En Progreso", "Enfocado en Developers"],
+      cta: "Ver mis proyectos",
+      contact: "Sigue el viaje",
+      scroll: "Saber Más"
     },
   }
 

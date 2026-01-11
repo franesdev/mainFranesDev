@@ -9,44 +9,64 @@ export default function WhatImBuilding() {
 
   const content = {
     en: {
-      title: "What I'm Building",
-      subtitle: "Educational content and programs currently in development",
-      description: "This platform is actively under development. I'm creating resources based on real-world experience with enterprise systems, FinTech, architecture, and career growth.",
+      title: "What I'm Working On",
+      subtitle: "Current focus and projects in progress",
+      description: "Right now, I'm focused on building and learning. This section shows what I'm actively working on and the direction I'm heading.",
       items: [
         {
-          icon: <BookOpen className="h-8 w-8" />,
-          title: "Practical Guides",
-          description: "In-depth articles and documentation on real enterprise challenges, architecture patterns, and best practices from production systems."
-        },
-        {
           icon: <Code2 className="h-8 w-8" />,
-          title: ".NET & Full Stack Content",
-          description: "Educational content covering backend architecture, API design, frontend integration, and building scalable systems."
+          title: "Building Apps with .NET & React",
+          description: "Creating web and mobile applications that solve real problems. Frontend, backend, and mobile development with modern tools."
         },
         {
           icon: <Layout className="h-8 w-8" />,
-          title: "Architecture & Design Patterns",
-          description: "Learning materials about system design, scalability, performance optimization, and making smart architectural decisions."
+          title: "Exploring Architecture & Best Practices",
+          description: "Learning system design, scalability patterns, and making thoughtful architectural decisions. Sharing what I discover."
         },
         {
           icon: <Rocket className="h-8 w-8" />,
-          title: "Future Training Programs",
-          description: "Comprehensive programs and structured courses are being developed. More details coming soon."
+          title: "Recording Programming Videos",
+          description: "Creating content about logic, problem-solving, and real development challenges. No scripted BS—just authentic learning."
+        },
+        {
+          icon: <BookOpen className="h-8 w-8" />,
+          title: "Developer-Focused Content",
+          description: "Building a space for developers who want to learn real skills. In progress, evolving as I build and share."
         }
       ],
-      note: "No marketing hype. No fake timelines. Just building quality educational resources based on real experience.",
+      note: "This space evolves as I build and share. No marketing fluff. Just real work and learning.",
       status: "In Progress"
     },
     es: {
-      title: "Lo Que Estoy Construyendo",
-      subtitle: "Contenido educativo y programas en desarrollo",
-      description: "Esta plataforma está en desarrollo activo. Estoy creando recursos basados en experiencia real con sistemas empresariales, FinTech, arquitectura y crecimiento profesional.",
+      title: "En Lo Que Estoy Trabajando",
+      subtitle: "Enfoque actual y proyectos en progreso",
+      description: "Ahora mismo, me estoy enfocando en construir y aprender. Esta sección muestra en qué estoy trabajando activamente y la dirección que voy.",
       items: [
         {
-          icon: <BookOpen className="h-8 w-8" />,
-          title: "Guías Prácticas",
-          description: "Artículos y documentación detallada sobre desafíos reales empresariales, patrones de arquitectura y mejores prácticas de sistemas de producción."
+          icon: <Code2 className="h-8 w-8" />,
+          title: "Construyendo Apps con .NET y React",
+          description: "Creando aplicaciones web y móviles que resuelven problemas reales. Desarrollo frontend, backend y móvil con herramientas modernas."
         },
+        {
+          icon: <Layout className="h-8 w-8" />,
+          title: "Explorando Arquitectura y Mejores Prácticas",
+          description: "Aprendiendo diseño de sistemas, patrones de escalabilidad y tomando decisiones arquitectónicas cuidadosas. Compartiendo lo que descubro."
+        },
+        {
+          icon: <Rocket className="h-8 w-8" />,
+          title: "Grabando Videos de Programación",
+          description: "Creando contenido sobre lógica, resolución de problemas y desafíos reales de desarrollo. Sin scripts falsos—solo aprendizaje auténtico."
+        },
+        {
+          icon: <BookOpen className="h-8 w-8" />,
+          title: "Contenido Enfocado en Developers",
+          description: "Construyendo un espacio para desarrolladores que quieren aprender habilidades reales. En progreso, evolucionando mientras construyo y comparto."
+        }
+      ],
+      note: "Este espacio evoluciona a medida que construyo y comparto. Sin relleno de marketing. Solo trabajo real y aprendizaje.",
+      status: "En Progreso"
+    },
+  }
         {
           icon: <Code2 className="h-8 w-8" />,
           title: "Contenido .NET y Full Stack",

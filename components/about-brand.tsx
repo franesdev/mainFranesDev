@@ -10,114 +10,114 @@ export default function AboutBrand() {
 
   const content = {
     en: {
-      title: "My Background",
-      subtitle: "Senior Developer & Systems Engineer",
-      story: "Over 11 years ago, I started as a junior developer with a passion for solving problems. Today, I lead digital transformation initiatives at one of Ecuador's largest financial institutions, working with .NET, enterprise architecture, and full-stack development. I've managed teams of engineers, mentored developers, and built systems handling millions in transactions. My focus is on sharing this real-world experience with the developer community.",
+      title: "Who I Am",
+      subtitle: "Systems Engineer & Full Stack Developer",
+      story: "I'm a developer who enjoys tackling complex technical challenges and building useful software. I work across frontend, backend, and mobile—.NET, C#, .NET MAUI, and React are my tools. My approach is about finding clean solutions through thoughtful design and continuous learning. I'm passionate about sharing what I discover along the journey, because building in public and helping others learn is just as important as the code itself.",
       three_pillars: {
-        title: "What I Bring",
+        title: "My Focus",
         expertise: {
           icon: "⚡",
-          title: "Deep Expertise",
-          desc: "11+ years in enterprise software, FinTech systems, backend architecture, and full-stack development."
+          title: "Technical Depth",
+          desc: "Building scalable systems with .NET, React, and mobile development. Always exploring better architecture and best practices."
         },
         leadership: {
-          icon: "👥",
-          title: "Real Leadership",
-          desc: "Leading teams, mentoring junior developers, and making technical decisions in production environments."
+          icon: "🔧",
+          title: "Problem Solver",
+          desc: "I love digging into challenging problems, finding elegant solutions, and learning what works in real-world scenarios."
         },
         teaching: {
           icon: "📚",
-          title: "Commitment to Sharing",
-          desc: "Building educational content based on real challenges, not theory. Educational programs currently in development."
+          title: "Sharing the Journey",
+          desc: "Creating content about programming, logic, and real development challenges. Building a space where developers learn together."
         }
       },
       highlights: [
         {
           icon: <Award className="h-6 w-6" />,
-          title: "11+ Years",
-          desc: "Enterprise Development"
+          title: "Full Stack",
+          desc: "Frontend to Backend"
         },
         {
           icon: <Users className="h-6 w-6" />,
-          title: "20+ Engineers",
-          desc: "Led & Mentored"
+          title: "Community",
+          desc: "Building Together"
         },
         {
           icon: <Zap className="h-6 w-6" />,
-          title: "FinTech Systems",
-          desc: "Production Scale"
+          title: "Technical",
+          desc: "Real Solutions"
         },
         {
           icon: <BookOpen className="h-6 w-6" />,
-          title: "Building Now",
-          desc: "Educational Content"
+          title: "Learning",
+          desc: "Always Growing"
         }
       ],
       why_learn: {
-        title: "Why Real Experience Matters",
-        intro: "My content comes from actual challenges I've faced leading teams and building systems that matter.",
+        title: "What Makes This Different",
+        intro: "This isn't a sales pitch. It's a developer sharing their actual work and real learning.",
         reasons: [
-          "Real expertise: Senior developer at major financial institution",
-          "Practical knowledge: Not theory—solutions from real production systems",
-          "Current tech: Teaching what I use every day",
-          "Honest approach: No hype, no exaggerated promises",
-          "Growing community: Building something meaningful"
+          "Authentic experience: Real challenges from actual projects",
+          "No fluff: Practical knowledge, not theory or marketing speak",
+          "Current tech stack: .NET, React, MAUI—what I use daily",
+          "Honest approach: No fake timelines or exaggerated promises",
+          "Building openly: Everything evolves as I learn"
         ]
       }
     },
     es: {
-      title: "Mi Trayectoria",
-      subtitle: "Senior Developer e Ingeniero de Sistemas",
-      story: "Hace 11+ años comencé como desarrollador junior con pasión por resolver problemas. Hoy dirijo iniciativas de transformación digital en una de las instituciones financieras más grandes de Ecuador, trabajando con .NET, arquitectura empresarial y desarrollo full-stack. He gestionado equipos de ingenieros, mentorado a desarrolladores y construido sistemas que manejan millones en transacciones. Mi enfoque es compartir esta experiencia real con la comunidad de desarrolladores.",
+      title: "Quién Soy",
+      subtitle: "Ingeniero de Sistemas & Desarrollador Full Stack",
+      story: "Soy un desarrollador que disfruta enfrentando desafíos técnicos complejos y construyendo software útil. Trabajo en frontend, backend y móvil—.NET, C#, .NET MAUI y React son mis herramientas. Mi enfoque se trata de encontrar soluciones limpias a través de un diseño cuidadoso y aprendizaje continuo. Me apasiona compartir lo que descubro en el camino, porque construir en público y ayudar a otros a aprender es tan importante como el código.",
       three_pillars: {
-        title: "Lo Que Ofrezco",
+        title: "Mi Enfoque",
         expertise: {
           icon: "⚡",
-          title: "Expertise Profundo",
-          desc: "11+ años en software empresarial, sistemas FinTech, arquitectura backend y desarrollo full-stack."
+          title: "Profundidad Técnica",
+          desc: "Construyendo sistemas escalables con .NET, React y desarrollo móvil. Siempre explorando mejor arquitectura y mejores prácticas."
         },
         leadership: {
-          icon: "👥",
-          title: "Liderazgo Real",
-          desc: "Liderando equipos, mentorand a desarrolladores junior, y tomando decisiones técnicas en entornos de producción."
+          icon: "🔧",
+          title: "Resolución de Problemas",
+          desc: "Me encanta investigar problemas desafiantes, encontrar soluciones elegantes, y aprender qué funciona en escenarios reales."
         },
         teaching: {
           icon: "📚",
-          title: "Compromiso de Compartir",
-          desc: "Construyendo contenido educativo basado en desafíos reales, no en teoría. Programas educativos en desarrollo."
+          title: "Compartiendo el Viaje",
+          desc: "Creando contenido sobre programación, lógica y desafíos reales de desarrollo. Construyendo un espacio donde los desarrolladores aprenden juntos."
         }
       },
       highlights: [
         {
           icon: <Award className="h-6 w-6" />,
-          title: "11+ Años",
-          desc: "Desarrollo Empresarial"
+          title: "Full Stack",
+          desc: "Frontend a Backend"
         },
         {
           icon: <Users className="h-6 w-6" />,
-          title: "20+ Ingenieros",
-          desc: "Liderados y Mentorados"
+          title: "Comunidad",
+          desc: "Construyendo Juntos"
         },
         {
           icon: <Zap className="h-6 w-6" />,
-          title: "Sistemas FinTech",
-          desc: "Escala de Producción"
+          title: "Técnico",
+          desc: "Soluciones Reales"
         },
         {
           icon: <BookOpen className="h-6 w-6" />,
-          title: "En Construcción",
-          desc: "Contenido Educativo"
+          title: "Aprendizaje",
+          desc: "Siempre Creciendo"
         }
       ],
       why_learn: {
-        title: "Por Qué la Experiencia Real Importa",
-        intro: "Mi contenido viene de desafíos reales que he enfrentado liderando equipos y construyendo sistemas que importan.",
+        title: "Qué Hace Esto Diferente",
+        intro: "No es un discurso de ventas. Es un desarrollador compartiendo su trabajo real y aprendizaje auténtico.",
         reasons: [
-          "Experiencia real: Senior developer en institución financiera importante",
-          "Conocimiento práctico: No teoría—soluciones de sistemas reales de producción",
-          "Tecnología actual: Enseño lo que uso todos los días",
-          "Enfoque honesto: Sin hype, sin promesas exageradas",
-          "Comunidad en crecimiento: Construyendo algo significativo"
+          "Experiencia auténtica: Desafíos reales de proyectos actuales",
+          "Sin relleno: Conocimiento práctico, no teoría o marketing",
+          "Stack actual: .NET, React, MAUI—lo que uso diariamente",
+          "Enfoque honesto: Sin cronogramas falsos o promesas exageradas",
+          "Construyendo abiertamente: Todo evoluciona mientras aprendo"
         ]
       }
     }
