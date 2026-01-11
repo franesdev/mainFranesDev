@@ -65,26 +65,6 @@ export default function WhatImBuilding() {
       ],
       note: "Este espacio evoluciona a medida que construyo y comparto. Sin relleno de marketing. Solo trabajo real y aprendizaje.",
       status: "En Progreso"
-    },
-  }
-        {
-          icon: <Code2 className="h-8 w-8" />,
-          title: "Contenido .NET y Full Stack",
-          description: "Contenido educativo cubriendo arquitectura backend, diseño de APIs, integración frontend y construcción de sistemas escalables."
-        },
-        {
-          icon: <Layout className="h-8 w-8" />,
-          title: "Arquitectura y Patrones de Diseño",
-          description: "Materiales de aprendizaje sobre diseño de sistemas, escalabilidad, optimización de rendimiento y tomar decisiones arquitectónicas inteligentes."
-        },
-        {
-          icon: <Rocket className="h-8 w-8" />,
-          title: "Futuros Programas de Entrenamiento",
-          description: "Programas y cursos estructurados están en desarrollo. Más detalles próximamente."
-        }
-      ],
-      note: "Sin marketing hype. Sin cronogramas falsos. Solo construyendo recursos educativos de calidad basados en experiencia real.",
-      status: "En Progreso"
     }
   }
 
