@@ -12,35 +12,35 @@ export default function Hero() {
 
   const content = {
     en: {
-      tagline: "Transform | Innovate | Excel",
-      intro: "I'm Franklin Paute Machuca",
-      role: "Full Stack Innovation Expert",
+      tagline: "Building | Sharing | Growing",
+      intro: "Franklin Paute Machuca",
+      role: "Senior .NET Developer & Systems Engineer",
       stats: [
         { number: "11+", label: "Years Experience" },
-        { number: "50+", label: "Projects Delivered" },
-        { number: "100%", label: "Client Satisfaction" }
+        { number: "FinTech", label: "Enterprise Systems" },
+        { number: "20+", label: "Engineers Mentored" }
       ],
       description:
-          "Transforming complex challenges into elegant digital solutions. Specializing in enterprise-grade applications with .NET and React, I bring innovation, performance, and reliability to every project. Let's create something extraordinary together. 🇪🇨",
-      badges: ["Available for Projects", "Remote-Ready", "Enterprise Solutions"],
-      cta: "Explore My Work",
-      contact: "Start a Project",
+          "11+ years building enterprise and financial systems. Sharing real-world experience in software development, architecture, and career growth.",
+      badges: ["Real Experience", "Under Construction", "No Hype"],
+      cta: "View my experience",
+      contact: "Join the newsletter",
       scroll: "Discover More"
     },
     es: {
-      tagline: "Transforma | Innova | Destaca",
-      intro: "Soy Franklin Paute Machuca",
-      role: "Experto en Innovación Full Stack",
+      tagline: "Construyendo | Compartiendo | Creciendo",
+      intro: "Franklin Paute Machuca",
+      role: "Senior Developer .NET & Ingeniero de Sistemas",
       stats: [
         { number: "11+", label: "Años de Experiencia" },
-        { number: "50+", label: "Proyectos Entregados" },
-        { number: "100%", label: "Satisfacción Cliente" }
+        { number: "FinTech", label: "Sistemas Empresariales" },
+        { number: "20+", label: "Ingeniero Mentorados" }
       ],
       description:
-          "Transformando desafíos complejos en soluciones digitales elegantes. Especializado en aplicaciones empresariales con .NET y React, aporto innovación, rendimiento y fiabilidad a cada proyecto. Creemos algo extraordinario juntos. 🇪🇨",
-      badges: ["Disponible para Proyectos", "Trabajo Remoto", "Soluciones Empresariales"],
-      cta: "Ver mi Trabajo",
-      contact: "Iniciar Proyecto",
+          "11+ años construyendo sistemas empresariales y financieros. Compartiendo experiencia real en desarrollo de software, arquitectura y crecimiento profesional.",
+      badges: ["Experiencia Real", "En Construcción", "Sin Hype"],
+      cta: "Ver mi experiencia",
+      contact: "Únete a la newsletter",
       scroll: "Descubre Más"
     },
   }

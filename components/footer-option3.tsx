@@ -1,13 +1,12 @@
 "use client"
 
 import {
-  FaFacebook,
-  FaTwitter,
   FaLinkedin,
   FaInstagram,
   FaYoutube,
   FaTiktok
 } from "react-icons/fa"
+import { Mail } from "lucide-react"
 import { useLanguageContext } from "@/contexts/LanguageContext"
 
 export default function Footer() {
@@ -28,14 +27,14 @@ export default function Footer() {
 
         <div className="container mx-auto max-w-6xl px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-8">
-            {/* Logo and copyright */}
+            {/* Name and role */}
             <div className="text-center md:text-left">
               <div className="inline-block">
                 <span className="text-xl font-bold bg-gradient-to-r from-lime-500 to-lime-400 text-transparent bg-clip-text">
-                  Franes Dev
+                  Franklin Paute Machuca
                 </span>
                 <div className="mt-2 text-sm text-zinc-500">
-                  © {currentYear} {language === "en" ? "All rights reserved." : "Todos los derechos reservados."}
+                  {language === "en" ? "Senior .NET Developer & Systems Engineer" : "Senior Developer .NET e Ingeniero de Sistemas"}
                 </div>
               </div>
             </div>
@@ -47,7 +46,6 @@ export default function Footer() {
                 { icon: FaLinkedin, href: "https://linkedin.com/in/franesdev", label: "LinkedIn", hoverColor: "hover:text-blue-500" },
                 { icon: FaInstagram, href: "https://instagram.com/franesdev", label: "Instagram", hoverColor: "hover:text-pink-500" },
                 { icon: FaTiktok, href: "https://tiktok.com/@franesdev", label: "TikTok", hoverColor: "hover:text-white" },
-                { icon: FaFacebook, href: "https://facebook.com/franesdev", label: "Facebook", hoverColor: "hover:text-blue-600" },
               ].map((social, index) => (
                 <a
                   key={social.label}
@@ -63,17 +61,20 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* Back to top button */}
+            {/* Contact and copyright */}
             <div className="text-center md:text-right">
-              <button
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800/30 hover:bg-zinc-800/50 transition-all duration-300"
+              <a
+                href="mailto:contact@franesdev.com"
+                className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800/30 hover:bg-zinc-800/50 transition-all duration-300 mb-3"
               >
+                <Mail className="h-4 w-4 text-zinc-400 group-hover:text-lime-500 transition-colors" />
                 <span className="text-sm text-zinc-400 group-hover:text-lime-500 transition-colors">
-                  {language === "en" ? "Back to top" : "Volver arriba"}
+                  contact@franesdev.com
                 </span>
-                <span className="transform group-hover:-translate-y-1 transition-transform duration-300">↑</span>
-              </button>
+              </a>
+              <div className="mt-2 text-sm text-zinc-500">
+                © {currentYear} {language === "en" ? "All rights reserved." : "Todos los derechos reservados."}
+              </div>
             </div>
           </div>
         </div>

@@ -1,7 +1,8 @@
 import { Suspense } from "react"
 import Hero from "@/components/hero-option3"
-import About from "@/components/about-fusion"
-import Contact from "@/components/contact-fusion"
+import AboutBrand from "@/components/about-brand"
+import WhatImBuilding from "@/components/what-im-building"
+import ContactCourses from "@/components/contact-courses"
 import SocialMedia from "@/components/social-media-option3"
 import LanguageToggle from "@/components/language-toggle-option3"
 import Footer from "@/components/footer-option3"
@@ -17,9 +18,10 @@ export default function Home() {
 
       <Suspense fallback={<Loading />}>
         <Hero />
-        <About />
+        <AboutBrand />
+        <WhatImBuilding />
+        <ContactCourses />
         <SocialMedia />
-        <Contact />
         <Footer />
       </Suspense>
     </main>
