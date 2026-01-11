@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -10,10 +10,11 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Send, CheckCircle } from "lucide-react"
 import emailjs from "emailjs-com"
+import { useLanguageContext } from "@/contexts/LanguageContext"
 
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null)
-  const [language, setLanguage] = useState<"en" | "es">("en")
+  const { language } = useLanguageContext()
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -21,27 +22,6 @@ export default function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-
-  useEffect(() => {
-    // Get language from localStorage
-    const storedLanguage = localStorage.getItem("language") as "en" | "es" | null
-    if (storedLanguage) {
-      setLanguage(storedLanguage)
-    }
-
-    // Listen for language changes
-    const handleLanguageChange = () => {
-      const newLanguage = localStorage.getItem("language") as "en" | "es" | null
-      if (newLanguage) {
-        setLanguage(newLanguage)
-      }
-    }
-
-    window.addEventListener("languageChange", handleLanguageChange)
-    return () => {
-      window.removeEventListener("languageChange", handleLanguageChange)
-    }
-  }, [])
 
   const content = {
     en: {

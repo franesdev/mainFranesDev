@@ -1,35 +1,14 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowDown, ShoppingBag, Code2, ShirtIcon } from "lucide-react" // Añadimos iconos relacionados con dev shop
+import { ArrowDown, ShoppingBag, Code2, ShirtIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FaGithub, FaLinkedinIn, FaTwitter, FaYoutube, FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa'
+import { useLanguageContext } from "@/contexts/LanguageContext"
 
 export default function Hero() {
-  const [language, setLanguage] = useState<"en" | "es">("es")
-
-  useEffect(() => {
-    // Get language from localStorage
-    const storedLanguage = localStorage.getItem("language") as "en" | "es" | null
-    if (storedLanguage) {
-      setLanguage(storedLanguage)
-    }
-
-    // Listen for language changes
-    const handleLanguageChange = () => {
-      const newLanguage = localStorage.getItem("language") as "en" | "es" | null
-      if (newLanguage) {
-        setLanguage(newLanguage)
-      }
-    }
-
-    window.addEventListener("languageChange", handleLanguageChange)
-    return () => {
-      window.removeEventListener("languageChange", handleLanguageChange)
-    }
-  }, [])
+  const { language } = useLanguageContext()
 
   const content = {
     en: {

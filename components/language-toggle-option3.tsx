@@ -1,18 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Globe } from "lucide-react"
+import { useLanguageContext } from "@/contexts/LanguageContext"
 
 export default function LanguageToggle() {
-  const [language, setLanguage] = useState<"en" | "es">("es")
-
-  useEffect(() => {
-    // Set language in localStorage
-    localStorage.setItem("language", language)
-    // Dispatch a custom event so other components can react to language changes
-    window.dispatchEvent(new Event("languageChange"))
-  }, [language])
+  const { language, setLanguage } = useLanguageContext()
 
   const toggleLanguage = () => {
     setLanguage(language === "en" ? "es" : "en")

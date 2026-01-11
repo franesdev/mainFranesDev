@@ -1,32 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { Facebook, Twitter, Linkedin, Instagram, Youtube, InstagramIcon as TiktokIcon, ArrowUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useLanguageContext } from "@/contexts/LanguageContext"
 
 export default function Footer() {
-  const [language, setLanguage] = useState<"en" | "es">("es")
-
-  useEffect(() => {
-    // Get language from localStorage
-    const storedLanguage = localStorage.getItem("language") as "en" | "es" | null
-    if (storedLanguage) {
-      setLanguage(storedLanguage)
-    }
-
-    // Listen for language changes
-    const handleLanguageChange = () => {
-      const newLanguage = localStorage.getItem("language") as "en" | "es" | null
-      if (newLanguage) {
-        setLanguage(newLanguage)
-      }
-    }
-
-    window.addEventListener("languageChange", handleLanguageChange)
-    return () => {
-      window.removeEventListener("languageChange", handleLanguageChange)
-    }
-  }, [])
+  const { language } = useLanguageContext()
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })

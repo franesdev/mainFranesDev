@@ -1,21 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Globe } from "lucide-react"
+import { useLanguageContext } from "@/contexts/LanguageContext"
 
 export default function LanguageToggle() {
-  const [language, setLanguage] = useState<"en" | "es">("en")
-  const router = useRouter()
-
-  useEffect(() => {
-    // Set language in localStorage
-    localStorage.setItem("language", language)
-    // Dispatch a custom event so other components can react to language changes
-    window.dispatchEvent(new Event("languageChange"))
-  }, [language])
+  const { language, setLanguage } = useLanguageContext()
 
   return (
     <DropdownMenu>

@@ -1,34 +1,13 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { FaYoutube, FaFacebookF, FaLinkedinIn, FaInstagram, FaTiktok } from 'react-icons/fa'
 import { ShoppingBag, Code2, ShirtIcon } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card"
+import { useLanguageContext } from "@/contexts/LanguageContext"
 
 export default function SocialMedia() {
-  const [language, setLanguage] = useState("es")
-
-  useEffect(() => {
-    // Get language from localStorage
-    const storedLanguage = localStorage.getItem("language")
-    if (storedLanguage === "en" || storedLanguage === "es") {
-      setLanguage(storedLanguage)
-    }
-
-    // Listen for language changes
-    const handleLanguageChange = () => {
-      const newLanguage = localStorage.getItem("language")
-      if (newLanguage === "en" || newLanguage === "es") {
-        setLanguage(newLanguage)
-      }
-    }
-
-    window.addEventListener("languageChange", handleLanguageChange)
-    return () => {
-      window.removeEventListener("languageChange", handleLanguageChange)
-    }
-  }, [])
+  const { language } = useLanguageContext()
 
   const socialLinks = [
     {
