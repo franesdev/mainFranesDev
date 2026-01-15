@@ -214,7 +214,7 @@ export default function Hero() {
                 </Button>
 
                 <Button
-                    onClick={() => scrollToSection("contact")}
+                    onClick={() => scrollToSection("contact-courses")}
                     className="group relative bg-gradient-to-r from-lime-500 to-lime-400 text-zinc-900 font-medium px-8 py-5 rounded-2xl transform hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_20px_-10px_rgba(132,204,22,0.5)] hover:shadow-[0_20px_40px_-10px_rgba(132,204,22,0.4)]"
                 >
                   <span className="relative z-10 flex items-center gap-2">

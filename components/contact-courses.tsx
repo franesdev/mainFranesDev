@@ -1,28 +1,35 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Mail, MessageSquare, Phone, Zap, CheckCircle2 } from "lucide-react"
 import { useLanguageContext } from "@/contexts/LanguageContext"
+import Link from "next/link"
+import emailjs from "emailjs-com"
 
 export default function CourseContact() {
   const { language } = useLanguageContext()
-  const [email, setEmail] = useState("")
-  const [submitted, setSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const form = useRef<HTMLFormElement>(null)
+  const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" })
+  const [contactSubmitted, setContactSubmitted] = useState(false)
+  const [contactLoading, setContactLoading] = useState(false)
 
   const content = {
     en: {
-      title: "Follow the Journey",
-      subtitle: "Stay connected as I build and share",
-      cta_text: "If you want to follow the journey and get in touch, here's where you can find me. No spam, just real updates and open conversations.",
+      title: "Get In Touch",
+      subtitle: "Questions? Want to collaborate or chat about code?",
+      form_title: "Send Me a Message",
+      form_subtitle: "I'll get back to you as soon as possible",
+      name_placeholder: "Your name",
       email_placeholder: "your@email.com",
-      cta_button: "Subscribe",
-      success: "✓ Thanks! Check your email to confirm.",
-      contact_title: "Get In Touch",
-      contact_subtitle: "Questions? Want to collaborate or chat about code?",
+      message_placeholder: "Your message...",
+      send_button: "Send Message",
+      success: "✓ Message sent! I'll be in touch soon.",
+      newsletter_cta: "Want to follow my dev log?",
+      newsletter_description: "Dev Log is a periodic email where I share enterprise systems, FinTech, architecture, and the real process of building software. No spam. Just honest notes.",
+      newsletter_button: "Subscribe to Dev Log",
       email_label: "Email",
       email_value: "contact@franesdev.com",
       whatsapp_label: "WhatsApp",
@@ -32,21 +39,24 @@ export default function CourseContact() {
       instagram_label: "Instagram",
       instagram_value: "@franesdev",
       links: {
-        email: "mailto:contact@franesdev.com",
         whatsapp: "https://wa.me/593997825115",
         twitter: "https://x.com/franesdev",
         instagram: "https://instagram.com/franesdev"
       }
     },
     es: {
-      title: "Sigue el Viaje",
-      subtitle: "Mantente conectado mientras construyo y comparto",
-      cta_text: "Si quieres seguir el viaje y estar en contacto, aquí es donde puedes encontrarme. Sin spam, solo actualizaciones reales y conversaciones abiertas.",
+      title: "Ponte en Contacto",
+      subtitle: "¿Preguntas? ¿Quieres colaborar o hablar sobre código?",
+      form_title: "Envíame un Mensaje",
+      form_subtitle: "Te responderé lo antes posible",
+      name_placeholder: "Tu nombre",
       email_placeholder: "tu@email.com",
-      cta_button: "Suscribirse",
-      success: "✓ ¡Gracias! Revisa tu correo para confirmar.",
-      contact_title: "Ponte en Contacto",
-      contact_subtitle: "¿Preguntas? ¿Quieres colaborar o hablar sobre código?",
+      message_placeholder: "Tu mensaje...",
+      send_button: "Enviar Mensaje",
+      success: "✓ ¡Mensaje enviado! Me pondré en contacto pronto.",
+      newsletter_cta: "¿Quieres seguir mi dev log?",
+      newsletter_description: "Dev Log es un email periódico donde comparto sistemas empresariales, FinTech, arquitectura y el proceso real de construir software. Sin spam. Solo notas honestas.",
+      newsletter_button: "Suscribirse a Dev Log",
       email_label: "Email",
       email_value: "contact@franesdev.com",
       whatsapp_label: "WhatsApp",
@@ -56,7 +66,6 @@ export default function CourseContact() {
       instagram_label: "Instagram",
       instagram_value: "@franesdev",
       links: {
-        email: "mailto:contact@franesdev.com",
         whatsapp: "https://wa.me/593997825115",
         twitter: "https://x.com/franesdev",
         instagram: "https://instagram.com/franesdev"
@@ -66,21 +75,32 @@ export default function CourseContact() {
 
   const data = content[language]
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email) return
+    if (!contactForm.name || !contactForm.email || !contactForm.message) return
 
-    setIsLoading(true)
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    setSubmitted(true)
-    setEmail("")
-    setIsLoading(false)
-
-    // Reset after 5 seconds
-    setTimeout(() => {
-      setSubmitted(false)
-    }, 5000)
+    setContactLoading(true)
+    try {
+      if (form.current) {
+        await emailjs.sendForm(
+          "service_2626zss",
+          "emailcontactportafolio",
+          form.current,
+          "u6wrgff2uwwCpj5hr"
+        )
+        setContactSubmitted(true)
+        setContactForm({ name: "", email: "", message: "" })
+        
+        // Reset after 5 seconds
+        setTimeout(() => {
+          setContactSubmitted(false)
+        }, 5000)
+      }
+    } catch (error) {
+      console.error("Error sending message:", error)
+    } finally {
+      setContactLoading(false)
+    }
   }
 
   const contactLinks = [
@@ -88,7 +108,6 @@ export default function CourseContact() {
       icon: <Mail className="h-6 w-6" />,
       label: data.email_label,
       value: data.email_value,
-      href: data.links.email
     },
     {
       icon: <Phone className="h-6 w-6" />,
@@ -119,97 +138,165 @@ export default function CourseContact() {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Newsletter Section */}
+        {/* Contact Form Section */}
         <motion.div
-          className="mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="bg-gradient-to-r from-lime-500/20 to-lime-500/5 border border-lime-500/30 rounded-2xl p-12 md:p-16">
-            <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">{data.title}</h2>
-              <p className="text-xl text-zinc-400 mb-8">{data.subtitle}</p>
+          <div className="text-center mb-12">
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-white mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              {data.title}
+            </motion.h2>
+            <motion.p
+              className="text-xl text-zinc-400 mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              {data.subtitle}
+            </motion.p>
+          </div>
 
-              <div className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-6 mb-8">
-                <p className="text-lime-400 font-medium flex items-center gap-2 mb-6">
-                  <Zap className="h-5 w-5" />
-                  {data.cta_text}
-                </p>
-
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-8"
+            >
+              <h3 className="text-2xl font-bold text-white mb-2">{data.form_title}</h3>
+              <p className="text-zinc-400 text-sm mb-6">{data.form_subtitle}</p>
+              
+              <form ref={form} onSubmit={handleContactSubmit} className="space-y-4">
+                <div>
                   <Input
-                    type="email"
-                    placeholder={data.email_placeholder}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 bg-zinc-800 border-zinc-700 text-white placeholder:text-zinc-500"
+                    type="text"
+                    name="name"
+                    placeholder={data.name_placeholder}
+                    value={contactForm.name}
+                    onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                    className="w-full bg-zinc-800 border-zinc-700 text-white placeholder:text-zinc-500"
                     required
                   />
-                  <Button
-                    type="submit"
-                    disabled={isLoading || submitted}
-                    className="bg-lime-500 hover:bg-lime-600 text-black font-bold px-8"
-                  >
-                    {submitted ? <CheckCircle2 className="h-5 w-5" /> : data.cta_button}
-                  </Button>
-                </form>
+                </div>
+                <div>
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder={data.email_placeholder}
+                    value={contactForm.email}
+                    onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                    className="w-full bg-zinc-800 border-zinc-700 text-white placeholder:text-zinc-500"
+                    required
+                  />
+                </div>
+                <div>
+                  <textarea
+                    name="message"
+                    placeholder={data.message_placeholder}
+                    value={contactForm.message}
+                    onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                    className="w-full h-32 bg-zinc-800 border border-zinc-700 text-white placeholder:text-zinc-500 rounded-md p-3 focus:outline-none focus:border-lime-500/50 transition-colors resize-none"
+                    required
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  disabled={contactLoading || contactSubmitted}
+                  className="w-full bg-lime-500 hover:bg-lime-600 text-black font-bold py-2"
+                >
+                  {contactSubmitted ? <CheckCircle2 className="h-5 w-5" /> : data.send_button}
+                </Button>
 
-                {submitted && (
+                {contactSubmitted && (
                   <motion.p
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-lime-400 text-sm mt-4 font-medium"
+                    className="text-lime-400 text-sm text-center font-medium"
                   >
                     {data.success}
                   </motion.p>
                 )}
-              </div>
+              </form>
+            </motion.div>
 
-              <p className="text-zinc-500 text-sm">
-                Real updates, no spam. Unsubscribe anytime.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+            {/* Contact Info & Newsletter CTA */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-4"
+            >
+              {/* Contact Methods */}
+              {contactLinks.map((link, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  className={link.href ? "group" : ""}
+                >
+                  {link.href ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 hover:border-lime-500/50 transition-all hover:bg-zinc-900/70">
+                        <div className="text-lime-500 mb-4 group-hover:scale-110 transition-transform">
+                          {link.icon}
+                        </div>
+                        <p className="text-zinc-500 text-sm mb-2">{link.label}</p>
+                        <p className="text-white font-semibold group-hover:text-lime-400 transition-colors break-words">
+                          {link.value}
+                        </p>
+                      </div>
+                    </a>
+                  ) : (
+                    <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+                      <div className="text-lime-500 mb-4">
+                        {link.icon}
+                      </div>
+                      <p className="text-zinc-500 text-sm mb-2">{link.label}</p>
+                      <p className="text-white font-semibold break-words">
+                        {link.value}
+                      </p>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
 
-        {/* Contact Methods */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{data.contact_title}</h2>
-            <p className="text-xl text-zinc-400">{data.contact_subtitle}</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {contactLinks.map((link, index) => (
-              <motion.a
-                key={index}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
+              {/* Newsletter CTA */}
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
+                transition={{ duration: 0.5, delay: 0.7 }}
+                className="bg-gradient-to-r from-lime-500/20 to-lime-500/5 border border-lime-500/30 rounded-xl p-6"
               >
-                <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 hover:border-lime-500/50 transition-all hover:bg-zinc-900/70">
-                  <div className="text-lime-500 mb-4 group-hover:scale-110 transition-transform">
-                    {link.icon}
-                  </div>
-                  <p className="text-zinc-500 text-sm mb-2">{link.label}</p>
-                  <p className="text-white font-semibold group-hover:text-lime-400 transition-colors break-words">
-                    {link.value}
-                  </p>
-                </div>
-              </motion.a>
-            ))}
+                <h3 className="text-lg font-bold text-white mb-2">{data.newsletter_cta}</h3>
+                <p className="text-sm text-zinc-400 mb-4">{data.newsletter_description}</p>
+                <Link href="/newsletter" className="block">
+                  <Button className="w-full bg-lime-500 hover:bg-lime-600 text-black font-bold">
+                    {data.newsletter_button}
+                  </Button>
+                </Link>
+              </motion.div>
+            </motion.div>
           </div>
         </motion.div>
 
@@ -222,14 +309,14 @@ export default function CourseContact() {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <p className="text-zinc-400 mb-6">
-            Got ideas, feedback, or just want to chat about code? Let's talk.
+            Prefer a quick chat?
           </p>
           <Button
             asChild
             className="bg-lime-500 hover:bg-lime-600 text-black font-bold px-8 py-6 text-lg"
           >
             <a href={data.links.whatsapp} target="_blank" rel="noopener noreferrer">
-              Send a Message
+              Chat on WhatsApp
               <MessageSquare className="h-5 w-5 ml-2" />
             </a>
           </Button>
