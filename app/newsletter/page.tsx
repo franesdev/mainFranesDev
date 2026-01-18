@@ -62,6 +62,24 @@ export default function Newsletter() {
           templateParams,
           "u6wrgff2uwwCpj5hr"
         )
+        
+        // Guardar email en Google Sheets
+        try {
+          const response = await fetch(
+            "https://script.google.com/macros/s/AKfycby2VhfThD_0SMKAAgCSivyByKrqpv2Yglp5JPTYX1JaxdetiYswxlqPRkF7-zcXTDU1/exec",
+            {
+              method: "POST",
+              mode: "no-cors",
+              body: new URLSearchParams({
+                email: email
+              })
+            }
+          )
+          console.log("Email saved to sheets:", email)
+        } catch (sheetError) {
+          console.error("Error saving to sheets:", sheetError)
+        }
+        
         setSubmitted(true)
         setEmail("")
         
