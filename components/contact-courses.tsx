@@ -83,10 +83,10 @@ export default function CourseContact() {
     try {
       if (form.current) {
         await emailjs.sendForm(
-          "service_2626zss",
-          "emailcontactportafolio",
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_CONTACT!,
           form.current,
-          "u6wrgff2uwwCpj5hr"
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
         )
         setContactSubmitted(true)
         setContactForm({ name: "", email: "", message: "" })
@@ -182,7 +182,7 @@ export default function CourseContact() {
                 <div>
                   <Input
                     type="text"
-                    name="name"
+                    name="user_name"
                     placeholder={data.name_placeholder}
                     value={contactForm.name}
                     onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
@@ -193,7 +193,7 @@ export default function CourseContact() {
                 <div>
                   <Input
                     type="email"
-                    name="email"
+                    name="user_email"
                     placeholder={data.email_placeholder}
                     value={contactForm.email}
                     onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}

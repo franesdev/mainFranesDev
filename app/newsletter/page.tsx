@@ -58,7 +58,7 @@ export default function Newsletter() {
         
         await emailjs.send(
           "service_2626zss",
-          "emailcontactportafolio",
+          "emailsendsuscribe",
           templateParams,
           "u6wrgff2uwwCpj5hr"
         )
