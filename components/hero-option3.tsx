@@ -12,36 +12,38 @@ export default function Hero() {
 
   const content = {
     en: {
-      tagline: "Full Stack Developer",
+      tagline: "I teach you to think like a programmer",
       intro: "Franklin Paute Machuca",
       role: ".NET · MAUI · React",
-      subtitle: "I enjoy technical challenges, building useful software, and sharing the journey of programming and development.",
+      subtitle: "Logic, mindset, and real code. Whether you\'re just starting or building serious software—this is the right place.",
       stats: [
-        { number: "Systems Engineer", label: "Full Stack Developer" },
-        { number: "Open Source", label: "Community Focused" },
-        { number: "Building", label: "Educational Content" }
+        { number: "12 weeks", label: "Planned content" },
+        { number: "Papá Dev", label: "Learning with family" },
+        { number: "Real code", label: ".NET · React · MAUI" }
       ],
       description:
-          ".NET · MAUI · React\nI enjoy technical challenges, building useful software, and sharing the journey of programming and development.",
-      badges: ["Authentic", "In Progress", "Developer-Focused"],
-      cta: "View my work",
+          "No fluff. No fake timelines. Just the real process of learning and building software.",
+      badges: ["Beginner-friendly", "Papá Dev", "Building in public"],
+      cta: "Start learning",
+      ctaSecondary: "Hire / Collaborate",
       contact: "Follow the journey",
       scroll: "Learn More"
     },
     es: {
-      tagline: "Desarrollador Full Stack",
+      tagline: "Te enseño a pensar como programador",
       intro: "Franklin Paute Machuca",
       role: ".NET · MAUI · React",
-      subtitle: "Disfruto enfrentando desafíos técnicos, construyendo software útil, y compartiendo el viaje de la programación y el desarrollo.",
+      subtitle: "Lógica, mentalidad y código real. Si estás empezando o ya programas y quieres mejorar—este es tu lugar.",
       stats: [
-        { number: "Ingeniero de Sistemas", label: "Desarrollador Full Stack" },
-        { number: "Open Source", label: "Enfoque Comunitario" },
-        { number: "Construyendo", label: "Contenido Educativo" }
+        { number: "12 semanas", label: "de contenido planificado" },
+        { number: "Papá Dev", label: "Aprendo con poco tiempo" },
+        { number: "Código real", label: ".NET · React · MAUI" }
       ],
       description:
-          ".NET · MAUI · React\nDisfruto enfrentando desafíos técnicos, construyendo software útil, y compartiendo el viaje de la programación y el desarrollo.",
-      badges: ["Auténtico", "En Progreso", "Enfocado en Developers"],
-      cta: "Ver mis proyectos",
+          "Sin relleno. Sin promesas falsas. Solo el proceso real de aprender y construir software.",
+      badges: ["Para principiantes", "Papá Dev", "Construyendo en público"],
+      cta: "Empieza a aprender",
+      ctaSecondary: "Contratar / Colaborar",
       contact: "Sigue el viaje",
       scroll: "Saber Más"
     },
@@ -162,8 +164,8 @@ export default function Hero() {
               >
                 {content[language].stats.map((stat, index) => (
                   <div key={index} className="text-center">
-                    <div className="text-2xl font-bold text-lime-500">{stat.number}</div>
-                    <div className="text-sm text-zinc-400">{stat.label}</div>
+                    <div className="text-base font-bold text-lime-500 leading-tight">{stat.number}</div>
+                    <div className="text-xs text-zinc-400 mt-0.5">{stat.label}</div>
                   </div>
                 ))}
               </motion.div>
@@ -198,11 +200,12 @@ export default function Hero() {
                 ))}
               </div>
 
-              {/* Enhanced CTAs */}
-              <div className="flex flex-wrap gap-6 items-center">
+              {/* Dual-path CTAs */}
+              <div className="flex flex-wrap gap-4 items-center">
+                {/* Learning path — amber: targets beginners */}
                 <Button
-                    onClick={() => scrollToSection("about")}
-                    className="group relative bg-gradient-to-r from-lime-500 to-lime-400 text-zinc-900 font-medium px-8 py-5 rounded-2xl transform hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_20px_-10px_rgba(132,204,22,0.5)] hover:shadow-[0_20px_40px_-10px_rgba(132,204,22,0.4)]"
+                    onClick={() => scrollToSection("what-im-building")}
+                    className="group relative bg-gradient-to-r from-amber-500 to-amber-400 text-zinc-900 font-semibold px-8 py-5 rounded-2xl transform hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_20px_-10px_rgba(245,158,11,0.5)] hover:shadow-[0_20px_40px_-10px_rgba(245,158,11,0.4)]"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     {content[language].cta}
@@ -210,21 +213,18 @@ export default function Hero() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-lime-400 to-lime-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"></span>
                 </Button>
 
-                <Button
+                {/* Dev/client path — outline: targets companies/collaborators */}
+                <button
                     onClick={() => scrollToSection("contact-courses")}
-                    className="group relative bg-gradient-to-r from-lime-500 to-lime-400 text-zinc-900 font-medium px-8 py-5 rounded-2xl transform hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_20px_-10px_rgba(132,204,22,0.5)] hover:shadow-[0_20px_40px_-10px_rgba(132,204,22,0.4)]"
+                    className="group border border-zinc-600 hover:border-lime-500 text-zinc-300 hover:text-lime-400 bg-transparent font-medium px-8 py-3 rounded-2xl transform hover:-translate-y-1 transition-all duration-300 flex items-center gap-2"
                 >
-                  <span className="relative z-10 flex items-center gap-2">
-                    {content[language].contact}
-                    <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                    </svg>
-                  </span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-lime-400 to-lime-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"></span>
-                </Button>
+                  {content[language].ctaSecondary}
+                  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </button>
               </div>
 
               <div className="flex mt-6 items-center justify-between w-full max-w-xl relative">
@@ -413,17 +413,13 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 1 }}
               className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center"
           >
-            <Button
+            <button
                 onClick={() => scrollToSection("about")}
-                variant="ghost"
-                size="icon"
-                className="text-lime-500 hover:text-lime-400 hover:bg-transparent animate-bounce"
+                className="text-lime-500 hover:text-lime-400 bg-transparent border-none animate-bounce flex flex-col items-center"
             >
-              <div className="flex flex-col items-center">
-                <span className="text-lime-500/70 text-sm mb-2">{content[language].scroll}</span>
-                <ArrowDown className="h-6 w-6" />
-              </div>
-            </Button>
+              <span className="text-lime-500/70 text-sm mb-2">{content[language].scroll}</span>
+              <ArrowDown className="h-6 w-6" />
+            </button>
           </motion.div>
         </div>
       </section>

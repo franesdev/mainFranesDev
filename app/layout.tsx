@@ -6,8 +6,8 @@ import { LanguageProvider } from '@/contexts/LanguageContext'
 
 
 export const metadata: Metadata = {
-  title: 'Franes Dev',
-  description: 'Imagine | Program | Create',
+  title: 'Franes Dev — Te enseño a pensar como programador',
+  description: 'Franklin Paute Machuca · Desarrollador Full Stack y creador de contenido. Te enseño a pensar como programador, sin importar tu nivel. .NET · React · MAUI.',
   generator: '',
 }
 
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body>
         <LanguageProvider>
           {children}
