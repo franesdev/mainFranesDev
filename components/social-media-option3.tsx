@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { FaYoutube, FaFacebookF, FaLinkedinIn, FaInstagram, FaTiktok } from 'react-icons/fa'
+import { FaYoutube, FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa'
 import { ShoppingBag, Code2, ShirtIcon } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card"
 import { useLanguageContext } from "@/contexts/LanguageContext"
@@ -17,22 +17,16 @@ export default function SocialMedia() {
       color: "text-red-500 hover:text-red-400",
     },
     {
-      name: "LinkedIn",
-      icon: <FaLinkedinIn className="h-8 w-8" />,
-      url: "https://linkedin.com/in/franesdev",
-      color: "text-blue-500 hover:text-blue-400",
+      name: "TikTok",
+      icon: <FaTiktok className="h-8 w-8" />,
+      url: "https://tiktok.com/@franesdev",
+      color: "text-white hover:text-gray-300",
     },
     {
       name: "Instagram",
       icon: <FaInstagram className="h-8 w-8" />,
       url: "https://instagram.com/franesdev",
       color: "text-pink-500 hover:text-pink-400",
-    },
-    {
-      name: "TikTok",
-      icon: <FaTiktok className="h-8 w-8" />,
-      url: "https://tiktok.com/@franesdev",
-      color: "text-white hover:text-gray-300",
     },
     {
       name: "Facebook",

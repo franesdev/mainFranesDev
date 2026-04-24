@@ -6,9 +6,32 @@ import { LanguageProvider } from '@/contexts/LanguageContext'
 
 
 export const metadata: Metadata = {
-  title: 'Franes Dev',
-  description: 'Imagine | Program | Create',
-  generator: '',
+  title: 'FranesDev — Programa mejor. Piensa diferente.',
+  description: 'Developer Full Stack desde Ecuador. Contenido sobre lógica, IA y programación para devs y no devs. Acertijos semanales, videos y Dev Log.',
+  keywords: ['programacion', 'developer', 'logica', 'inteligencia artificial', 'franesdev', 'ecuador', 'aprender a programar', 'pensamiento logico'],
+  authors: [{ name: 'FranesDev', url: 'https://franes.dev' }],
+  creator: 'FranesDev',
+  metadataBase: new URL('https://franes.dev'),
+  openGraph: {
+    title: 'FranesDev — Programa mejor. Piensa diferente.',
+    description: 'Lógica, IA y pensamiento dev para programadores y no programadores. Acertijos semanales que la IA no puede resolver.',
+    url: 'https://franes.dev',
+    siteName: 'FranesDev',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'FranesDev' }],
+    locale: 'es_EC',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FranesDev — Programa mejor. Piensa diferente.',
+    description: 'Lógica, IA y pensamiento dev para programadores y no programadores.',
+    creator: '@franesdev',
+    images: ['/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
@@ -17,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body>
         <LanguageProvider>
           {children}

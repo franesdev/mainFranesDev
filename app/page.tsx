@@ -2,6 +2,8 @@ import { Suspense } from "react"
 import Hero from "@/components/hero-option3"
 import AboutBrand from "@/components/about-brand"
 import WhatImBuilding from "@/components/what-im-building"
+import ToolsSection from "@/components/tools-section"
+import PomodoroTool from "@/components/pomodoro-tool"
 import ContactCourses from "@/components/contact-courses"
 import SocialMedia from "@/components/social-media-option3"
 import LanguageToggle from "@/components/language-toggle-option3"
@@ -20,6 +22,10 @@ export default function Home() {
         <Hero />
         <AboutBrand />
         <WhatImBuilding />
+        <ToolsSection />
+        <div id="pomodoro">
+          <PomodoroTool />
+        </div>
         <ContactCourses />
         <SocialMedia />
         <Footer />

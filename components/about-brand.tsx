@@ -11,24 +11,24 @@ export default function AboutBrand() {
   const content = {
     en: {
       title: "Who I Am",
-      subtitle: "Systems Engineer & Full Stack Developer",
-      story: "I'm a developer who enjoys tackling complex technical challenges and building useful software. I work across frontend, backend, and mobile—.NET, C#, .NET MAUI, and React are my tools. My approach is about finding clean solutions through thoughtful design and continuous learning. I'm passionate about sharing what I discover along the journey, because building in public and helping others learn is just as important as the code itself.",
+      subtitle: "Dev who teaches you to think, not just to code",
+      story: "I'm Franes, a Full Stack developer from Ecuador. I've spent years building with .NET, React, and mobile — but what excites me most isn't the code itself, it's the logic behind it. Today I share that online: puzzles, developer thinking, and AI applied to real life. For programmers and for anyone who wants to think better.",
       three_pillars: {
-        title: "My Focus",
+        title: "What This Is About",
         expertise: {
-          icon: "⚡",
-          title: "Technical Depth",
-          desc: "Building scalable systems with .NET, React, and mobile development. Always exploring better architecture and best practices."
+          icon: "🧠",
+          title: "Logical Thinking",
+          desc: "Logic isn't math — it's trained common sense. That's what I teach, with or without code."
         },
         leadership: {
-          icon: "🔧",
-          title: "Problem Solver",
-          desc: "I love digging into challenging problems, finding elegant solutions, and learning what works in real-world scenarios."
+          icon: "🤖",
+          title: "AI With Judgment",
+          desc: "AI executes. You decide. I teach you to use it as a tool, not as a substitute for thinking."
         },
         teaching: {
-          icon: "📚",
-          title: "Sharing the Journey",
-          desc: "Creating content about programming, logic, and real development challenges. Building a space where developers learn together."
+          icon: "🔨",
+          title: "Dad Dev",
+          desc: "I learn, code, and create content while being a dad. The real process, without filters or fake shortcuts."
         }
       },
       highlights: [
@@ -54,37 +54,37 @@ export default function AboutBrand() {
         }
       ],
       why_learn: {
-        title: "What Makes This Different",
-        intro: "This isn't a sales pitch. It's a developer sharing their actual work and real learning.",
+        title: "Why This Is Different",
+        intro: "Not a guru. Not a bootcamp. A developer who builds in public and shows the real thing.",
         reasons: [
-          "Authentic experience: Real challenges from actual projects",
-          "No fluff: Practical knowledge, not theory or marketing speak",
-          "Current tech stack: .NET, React, MAUI—what I use daily",
-          "Honest approach: No fake timelines or exaggerated promises",
-          "Building openly: Everything evolves as I learn"
+          "Weekly puzzles that AI can't solve",
+          "Logic applied to real life, not just code",
+          "Content for devs and for people who've never coded",
+          "The honest process of learning while being a dad and a dev",
+          "No trendy stack worship — judgment is what doesn't expire"
         ]
       }
     },
     es: {
       title: "Quién Soy",
-      subtitle: "Ingeniero de Sistemas & Desarrollador Full Stack",
-      story: "Soy un desarrollador que disfruta enfrentando desafíos técnicos complejos y construyendo software útil. Trabajo en frontend, backend y móvil—.NET, C#, .NET MAUI y React son mis herramientas. Mi enfoque se trata de encontrar soluciones limpias a través de un diseño cuidadoso y aprendizaje continuo. Me apasiona compartir lo que descubro en el camino, porque construir en público y ayudar a otros a aprender es tan importante como el código.",
+      subtitle: "Dev que enseña a pensar, no solo a programar",
+      story: "Soy Franes, desarrollador Full Stack desde Ecuador. Llevo años programando en .NET, React y mobile — pero lo que más me apasiona no es el código en sí, sino la lógica detrás. Hoy comparto eso en redes: acertijos, pensamiento dev e IA aplicada a la vida real. Para programadores y para cualquiera que quiera pensar mejor.",
       three_pillars: {
-        title: "Mi Enfoque",
+        title: "De Qué Va Esto",
         expertise: {
-          icon: "⚡",
-          title: "Profundidad Técnica",
-          desc: "Construyendo sistemas escalables con .NET, React y desarrollo móvil. Siempre explorando mejor arquitectura y mejores prácticas."
+          icon: "🧠",
+          title: "Pensamiento lógico",
+          desc: "La lógica no es matemática — es sentido común entrenado. Eso es lo que enseño, con o sin código."
         },
         leadership: {
-          icon: "🔧",
-          title: "Resolución de Problemas",
-          desc: "Me encanta investigar problemas desafiantes, encontrar soluciones elegantes, y aprender qué funciona en escenarios reales."
+          icon: "🤖",
+          title: "IA con criterio",
+          desc: "La IA ejecuta. Tú decides. Te enseño a usarla como herramienta, no como sustituto de pensar."
         },
         teaching: {
-          icon: "📚",
-          title: "Compartiendo el Viaje",
-          desc: "Creando contenido sobre programación, lógica y desafíos reales de desarrollo. Construyendo un espacio donde los desarrolladores aprenden juntos."
+          icon: "🔨",
+          title: "Papá Dev",
+          desc: "Aprendo, programo y creo contenido siendo papá. El proceso real, sin filtros ni atajos falsos."
         }
       },
       highlights: [
@@ -110,14 +110,14 @@ export default function AboutBrand() {
         }
       ],
       why_learn: {
-        title: "Qué Hace Esto Diferente",
-        intro: "No es un discurso de ventas. Es un desarrollador compartiendo su trabajo real y aprendizaje auténtico.",
+        title: "Por Qué Esto Es Diferente",
+        intro: "No soy un gurú. No soy un bootcamp. Soy un developer que construye en público y muestra lo real.",
         reasons: [
-          "Experiencia auténtica: Desafíos reales de proyectos actuales",
-          "Sin relleno: Conocimiento práctico, no teoría o marketing",
-          "Stack actual: .NET, React, MAUI—lo que uso diariamente",
-          "Enfoque honesto: Sin cronogramas falsos o promesas exageradas",
-          "Construyendo abiertamente: Todo evoluciona mientras aprendo"
+          "Acertijos semanales que la IA no puede resolver",
+          "Lógica aplicada a la vida real, no solo al código",
+          "Contenido para devs y para quienes nunca han programado",
+          "El proceso honesto de aprender siendo papá y dev",
+          "Sin stack de moda — el criterio es lo que no caduca"
         ]
       }
     }

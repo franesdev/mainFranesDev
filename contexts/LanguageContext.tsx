@@ -18,29 +18,21 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    // Get language from localStorage
+    // Get language from localStorage on client mount
     const storedLanguage = localStorage.getItem("language") as Language | null
-    setLanguageState(storedLanguage || "es")
+    const initialLanguage = storedLanguage || "es"
+    setLanguageState(initialLanguage)
     setIsLoaded(true)
 
-    // Listen for language changes
-    const handleLanguageChange = () => {
-      const newLanguage = localStorage.getItem("language") as Language | null
-      if (newLanguage) {
-        setLanguageState(newLanguage)
-      }
-    }
-
-    window.addEventListener("languageChange", handleLanguageChange)
-    return () => {
-      window.removeEventListener("languageChange", handleLanguageChange)
-    }
+    // Immediately dispatch event to update all listeners
+    window.dispatchEvent(new CustomEvent("languageChanged", { detail: initialLanguage }))
   }, [])
 
   const setLanguage = (newLanguage: Language) => {
     setLanguageState(newLanguage)
     localStorage.setItem("language", newLanguage)
-    window.dispatchEvent(new Event("languageChange"))
+    // Dispatch event to all listeners
+    window.dispatchEvent(new CustomEvent("languageChanged", { detail: newLanguage }))
   }
 
   return (

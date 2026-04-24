@@ -19,9 +19,9 @@ export default function Newsletter() {
   const content = {
     en: {
       title: "Dev Log",
-      subtitle: "Email notes on building software, systems, and scale",
-      description: "Join developers who want real insights, no BS. Dev Log is a periodic email where I share enterprise systems, FinTech, architecture decisions, and the actual process of building at scale.",
-      cta_text: "Subscribe to Dev Log and get these notes directly in your inbox. Real updates when I have something worth sharing. No spam. Unsubscribe anytime.",
+      subtitle: "Weekly: one logic challenge + notes on programming with a brain, not just with AI",
+      description: "Join developers who want to actually think, not just prompt. Every week I send one logic challenge, a breakdown of what AI got wrong, and honest notes from whatever I'm building. No spam. Unsubscribe anytime.",
+      cta_text: "The challenge drops every Tuesday. The solution + breakdown every Wednesday. Dev Log subscribers get it first.",
       email_placeholder: "your@email.com",
       cta_button: "Subscribe to Dev Log",
       success: "✓ Thanks! Check your email to confirm.",
@@ -30,9 +30,9 @@ export default function Newsletter() {
     },
     es: {
       title: "Dev Log",
-      subtitle: "Notas por email sobre construir software, sistemas y escala",
-      description: "Únete a developers que quieren insights reales, sin BS. Dev Log es un email periódico donde comparto sistemas empresariales, FinTech, decisiones de arquitectura y el proceso real de construir a escala.",
-      cta_text: "Suscríbete a Dev Log y recibe estas notas directamente en tu inbox. Actualizaciones reales cuando tenga algo que valga la pena compartir. Sin spam. Desuscríbete cuando quieras.",
+      subtitle: "Semanal: un reto de lógica + notas sobre programar con cabeza, no solo con IA",
+      description: "Únete a developers que quieren pensar de verdad, no solo promptear. Cada semana mando un reto de lógica, un desglose de en qué falló la IA, y notas honestas de lo que esté construyendo. Sin spam. Desuscríbete cuando quieras.",
+      cta_text: "El reto cae cada martes. La solución + desglose cada miércoles. Los suscriptores de Dev Log lo reciben primero.",
       email_placeholder: "tu@email.com",
       cta_button: "Suscribirse a Dev Log",
       success: "✓ ¡Gracias! Revisa tu correo para confirmar.",
@@ -57,10 +57,10 @@ export default function Newsletter() {
         }
         
         await emailjs.send(
-          "service_2626zss",
-          "emailsendsuscribe",
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_NEWSLETTER!,
           templateParams,
-          "u6wrgff2uwwCpj5hr"
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
         )
         
         // Guardar email en Google Sheets

@@ -9,62 +9,62 @@ export default function WhatImBuilding() {
 
   const content = {
     en: {
-      title: "What I'm Working On",
-      subtitle: "Current focus and projects in progress",
-      description: "Right now, I'm focused on building and learning. This section shows what I'm actively working on and the direction I'm heading.",
+      title: "What I'm Creating",
+      subtitle: "Weekly content built around one idea: thinking beats prompting",
+      description: "Every week I publish reels, challenges, a long video, and notes. Here's what each piece is for.",
       items: [
         {
           icon: <Code2 className="h-8 w-8" />,
-          title: "Building Apps with .NET & React",
-          description: "Creating web and mobile applications that solve real problems. Frontend, backend, and mobile development with modern tools."
+          title: "Puzzles AI Can't Solve",
+          description: "Every week a new logic challenge. The goal isn't the answer — it's training how you think before you ask AI for anything."
         },
         {
           icon: <Layout className="h-8 w-8" />,
-          title: "Exploring Architecture & Best Practices",
-          description: "Learning system design, scalability patterns, and making thoughtful architectural decisions. Sharing what I discover."
+          title: "Logic and AI Videos",
+          description: "Reels and long-form videos about how to think better in a world where AI already writes code. For devs and for anyone else."
         },
         {
           icon: <Rocket className="h-8 w-8" />,
-          title: "Recording Programming Videos",
-          description: "Creating content about logic, problem-solving, and real development challenges. No scripted BS—just authentic learning."
+          title: "Dev Log — Real Notes",
+          description: "A periodic email with what I learn while building real software. No marketing, no hype. Just the honest process."
         },
         {
           icon: <BookOpen className="h-8 w-8" />,
-          title: "Developer-Focused Content",
-          description: "Building a space for developers who want to learn real skills. In progress, evolving as I build and share."
+          title: "Building in Public",
+          description: "I share the real process of learning while being a dad and a dev. Everything evolves as I learn and publish."
         }
       ],
-      note: "This space evolves as I build and share. No marketing fluff. Just real work and learning.",
-      status: "In Progress"
+      note: "All content is free. The goal is simple: you leave smarter, not more dependent.",
+      status: "Publishing Weekly"
     },
     es: {
-      title: "En Lo Que Estoy Trabajando",
-      subtitle: "Enfoque actual y proyectos en progreso",
-      description: "Ahora mismo, me estoy enfocando en construir y aprender. Esta sección muestra en qué estoy trabajando activamente y la dirección que voy.",
+      title: "Lo Que Estoy Creando",
+      subtitle: "Contenido semanal construido alrededor de una idea: pensar gana al promptear",
+      description: "Cada semana publico reels, retos, un video largo y notas. Esto es para lo que sirve cada pieza.",
       items: [
         {
           icon: <Code2 className="h-8 w-8" />,
-          title: "Construyendo Apps con .NET y React",
-          description: "Creando aplicaciones web y móviles que resuelven problemas reales. Desarrollo frontend, backend y móvil con herramientas modernas."
+          title: "Acertijos que la IA no resuelve",
+          description: "Cada semana un reto lógico nuevo. El objetivo no es el resultado — es entrenar la forma de pensar antes de pedirle algo a la IA."
         },
         {
           icon: <Layout className="h-8 w-8" />,
-          title: "Explorando Arquitectura y Mejores Prácticas",
-          description: "Aprendiendo diseño de sistemas, patrones de escalabilidad y tomando decisiones arquitectónicas cuidadosas. Compartiendo lo que descubro."
+          title: "Videos de lógica e IA",
+          description: "Reels y videos largos sobre cómo pensar mejor en un mundo donde la IA ya programa. Para devs y para cualquier persona."
         },
         {
           icon: <Rocket className="h-8 w-8" />,
-          title: "Grabando Videos de Programación",
-          description: "Creando contenido sobre lógica, resolución de problemas y desafíos reales de desarrollo. Sin scripts falsos—solo aprendizaje auténtico."
+          title: "Dev Log — notas reales",
+          description: "Un email periódico con lo que aprendo construyendo software real. Sin marketing, sin hype. Solo el proceso honesto."
         },
         {
           icon: <BookOpen className="h-8 w-8" />,
-          title: "Contenido Enfocado en Developers",
-          description: "Construyendo un espacio para desarrolladores que quieren aprender habilidades reales. En progreso, evolucionando mientras construyo y comparto."
+          title: "Construyendo en público",
+          description: "Comparto el proceso real de aprender siendo papá y dev. Todo evoluciona mientras aprendo y publico."
         }
       ],
-      note: "Este espacio evoluciona a medida que construyo y comparto. Sin relleno de marketing. Solo trabajo real y aprendizaje.",
-      status: "En Progreso"
+      note: "Todo el contenido es gratis. El objetivo es simple: te vas más inteligente, no más dependiente.",
+      status: "Publicando Semanalmente"
     }
   }
 

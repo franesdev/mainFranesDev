@@ -1,48 +1,51 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowDown, ShoppingBag, Code2, ShirtIcon } from "lucide-react"
+import { ArrowDown, ShoppingBag, Code2, ShirtIcon, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FaGithub, FaLinkedinIn, FaTwitter, FaYoutube, FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa'
 import { useLanguageContext } from "@/contexts/LanguageContext"
+import SkillsModal from "@/components/skills-modal"
 
 export default function Hero() {
   const { language } = useLanguageContext()
+  const [isSkillsOpen, setIsSkillsOpen] = useState(false)
 
   const content = {
     en: {
-      tagline: "Full Stack Developer",
+      tagline: "Learn to think like a developer",
       intro: "Franklin Paute Machuca",
-      role: ".NET · MAUI · React",
-      subtitle: "I enjoy technical challenges, building useful software, and sharing the journey of programming and development.",
+      role: "Logic · AI · Real Code",
+      subtitle: "AI writes code. But it doesn't understand. You're the one who needs to understand.",
       stats: [
-        { number: "Systems Engineer", label: "Full Stack Developer" },
-        { number: "Open Source", label: "Community Focused" },
-        { number: "Building", label: "Educational Content" }
+        { number: "Weekly", label: "Logic Challenge" },
+        { number: "Real", label: "No-BS Content" },
+        { number: "Dev Log", label: "Free Newsletter" }
       ],
       description:
-          ".NET · MAUI · React\nI enjoy technical challenges, building useful software, and sharing the journey of programming and development.",
-      badges: ["Authentic", "In Progress", "Developer-Focused"],
-      cta: "View my work",
-      contact: "Follow the journey",
+          "AI writes code. But it doesn't understand.\nYou're the one who needs to understand — and that's the skill no one can take from you.",
+      badges: ["Logic First", "Anti-Buzzword", "Building in Public"],
+      cta: "Take the challenge",
+      contact: "Subscribe to Dev Log",
       scroll: "Learn More"
     },
     es: {
-      tagline: "Desarrollador Full Stack",
+      tagline: "Aprende a pensar como programador",
       intro: "Franklin Paute Machuca",
-      role: ".NET · MAUI · React",
-      subtitle: "Disfruto enfrentando desafíos técnicos, construyendo software útil, y compartiendo el viaje de la programación y el desarrollo.",
+      role: "Lógica · IA · Código Real",
+      subtitle: "La IA escribe código. Pero no entiende. El que tiene que entender eres tú.",
       stats: [
-        { number: "Ingeniero de Sistemas", label: "Desarrollador Full Stack" },
-        { number: "Open Source", label: "Enfoque Comunitario" },
-        { number: "Construyendo", label: "Contenido Educativo" }
+        { number: "Semanal", label: "Reto de lógica" },
+        { number: "Real", label: "Sin Relleno" },
+        { number: "Dev Log", label: "Newsletter gratis" }
       ],
       description:
-          ".NET · MAUI · React\nDisfruto enfrentando desafíos técnicos, construyendo software útil, y compartiendo el viaje de la programación y el desarrollo.",
-      badges: ["Auténtico", "En Progreso", "Enfocado en Developers"],
-      cta: "Ver mis proyectos",
-      contact: "Sigue el viaje",
+          "La IA escribe código. Pero no entiende.\nEl que tiene que entender eres tú — y esa es la habilidad que nadie te puede quitar.",
+      badges: ["Lógica Primero", "Sin Buzzwords", "Construyendo en Público"],
+      cta: "Únete al reto",
+      contact: "Suscríbete al Dev Log",
       scroll: "Saber Más"
     },
   }
@@ -112,8 +115,25 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="md:w-1/2"
+                className="md:w-1/2 relative"
             >
+              {/* FRANESDEV Logo */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="absolute -top-12 -right-12 w-24 h-24 md:w-32 md:h-32 z-20 drop-shadow-lg"
+              >
+                <Image 
+                  src="/logo1.png" 
+                  alt="FRANESDEV Logo" 
+                  width={128} 
+                  height={128} 
+                  className="w-full h-full object-contain"
+                  priority
+                />
+              </motion.div>
+
               {/* Enhanced tagline with animation */}
               <motion.h2 
                 className="text-lime-500 text-xl md:text-2xl font-light mb-4 tracking-wider"
@@ -152,6 +172,26 @@ export default function Hero() {
               >
                 {content[language].role}
               </motion.h3>
+
+              {/* Skills Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.35 }}
+                className="mb-8"
+              >
+                <motion.button
+                  onClick={() => setIsSkillsOpen(true)}
+                  whileHover={{ scale: 1.05, gap: 6 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full hover:border-emerald-500/60 hover:bg-emerald-500/15 transition-all duration-300 group"
+                >
+                  <Zap className="h-4 w-4 text-emerald-500 group-hover:animate-pulse" />
+                  <span className="text-sm font-mono text-emerald-400 group-hover:text-emerald-300 uppercase tracking-wider">
+                    {language === "es" ? "Herramientas" : "Tools"}
+                  </span>
+                </motion.button>
+              </motion.div>
 
               {/* Stats display */}
               <motion.div 
@@ -426,6 +466,8 @@ export default function Hero() {
             </Button>
           </motion.div>
         </div>
+
+        <SkillsModal isOpen={isSkillsOpen} onClose={() => setIsSkillsOpen(false)} />
       </section>
   )
 }
