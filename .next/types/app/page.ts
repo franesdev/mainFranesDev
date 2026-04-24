@@ -1,4 +1,4 @@
-// File: /Users/0104a38/Documents/workspacefranes/mainFranesDev/app/page.tsx
+// File: /Users/franesdev/Documents/WorkSpaceFRANESDEV/Repositorios/Web/mainFranesDev/app/page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

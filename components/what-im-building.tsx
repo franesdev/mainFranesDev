@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Code2, Layout, Rocket, BookOpen } from "lucide-react"
 import { useLanguageContext } from "@/contexts/LanguageContext"
 
 const prodStack = [

@@ -38,12 +38,10 @@ export default function AboutBrand() {
       why_learn: {
         title: "Why This Is Different",
         intro: "Not a guru. Not a bootcamp. A developer who builds in public and shows the real thing.",
-        reasons: [
-          "Weekly puzzles that AI can't solve",
-          "Logic applied to real life, not just code",
-          "Content for devs and for people who've never coded",
-          "The honest process of learning while being a dad and a dev",
-          "No trendy stack worship — judgment is what doesn't expire"
+        points: [
+          { icon: "🧩", text: "Weekly puzzles that AI can't solve" },
+          { icon: "🌍", text: "Logic applied to real life, not just code" },
+          { icon: "👥", text: "Content for devs and for people who've never coded" }
         ]
       }
     },
@@ -78,12 +76,10 @@ export default function AboutBrand() {
       why_learn: {
         title: "Por Qué Esto Es Diferente",
         intro: "No soy un gurú. No soy un bootcamp. Soy un developer que construye en público y muestra lo real.",
-        reasons: [
-          "Acertijos semanales que la IA no puede resolver",
-          "Lógica aplicada a la vida real, no solo al código",
-          "Contenido para devs y para quienes nunca han programado",
-          "El proceso honesto de aprender siendo papá y dev",
-          "Sin stack de moda — el criterio es lo que no caduca"
+        points: [
+          { icon: "🧩", text: "Acertijos semanales que la IA no puede resolver" },
+          { icon: "🌍", text: "Lógica aplicada a la vida real, no solo al código" },
+          { icon: "👥", text: "Contenido para devs y para quienes nunca han programado" }
         ]
       }
     }
