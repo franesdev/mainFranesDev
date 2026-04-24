@@ -79,7 +79,7 @@ export default function Hero() {
     },
     {
       icon: <Mail className="h-5 w-5" />,
-      href: "mailto:contact@franesdev.com",
+      href: "mailto:franesdev@gmail.com",
       label: "Email",
     },
   ]

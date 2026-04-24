@@ -1,8 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Award, Users, Zap, BookOpen, Briefcase, Brain } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
 import { useLanguageContext } from "@/contexts/LanguageContext"
 
 export default function AboutBrand() {
@@ -32,26 +30,10 @@ export default function AboutBrand() {
         }
       },
       highlights: [
-        {
-          icon: <Award className="h-6 w-6" />,
-          title: "Full Stack",
-          desc: "Frontend to Backend"
-        },
-        {
-          icon: <Users className="h-6 w-6" />,
-          title: "Community",
-          desc: "Building Together"
-        },
-        {
-          icon: <Zap className="h-6 w-6" />,
-          title: "Technical",
-          desc: "Real Solutions"
-        },
-        {
-          icon: <BookOpen className="h-6 w-6" />,
-          title: "Learning",
-          desc: "Always Growing"
-        }
+        { title: "Full Stack", desc: ".NET · React · MAUI" },
+        { title: "Papá Dev", desc: "Learning with 10 min/day" },
+        { title: "Building", desc: "Flutter · Swift · Xcode" },
+        { title: "Public", desc: "Everything shared openly" }
       ],
       why_learn: {
         title: "Why This Is Different",
@@ -88,26 +70,10 @@ export default function AboutBrand() {
         }
       },
       highlights: [
-        {
-          icon: <Award className="h-6 w-6" />,
-          title: "Full Stack",
-          desc: "Frontend a Backend"
-        },
-        {
-          icon: <Users className="h-6 w-6" />,
-          title: "Comunidad",
-          desc: "Construyendo Juntos"
-        },
-        {
-          icon: <Zap className="h-6 w-6" />,
-          title: "Técnico",
-          desc: "Soluciones Reales"
-        },
-        {
-          icon: <BookOpen className="h-6 w-6" />,
-          title: "Aprendizaje",
-          desc: "Siempre Creciendo"
-        }
+        { title: "Full Stack", desc: ".NET · React · MAUI" },
+        { title: "Papá Dev", desc: "Aprendiendo con 10 min/día" },
+        { title: "Construyendo", desc: "Flutter · Swift · Xcode" },
+        { title: "Público", desc: "Todo compartido abiertamente" }
       ],
       why_learn: {
         title: "Por Qué Esto Es Diferente",
@@ -185,48 +151,41 @@ export default function AboutBrand() {
           </div>
         </motion.div>
 
-        {/* Highlights Grid */}
+        {/* Highlights — concise identity bar */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          {data.highlights.map((highlight, i) => (
+          {data.highlights.map((h, i) => (
             <motion.div
               key={i}
-              className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-6 text-center hover:border-lime-500/50 transition-all"
-              whileHover={{ y: -5 }}
+              className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-5 text-center hover:border-lime-500/40 transition-colors duration-200"
+              whileHover={{ y: -3 }}
             >
-              <div className="flex justify-center mb-4 text-lime-500">{highlight.icon}</div>
-              <h4 className="text-2xl font-bold text-white mb-2">{highlight.title}</h4>
-              <p className="text-zinc-400 text-sm">{highlight.desc}</p>
+              <div className="text-white font-bold text-base mb-1">{h.title}</div>
+              <div className="text-zinc-500 text-xs">{h.desc}</div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Why Learn Section */}
+        {/* Why Follow — 3 sharp differentiators */}
         <motion.div
-          className="bg-gradient-to-r from-lime-500/10 to-lime-500/5 border border-lime-500/30 rounded-xl p-12"
+          className="border border-zinc-800 rounded-2xl p-10 md:p-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <h3 className="text-3xl font-bold text-white mb-4 text-center">{data.why_learn.title}</h3>
-          <p className="text-lg text-zinc-300 text-center mb-10 max-w-3xl mx-auto">{data.why_learn.intro}</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            {data.why_learn.reasons.map((reason, i) => (
-              <motion.div
-                key={i}
-                className="flex items-start gap-3 p-4 bg-zinc-900/30 rounded-lg"
-                whileHover={{ x: 5 }}
-              >
-                <div className="flex-shrink-0 text-lime-500 text-xl mt-1">✓</div>
-                <p className="text-zinc-300">{reason}</p>
-              </motion.div>
+          <h3 className="text-2xl font-bold text-white mb-10 text-center">{data.why_learn.title}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {data.why_learn.points.map((point, i) => (
+              <div key={i} className="flex flex-col items-center text-center gap-4">
+                <span className="text-4xl">{point.icon}</span>
+                <p className="text-zinc-300 text-sm leading-relaxed">{point.text}</p>
+              </div>
             ))}
           </div>
         </motion.div>

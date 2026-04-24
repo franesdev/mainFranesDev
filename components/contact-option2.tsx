@@ -128,7 +128,7 @@ export default function Contact() {
                         />
                       </svg>
                     </div>
-                    <span className="text-gray-300">contact@franesdev.com</span>
+                    <span className="text-gray-300">franesdev@gmail.com</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-10 h-10 rounded-full bg-lime-500/20 flex items-center justify-center mr-4">

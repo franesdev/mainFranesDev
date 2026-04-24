@@ -34,7 +34,7 @@ export default function Footer() {
                   Franklin Paute Machuca
                 </span>
                 <div className="mt-2 text-sm text-zinc-500">
-                  {language === "en" ? "Senior .NET Developer & Systems Engineer" : "Senior Developer .NET e Ingeniero de Sistemas"}
+                  {language === "en" ? "Teaching you to think like a programmer" : "Enseñándote a pensar como programador"}
                 </div>
               </div>
             </div>
@@ -64,12 +64,12 @@ export default function Footer() {
             {/* Contact and copyright */}
             <div className="text-center md:text-right">
               <a
-                href="mailto:contact@franesdev.com"
+                href="mailto:franesdev@gmail.com"
                 className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800/30 hover:bg-zinc-800/50 transition-all duration-300 mb-3"
               >
                 <Mail className="h-4 w-4 text-zinc-400 group-hover:text-lime-500 transition-colors" />
                 <span className="text-sm text-zinc-400 group-hover:text-lime-500 transition-colors">
-                  contact@franesdev.com
+                  franesdev@gmail.com
                 </span>
               </a>
               <div className="mt-2 text-sm text-zinc-500">
