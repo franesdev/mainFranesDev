@@ -25,62 +25,62 @@ export default function WhatImBuilding() {
 
   const t = {
     en: {
-      title: "What I'm Creating",
-      subtitle: "Weekly content built around one idea: thinking beats prompting",
-      description: "Every week I publish reels, challenges, a long video, and notes. Here's what each piece is for.",
+      title: "What I'm Building",
+      subtitle: "Weekly content built around one principle: thinking beats prompting",
+      description: "Every Thursday I share something new. Here's what it is and why.",
       items: [
         {
           icon: <Code2 className="h-8 w-8" />,
-          title: "Puzzles AI Can't Solve",
-          description: "Every week a new logic challenge. The goal isn't the answer — it's training how you think before you ask AI for anything."
+          title: "The Thursday Ritual",
+          description: "Every Thursday: 'My thinking mistake this week.' A community where we share what we got wrong — and why that's how we learn."
         },
         {
           icon: <Layout className="h-8 w-8" />,
-          title: "Logic and AI Videos",
-          description: "Reels and long-form videos about how to think better in a world where AI already writes code. For devs and for anyone else."
+          title: "Logic Challenges & Videos",
+          description: "Weekly puzzles you won't solve with ChatGPT. Reels and long-form content about how to think better before you ask AI for anything."
         },
         {
           icon: <Rocket className="h-8 w-8" />,
           title: "Dev Log — Real Notes",
-          description: "A periodic email with what I learn while building real software. No marketing, no hype. Just the honest process."
+          description: "A periodic email with what I learn while building real software. The honest process of being a dad, a dev, and learning in public."
         },
         {
           icon: <BookOpen className="h-8 w-8" />,
-          title: "Building in Public",
-          description: "I share the real process of learning while being a dad and a dev. Everything evolves as I learn and publish."
+          title: "Content for Everyone",
+          description: "70% non-programmers. 30% developers. Whether you code or not, this is about training your brain to think better."
         }
       ],
-      note: "All content is free. The goal is simple: you leave smarter, not more dependent.",
-      status: "Publishing Weekly"
+      note: "All content is free. The goal is simple: you leave sharper, not more dependent.",
+      status: "Publishing Every Thursday"
     },
     es: {
-      title: "Lo Que Estoy Creando",
-      subtitle: "Contenido semanal construido alrededor de una idea: pensar gana al promptear",
-      description: "Cada semana publico reels, retos, un video largo y notas. Esto es para lo que sirve cada pieza.",
+      title: "Lo Que Estoy Construyendo",
+      subtitle: "Contenido semanal construido alrededor de un principio: pensar gana",
+      description: "Cada jueves comparto algo nuevo. Esto es lo que es y por qué.",
       items: [
         {
           icon: <Code2 className="h-8 w-8" />,
-          title: "Acertijos que la IA no resuelve",
-          description: "Cada semana un reto lógico nuevo. El objetivo no es el resultado — es entrenar la forma de pensar antes de pedirle algo a la IA."
+          title: "El Ritual de los Jueves",
+          description: "Cada jueves: 'Mi error de pensamiento de esta semana.' Una comunidad donde compartimos en qué nos equivocamos — y por qué así aprendemos."
         },
         {
           icon: <Layout className="h-8 w-8" />,
-          title: "Videos de lógica e IA",
-          description: "Reels y videos largos sobre cómo pensar mejor en un mundo donde la IA ya programa. Para devs y para cualquier persona."
+          title: "Retos de Lógica y Videos",
+          description: "Retos semanales que no resolverás con ChatGPT. Reels y contenido largo sobre cómo pensar mejor antes de pedirle algo a la IA."
         },
         {
           icon: <Rocket className="h-8 w-8" />,
-          title: "Dev Log — notas reales",
-          description: "Un email periódico con lo que aprendo construyendo software real. Sin marketing, sin hype. Solo el proceso honesto."
+          title: "Dev Log — Notas Reales",
+          description: "Un email periódico con lo que aprendo construyendo software real. El proceso honesto de ser papá, dev, y aprender en público."
         },
         {
           icon: <BookOpen className="h-8 w-8" />,
-          title: "Construyendo en público",
-          description: "Comparto el proceso real de aprender siendo papá y dev. Todo evoluciona mientras aprendo y publico."
+          title: "Contenido para Todos",
+          description: "70% no-programadores. 30% developers. Programes o no, es sobre entrenar tu cerebro para pensar mejor."
         }
       ],
-      note: "Todo el contenido es gratis. El objetivo es simple: te vas más inteligente, no más dependiente.",
-      status: "Publicando Semanalmente"
+      note: "Todo el contenido es gratis. El objetivo es simple: te vas más afilado, no más dependiente.",
+      status: "Publicando Cada Jueves"
     }
   }
 

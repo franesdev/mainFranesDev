@@ -4,6 +4,7 @@ import AboutBrand from "@/components/about-brand"
 import WhatImBuilding from "@/components/what-im-building"
 import ToolsSection from "@/components/tools-section"
 import PomodoroTool from "@/components/pomodoro-tool"
+import ThursdayRitual from "@/components/thursday-ritual"
 import ContactCourses from "@/components/contact-courses"
 import SocialMedia from "@/components/social-media-option3"
 import LanguageToggle from "@/components/language-toggle-option3"
@@ -26,6 +27,7 @@ export default function Home() {
         <div id="pomodoro">
           <PomodoroTool />
         </div>
+        <ThursdayRitual />
         <ContactCourses />
         <SocialMedia />
         <Footer />

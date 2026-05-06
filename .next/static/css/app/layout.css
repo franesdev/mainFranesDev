@@ -2629,6 +2629,10 @@ video {
 .underline-offset-4 {
   text-underline-offset: 4px;
 }
+.placeholder-zinc-500::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(113 113 122 / var(--tw-placeholder-opacity, 1));
+}
 .opacity-0 {
   opacity: 0;
 }
@@ -4337,6 +4341,10 @@ html {
 
   .sm\:flex {
     display: flex;
+  }
+
+  .sm\:w-80 {
+    width: 20rem;
   }
 
   .sm\:max-w-sm {

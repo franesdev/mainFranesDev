@@ -15,37 +15,37 @@ export default function Hero() {
 
   const content = {
     en: {
-      tagline: "Learn to think like a developer",
+      tagline: "Think like a programmer. Live better.",
       intro: "Franklin Paute Machuca",
-      role: "Logic · AI · Real Code",
-      subtitle: "AI writes code. But it doesn't understand. You're the one who needs to understand.",
+      role: "Logic · Mindset · Dad Dev · Community",
+      subtitle: "Real logic for devs and non-devs in the AI era. No hype. No complications.",
       stats: [
-        { number: "Weekly", label: "Logic Challenge" },
-        { number: "Real", label: "No-BS Content" },
-        { number: "Dev Log", label: "Free Newsletter" }
+        { number: "Weekly", label: "Thursday Ritual" },
+        { number: "Real", label: "Honest Content" },
+        { number: "For All", label: "Devs & Non-Devs" }
       ],
       description:
-          "AI writes code. But it doesn't understand.\nYou're the one who needs to understand — and that's the skill no one can take from you.",
-      badges: ["Logic First", "Anti-Buzzword", "Building in Public"],
-      cta: "Take the challenge",
-      contact: "Subscribe to Dev Log",
+          "Logic is trained common sense. AI executes. You decide.\nJoin a community that thinks before it codes.",
+      badges: ["Thinking First", "Honest Approach", "Building in Public"],
+      cta: "Join the Thursday Ritual",
+      contact: "Subscribe to Newsletter",
       scroll: "Learn More"
     },
     es: {
-      tagline: "Aprende a pensar como programador",
+      tagline: "Piensa como programador. Vive mejor.",
       intro: "Franklin Paute Machuca",
-      role: "Lógica · IA · Código Real",
-      subtitle: "La IA escribe código. Pero no entiende. El que tiene que entender eres tú.",
+      role: "Lógica · Mentalidad · Papá Dev · Comunidad",
+      subtitle: "Lógica real para devs y no devs en la era de la IA. Sin hype. Sin complicaciones.",
       stats: [
-        { number: "Semanal", label: "Reto de lógica" },
-        { number: "Real", label: "Sin Relleno" },
-        { number: "Dev Log", label: "Newsletter gratis" }
+        { number: "Semanal", label: "Ritual de los Jueves" },
+        { number: "Real", label: "Contenido Honesto" },
+        { number: "Para Todos", label: "Devs y No-Devs" }
       ],
       description:
-          "La IA escribe código. Pero no entiende.\nEl que tiene que entender eres tú — y esa es la habilidad que nadie te puede quitar.",
-      badges: ["Lógica Primero", "Sin Buzzwords", "Construyendo en Público"],
-      cta: "Únete al reto",
-      contact: "Suscríbete al Dev Log",
+          "La lógica es sentido común entrenado. La IA ejecuta. Tú decides.\nÚnete a una comunidad que piensa antes de programar.",
+      badges: ["Pensamiento Primero", "Enfoque Honesto", "Construyendo en Público"],
+      cta: "Únete al Ritual de los Jueves",
+      contact: "Suscríbete a la Newsletter",
       scroll: "Saber Más"
     },
   }

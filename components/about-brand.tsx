@@ -9,77 +9,77 @@ export default function AboutBrand() {
   const content = {
     en: {
       title: "Who I Am",
-      subtitle: "Dev who teaches you to think, not just to code",
-      story: "I'm Franes, a Full Stack developer from Ecuador. I've spent years building with .NET, React, and mobile — but what excites me most isn't the code itself, it's the logic behind it. Today I share that online: puzzles, developer thinking, and AI applied to real life. For programmers and for anyone who wants to think better.",
+      subtitle: "Full Stack Dev from Ecuador. I teach how to think, not just how to code.",
+      story: "I'm Franklin Paute Machuca. By day, I build with .NET, React, and mobile. By night (and weekends), I'm a dad creating content. But in everything I do, one thing drives me: logic. The way we think is the real currency — and it's what AI can't replace. I teach this to programmers and to anyone who wants to live better through better thinking.",
       three_pillars: {
-        title: "What This Is About",
+        title: "What This Is Really About",
         expertise: {
           icon: "🧠",
-          title: "Logical Thinking",
-          desc: "Logic isn't math — it's trained common sense. That's what I teach, with or without code."
+          title: "Think Like a Programmer",
+          desc: "This isn't about syntax. It's about logic: trained common sense that makes you solve problems faster, whether you code or not."
         },
         leadership: {
           icon: "🤖",
-          title: "AI With Judgment",
-          desc: "AI executes. You decide. I teach you to use it as a tool, not as a substitute for thinking."
+          title: "Mindset Over Tools",
+          desc: "AI is a tool. It executes what you tell it. But you have to decide what's worth building, and that requires judgment."
         },
         teaching: {
           icon: "🔨",
-          title: "Dad Dev",
-          desc: "I learn, code, and create content while being a dad. The real process, without filters or fake shortcuts."
+          title: "Dad Dev Building In Public",
+          desc: "I learn, I code, I create content — and I'm a dad. No filters, no fake shortcuts. Just the real process."
         }
       },
       highlights: [
         { title: "Full Stack", desc: ".NET · React · MAUI" },
-        { title: "Papá Dev", desc: "Learning with 10 min/day" },
-        { title: "Building", desc: "Flutter · Swift · Xcode" },
-        { title: "Public", desc: "Everything shared openly" }
+        { title: "Dad Dev", desc: "Building with 10 min/day" },
+        { title: "Learning", desc: "Flutter · Swift · Xcode" },
+        { title: "Sharing", desc: "Everything, in public" }
       ],
       why_learn: {
         title: "Why This Is Different",
-        intro: "Not a guru. Not a bootcamp. A developer who builds in public and shows the real thing.",
+        intro: "70% of my audience has never coded. 30% are developers. This is for both of you.",
         points: [
-          { icon: "🧩", text: "Weekly puzzles that AI can't solve" },
+          { icon: "🧩", text: "Weekly logic challenges that AI can't solve — because it's about thinking" },
           { icon: "🌍", text: "Logic applied to real life, not just code" },
-          { icon: "👥", text: "Content for devs and for people who've never coded" }
+          { icon: "👥", text: "Community ritual every Thursday: 'My thinking mistake this week'" }
         ]
       }
     },
     es: {
       title: "Quién Soy",
-      subtitle: "Dev que enseña a pensar, no solo a programar",
-      story: "Soy Franes, desarrollador Full Stack desde Ecuador. Llevo años programando en .NET, React y mobile — pero lo que más me apasiona no es el código en sí, sino la lógica detrás. Hoy comparto eso en redes: acertijos, pensamiento dev e IA aplicada a la vida real. Para programadores y para cualquiera que quiera pensar mejor.",
+      subtitle: "Dev Full Stack desde Ecuador. Enseño a pensar, no solo a programar.",
+      story: "Soy Franklin Paute Machuca. De día construyo con .NET, React y mobile. De noche (y fines de semana), soy papá creando contenido. Pero en todo lo que hago una cosa me mueve: la lógica. La forma en que pensamos es la moneda real — y es lo que la IA no puede reemplazar. Enseño esto a programadores y a cualquiera que quiera vivir mejor pensando mejor.",
       three_pillars: {
-        title: "De Qué Va Esto",
+        title: "De Qué Va Realmente Esto",
         expertise: {
           icon: "🧠",
-          title: "Pensamiento lógico",
-          desc: "La lógica no es matemática — es sentido común entrenado. Eso es lo que enseño, con o sin código."
+          title: "Piensa Como Programador",
+          desc: "No es sobre sintaxis. Es sobre lógica: sentido común entrenado que te hace resolver problemas más rápido, programes o no."
         },
         leadership: {
           icon: "🤖",
-          title: "IA con criterio",
-          desc: "La IA ejecuta. Tú decides. Te enseño a usarla como herramienta, no como sustituto de pensar."
+          title: "Mentalidad Sobre Herramientas",
+          desc: "La IA es una herramienta. Ejecuta lo que le dices. Pero tienes que decidir qué vale la pena construir, y eso requiere criterio."
         },
         teaching: {
           icon: "🔨",
-          title: "Papá Dev",
-          desc: "Aprendo, programo y creo contenido siendo papá. El proceso real, sin filtros ni atajos falsos."
+          title: "Papá Dev Construyendo en Público",
+          desc: "Aprendo, programo, creo contenido — y soy papá. Sin filtros, sin atajos falsos. Solo el proceso real."
         }
       },
       highlights: [
         { title: "Full Stack", desc: ".NET · React · MAUI" },
-        { title: "Papá Dev", desc: "Aprendiendo con 10 min/día" },
-        { title: "Construyendo", desc: "Flutter · Swift · Xcode" },
-        { title: "Público", desc: "Todo compartido abiertamente" }
+        { title: "Papá Dev", desc: "Construyendo con 10 min/día" },
+        { title: "Aprendiendo", desc: "Flutter · Swift · Xcode" },
+        { title: "Compartiendo", desc: "Todo, en público" }
       ],
       why_learn: {
         title: "Por Qué Esto Es Diferente",
-        intro: "No soy un gurú. No soy un bootcamp. Soy un developer que construye en público y muestra lo real.",
+        intro: "70% de mi audiencia nunca ha programado. 30% son developers. Esto es para ambos.",
         points: [
-          { icon: "🧩", text: "Acertijos semanales que la IA no puede resolver" },
+          { icon: "🧩", text: "Retos de lógica semanales que la IA no puede resolver — porque es sobre pensar" },
           { icon: "🌍", text: "Lógica aplicada a la vida real, no solo al código" },
-          { icon: "👥", text: "Contenido para devs y para quienes nunca han programado" }
+          { icon: "👥", text: "Ritual comunitario cada jueves: 'Mi error de pensamiento de esta semana'" }
         ]
       }
     }
