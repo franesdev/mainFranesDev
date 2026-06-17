@@ -16,7 +16,7 @@ export default function LanguageToggle() {
       onClick={toggleLanguage}
       variant="outline"
       size="sm"
-      className="bg-zinc-900/70 backdrop-blur-sm border-lime-500/50 hover:bg-zinc-800 hover:border-lime-500 text-lime-500"
+      className="bg-zinc-900/70 backdrop-blur-sm border-brand/50 hover:bg-zinc-800 hover:border-brand text-brand"
     >
       <Globe className="h-4 w-4 mr-2" />
       {language === "en" ? "ES" : "EN"}

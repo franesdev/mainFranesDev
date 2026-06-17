@@ -26,9 +26,10 @@ export default function PomodoroTool() {
   const content = {
     en: {
       title: "Pomodoro",
-      subtitle: "Focus + Breaks = Real Progress",
+      subtitle: "A tool I use daily — shared here as a bonus",
+      intro: "Between work, family, and content, I need focused blocks. This timer is what I actually use. Take it, adapt it, no strings attached.",
       slogan: "Thinking like a dev",
-      tagline: "10 minutes a day, real progress",
+      tagline: "25 minutes of focus, then a real break",
       work: "Work",
       shortBreak: "Break",
       longBreak: "Rest",
@@ -41,9 +42,10 @@ export default function PomodoroTool() {
     },
     es: {
       title: "Pomodoro",
-      subtitle: "Enfoque + Descansos = Progreso Real",
+      subtitle: "Una herramienta que uso a diario — compartida como extra",
+      intro: "Entre trabajo, familia y contenido, necesito bloques de enfoque. Este temporizador es el que uso de verdad. Úsalo, adáptalo, sin compromiso.",
       slogan: "Pensando como programador",
-      tagline: "10 minutos al día, progreso real",
+      tagline: "25 minutos de enfoque, luego un descanso real",
       work: "Trabajo",
       shortBreak: "Pausa",
       longBreak: "Descanso",
@@ -132,25 +134,22 @@ export default function PomodoroTool() {
   const isBreakMode = mode !== "work"
 
   return (
-    <section key={language} className="relative py-24 px-4 overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/10 via-zinc-950 to-zinc-950 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/3 rounded-full blur-3xl pointer-events-none" />
+    <section key={language} className="relative py-12 md:py-16 px-4 overflow-hidden border-t border-zinc-800/50">
+      <div className="absolute inset-0 bg-zinc-950 pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto relative z-10">
-        {/* Header */}
+      <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
-          <h2 className="text-4xl md:text-5xl font-black mb-3 tracking-tight">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2 tracking-tight text-zinc-300">
             {t.title}
           </h2>
-          <p className="text-emerald-400/80 text-lg font-light">{t.subtitle}</p>
+          <p className="text-zinc-500 text-sm mb-3">{t.subtitle}</p>
+          <p className="text-zinc-600 text-xs max-w-md mx-auto leading-relaxed">{t.intro}</p>
         </motion.div>
 
         <motion.div
@@ -161,10 +160,10 @@ export default function PomodoroTool() {
           className="relative"
         >
           {/* Main container with glass effect */}
-          <div className="relative bg-gradient-to-b from-zinc-900/50 to-zinc-900/30 backdrop-blur-xl border border-emerald-500/10 rounded-3xl p-12 shadow-2xl">
+          <div className="relative bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 md:p-10">
             {/* Profile image background - eccentric placement */}
             <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full overflow-hidden opacity-10 blur-2xl">
-              <div className="w-full h-full bg-gradient-to-br from-emerald-500 to-emerald-600" />
+              <div className="w-full h-full bg-gradient-to-br from-brand to-brand-dark" />
             </div>
 
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
@@ -177,7 +176,7 @@ export default function PomodoroTool() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="mb-8 text-center"
                 >
-                  <p className="text-sm md:text-base font-mono uppercase tracking-widest text-emerald-400/70">
+                  <p className="text-sm md:text-base font-mono uppercase tracking-widest text-brand/70">
                     → {t.slogan}
                   </p>
                   <p className="text-xs font-mono text-zinc-500 mt-1">
@@ -207,14 +206,14 @@ export default function PomodoroTool() {
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 rounded-full border border-transparent border-t-emerald-500/40 border-r-emerald-500/20"
+                    className="absolute inset-0 rounded-full border border-transparent border-t-brand/40 border-r-brand/20"
                   />
                   
                   {/* Inner glow */}
                   <motion.div
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 3, repeat: Infinity }}
-                    className="absolute inset-0 rounded-full border border-emerald-500/10"
+                    className="absolute inset-0 rounded-full border border-brand/10"
                   />
 
                   {/* SVG Progress circle */}
@@ -225,7 +224,7 @@ export default function PomodoroTool() {
                       cy="112"
                       r="100"
                       fill="none"
-                      stroke="rgba(16, 185, 129, 0.08)"
+                      stroke="rgba(119, 184, 0, 0.08)"
                       strokeWidth="3"
                     />
                     {/* Progress circle */}
@@ -236,7 +235,7 @@ export default function PomodoroTool() {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="3"
-                      className="text-emerald-500"
+                      className="text-brand"
                       strokeDasharray={`${2 * Math.PI * 100}`}
                       strokeDashoffset={`${2 * Math.PI * 100 * (1 - progress / 100)}`}
                       transition={{ duration: 0.2 }}
@@ -255,7 +254,7 @@ export default function PomodoroTool() {
                     >
                       {formatTime(timeLeft)}
                     </motion.div>
-                    <motion.div className="text-xs text-emerald-400/60 font-mono uppercase tracking-widest mt-3">
+                    <motion.div className="text-xs text-brand/60 font-mono uppercase tracking-widest mt-3">
                       {isBreakMode ? t.shortBreak : t.work}
                     </motion.div>
                   </div>
@@ -271,7 +270,7 @@ export default function PomodoroTool() {
                       whileTap={{ scale: 0.9 }}
                       className={`px-3 py-1 rounded-full font-mono text-xs font-bold uppercase tracking-wider transition-all ${
                         mode === m
-                          ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/50"
+                          ? "bg-brand text-white shadow-lg shadow-brand/50"
                           : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
                       } ${isRunning ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
                     >
@@ -290,14 +289,14 @@ export default function PomodoroTool() {
                 {/* Sessions counter - Eccentric style */}
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 border border-emerald-500/30 rounded-2xl p-6 backdrop-blur"
+                  className="bg-gradient-to-br from-brand/20 to-brand/5 border border-brand/30 rounded-2xl p-6 backdrop-blur"
                 >
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-zinc-400 text-sm font-mono uppercase tracking-widest mb-1">
                         {t.sessions}
                       </p>
-                      <p className="text-4xl font-black text-emerald-400">
+                      <p className="text-4xl font-black text-brand">
                         {sessionsCompleted}
                       </p>
                     </div>
@@ -310,7 +309,7 @@ export default function PomodoroTool() {
                   <motion.div whileTap={{ scale: 0.92 }}>
                     <Button
                       onClick={() => setIsRunning(!isRunning)}
-                      className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-6 rounded-xl transition-all"
+                      className="w-full bg-brand hover:bg-brand-dark text-white font-bold py-6 rounded-xl transition-all"
                     >
                       {isRunning ? (
                         <>
@@ -330,7 +329,7 @@ export default function PomodoroTool() {
                     <Button
                       onClick={handleReset}
                       variant="outline"
-                      className="w-full border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 font-bold py-6 rounded-xl"
+                      className="w-full border-brand/30 text-brand hover:bg-brand/10 font-bold py-6 rounded-xl"
                     >
                       <RotateCcw className="h-5 w-5 mr-2" />
                       {t.reset}
@@ -341,7 +340,7 @@ export default function PomodoroTool() {
                     <Button
                       onClick={handleSkip}
                       variant="ghost"
-                      className="w-full text-zinc-400 hover:text-emerald-400 hover:bg-zinc-800/50 font-bold py-5 rounded-xl"
+                      className="w-full text-zinc-400 hover:text-brand hover:bg-zinc-800/50 font-bold py-5 rounded-xl"
                     >
                       <SkipForward className="h-4 w-4 mr-2" />
                       {t.skip}

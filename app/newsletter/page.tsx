@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Zap, CheckCircle2, ArrowLeft } from "lucide-react"
 import { useLanguageContext } from "@/contexts/LanguageContext"
 import Link from "next/link"
-import emailjs from "emailjs-com"
+import { subscribeToNewsletter } from "@/lib/email-subscriptions"
 
 export default function Newsletter() {
   const { language } = useLanguageContext()
@@ -49,45 +49,10 @@ export default function Newsletter() {
 
     setIsLoading(true)
     try {
-      if (form.current) {
-        // Create a temporary form with the email data
-        const templateParams = {
-          email: email,
-          message: "New subscriber to Dev Log newsletter"
-        }
-        
-        await emailjs.send(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_NEWSLETTER!,
-          templateParams,
-          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-        )
-        
-        // Guardar email en Google Sheets
-        try {
-          const response = await fetch(
-            "https://script.google.com/macros/s/AKfycby2VhfThD_0SMKAAgCSivyByKrqpv2Yglp5JPTYX1JaxdetiYswxlqPRkF7-zcXTDU1/exec",
-            {
-              method: "POST",
-              mode: "no-cors",
-              body: new URLSearchParams({
-                email: email
-              })
-            }
-          )
-          console.log("Email saved to sheets:", email)
-        } catch (sheetError) {
-          console.error("Error saving to sheets:", sheetError)
-        }
-        
-        setSubmitted(true)
-        setEmail("")
-        
-        // Reset after 5 seconds
-        setTimeout(() => {
-          setSubmitted(false)
-        }, 5000)
-      }
+      await subscribeToNewsletter(email)
+      setSubmitted(true)
+      setEmail("")
+      setTimeout(() => setSubmitted(false), 5000)
     } catch (error) {
       console.error("Error sending subscription:", error)
     } finally {

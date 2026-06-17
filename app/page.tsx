@@ -1,35 +1,34 @@
 import { Suspense } from "react"
-import Hero from "@/components/hero-option3"
-import AboutBrand from "@/components/about-brand"
-import WhatImBuilding from "@/components/what-im-building"
-import ToolsSection from "@/components/tools-section"
+import SiteHeader from "@/components/home/site-header"
+import HeroHome from "@/components/home/hero-home"
+import AboutPapaDev from "@/components/home/about-papa-dev"
+import PillarsSection from "@/components/home/pillars-section"
+import ToolsIntro from "@/components/home/tools-intro"
 import PomodoroTool from "@/components/pomodoro-tool"
-import ThursdayRitual from "@/components/thursday-ritual"
-import ContactCourses from "@/components/contact-courses"
-import SocialMedia from "@/components/social-media-option3"
-import LanguageToggle from "@/components/language-toggle-option3"
+import SocialSection from "@/components/home/social-section"
+import CtaSection from "@/components/home/cta-section"
+import ContactSection from "@/components/home/contact-section"
+import MerchSection from "@/components/home/merch-section"
 import Footer from "@/components/footer-option3"
 import Loading from "@/components/loading-option3"
-
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
-      <div className="fixed top-4 right-4 z-50">
-        <LanguageToggle />
-      </div>
+      <SiteHeader />
 
       <Suspense fallback={<Loading />}>
-        <Hero />
-        <AboutBrand />
-        <WhatImBuilding />
-        <ToolsSection />
+        <HeroHome />
+        <AboutPapaDev />
+        <PillarsSection />
+        <ToolsIntro />
         <div id="pomodoro">
           <PomodoroTool />
         </div>
-        <ThursdayRitual />
-        <ContactCourses />
-        <SocialMedia />
+        <SocialSection />
+        <CtaSection />
+        <ContactSection />
+        <MerchSection />
         <Footer />
       </Suspense>
     </main>

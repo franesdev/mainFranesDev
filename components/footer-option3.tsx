@@ -18,8 +18,8 @@ export default function Footer() {
       <footer className="relative bg-gradient-to-b from-zinc-900 to-zinc-950 text-zinc-400 py-12 overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0">
-          <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-lime-500/5 rounded-full filter blur-3xl"></div>
-          <div className="absolute top-0 right-1/4 w-64 h-64 bg-lime-500/3 rounded-full filter blur-3xl"></div>
+          <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-brand/5 rounded-full filter blur-3xl"></div>
+          <div className="absolute top-0 right-1/4 w-64 h-64 bg-brand/3 rounded-full filter blur-3xl"></div>
         </div>
 
         {/* Top border gradient */}
@@ -30,11 +30,11 @@ export default function Footer() {
             {/* Name and role */}
             <div className="text-center md:text-left">
               <div className="inline-block">
-                <span className="text-xl font-bold bg-gradient-to-r from-lime-500 to-lime-400 text-transparent bg-clip-text">
+                <span className="text-xl font-bold text-brand">
                   Franklin Paute Machuca
                 </span>
                 <div className="mt-2 text-sm text-zinc-500">
-                  {language === "en" ? "Teaching you to think like a programmer" : "Enseñándote a pensar como programador"}
+                  {language === "en" ? "Think like a programmer. Live better." : "Piensa como programador. Vive mejor."}
                 </div>
               </div>
             </div>
@@ -67,8 +67,8 @@ export default function Footer() {
                 href="mailto:franesdev@gmail.com"
                 className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800/30 hover:bg-zinc-800/50 transition-all duration-300 mb-3"
               >
-                <Mail className="h-4 w-4 text-zinc-400 group-hover:text-lime-500 transition-colors" />
-                <span className="text-sm text-zinc-400 group-hover:text-lime-500 transition-colors">
+                <Mail className="h-4 w-4 text-zinc-400 group-hover:text-brand transition-colors" />
+                <span className="text-sm text-zinc-400 group-hover:text-brand transition-colors">
                   franesdev@gmail.com
                 </span>
               </a>

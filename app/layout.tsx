@@ -6,15 +6,15 @@ import { LanguageProvider } from '@/contexts/LanguageContext'
 
 
 export const metadata: Metadata = {
-  title: 'FranesDev — Programa mejor. Piensa diferente.',
-  description: 'Developer Full Stack desde Ecuador. Contenido sobre lógica, IA y programación para devs y no devs. Acertijos semanales, videos y Dev Log.',
-  keywords: ['programacion', 'developer', 'logica', 'inteligencia artificial', 'franesdev', 'ecuador', 'aprender a programar', 'pensamiento logico'],
+  title: 'FranesDev — Piensa como programador. Vive mejor.',
+  description: 'Acertijos de lógica, mentalidad y historias de Papá Dev. Ayudo a pensar mejor — sin necesidad de saber programar. Desarrollador full-time y padre desde Ecuador.',
+  keywords: ['logica', 'acertijos', 'mentalidad', 'pensamiento', 'papa dev', 'franesdev', 'ecuador', 'pensar mejor', 'programador'],
   authors: [{ name: 'FranesDev', url: 'https://franes.dev' }],
   creator: 'FranesDev',
   metadataBase: new URL('https://franes.dev'),
   openGraph: {
-    title: 'FranesDev — Programa mejor. Piensa diferente.',
-    description: 'Lógica, IA y pensamiento dev para programadores y no programadores. Acertijos semanales que la IA no puede resolver.',
+    title: 'FranesDev — Piensa como programador. Vive mejor.',
+    description: 'Lógica, acertijos y mentalidad de programador para todos. No tutoriales de código — aprende a pensar mejor.',
     url: 'https://franes.dev',
     siteName: 'FranesDev',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'FranesDev' }],
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FranesDev — Programa mejor. Piensa diferente.',
-    description: 'Lógica, IA y pensamiento dev para programadores y no programadores.',
+    title: 'FranesDev — Piensa como programador. Vive mejor.',
+    description: 'Lógica, acertijos y mentalidad de programador para todos. No tutoriales de código.',
     creator: '@franesdev',
     images: ['/og-image.jpg'],
   },

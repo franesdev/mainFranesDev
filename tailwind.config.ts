@@ -20,6 +20,12 @@ const config = {
     },
     extend: {
       colors: {
+        brand: {
+          DEFAULT: "#77B800",
+          dark: "#5f9400",
+          light: "#8fd41a",
+          muted: "#77B8001a",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
