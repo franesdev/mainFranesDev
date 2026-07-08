@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
-import { FaYoutube, FaInstagram } from "react-icons/fa"
+import { FaYoutube, FaInstagram, FaTiktok, FaFacebookF } from "react-icons/fa"
 import { useLanguageContext } from "@/contexts/LanguageContext"
 import LanguageToggle from "@/components/language-toggle-option3"
 
@@ -19,6 +19,8 @@ export default function SiteHeader() {
       name: "FranesDev",
       youtube: "YouTube",
       instagram: "Instagram",
+      tiktok: "TikTok",
+      facebook: "Facebook",
       contact: "Contacto",
     },
     en: {
@@ -26,29 +28,43 @@ export default function SiteHeader() {
       name: "FranesDev",
       youtube: "YouTube",
       instagram: "Instagram",
+      tiktok: "TikTok",
+      facebook: "Facebook",
       contact: "Contact",
     },
   }
 
   const t = content[language]
 
-  const navLinks = [
+  const socialLinks = [
     {
       label: t.youtube,
       href: "https://youtube.com/@franesdev",
       icon: FaYoutube,
-      external: true,
     },
     {
       label: t.instagram,
       href: "https://instagram.com/franesdev",
       icon: FaInstagram,
-      external: true,
     },
+    {
+      label: t.tiktok,
+      href: "https://tiktok.com/@franesdev",
+      icon: FaTiktok,
+    },
+    {
+      label: t.facebook,
+      href: "https://facebook.com/franesdev",
+      icon: FaFacebookF,
+    },
+  ]
+
+  const navLinks = [
+    ...socialLinks.map((link) => ({ ...link, external: true as const })),
     {
       label: t.contact,
       href: "#contact",
-      external: false,
+      external: false as const,
     },
   ]
 
@@ -92,7 +108,7 @@ export default function SiteHeader() {
               <div className="w-10 h-10 md:w-11 md:h-11 rounded-xl overflow-hidden border-2 border-brand/40 ring-2 ring-brand/10 group-hover:border-brand/60 transition-colors">
                 <Image
                   src="/logo.png"
-                  alt="Franklin Paute Machuca"
+                  alt={`FranesDev — ${t.tagline}`}
                   width={44}
                   height={44}
                   className="w-full h-full object-cover"
@@ -111,41 +127,40 @@ export default function SiteHeader() {
             </div>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) =>
-              link.external ? (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-all duration-200"
-                >
-                  {link.icon && <link.icon className="h-4 w-4" />}
-                  {link.label}
-                </a>
-              ) : (
-                <button
-                  key={link.label}
-                  onClick={() => scrollTo(link.href)}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-all duration-200"
-                >
-                  {link.label}
-                </button>
-              )
-            )}
-            <div className="ml-2 pl-2 border-l border-zinc-800">
+          {/* Nav + language toggle (single toggle instance) */}
+          <div className="flex items-center gap-1">
+            <nav className="hidden md:flex items-center gap-1">
+              {navLinks.map((link) =>
+                link.external ? (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-all duration-200"
+                  >
+                    {link.icon && <link.icon className="h-4 w-4" />}
+                    {link.label}
+                  </a>
+                ) : (
+                  <button
+                    key={link.label}
+                    onClick={() => scrollTo(link.href)}
+                    className="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-all duration-200"
+                  >
+                    {link.label}
+                  </button>
+                )
+              )}
+            </nav>
+
+            <div className="ml-1 pl-2 border-l border-zinc-800">
               <LanguageToggle />
             </div>
-          </nav>
 
-          {/* Mobile controls */}
-          <div className="flex items-center gap-2 md:hidden">
-            <LanguageToggle />
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-colors"
+              className="md:hidden p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-colors"
               aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
             >
               {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

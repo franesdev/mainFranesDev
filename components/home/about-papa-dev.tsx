@@ -11,6 +11,7 @@ export default function AboutPapaDev() {
   const content = {
     es: {
       title: "Sobre mí",
+      tagline: "Piensa como programador. Vive mejor.",
       name: "Franklin Paute Machuca",
       role: "Papá Dev · Desarrollador Full Stack",
       story:
@@ -24,6 +25,7 @@ export default function AboutPapaDev() {
     },
     en: {
       title: "About me",
+      tagline: "Think like a programmer. Live better.",
       name: "Franklin Paute Machuca",
       role: "Dad Dev · Full Stack Developer",
       story:
@@ -65,7 +67,7 @@ export default function AboutPapaDev() {
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden border-2 border-brand/30 bg-zinc-800">
                 <Image
                   src="/logo.png"
-                  alt={t.name}
+                  alt={`FranesDev — ${t.tagline}`}
                   width={160}
                   height={160}
                   className="w-full h-full object-cover"

@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion"
 import { FaYoutube, FaInstagram, FaTiktok, FaFacebookF } from "react-icons/fa"
-import { ExternalLink, Users, ShoppingBag, Shirt } from "lucide-react"
+import { ExternalLink, Users } from "lucide-react"
 import { useLanguageContext } from "@/contexts/LanguageContext"
 
-const SHOP_URL = "https://franesdev-shop.fourthwall.com"
+// const SHOP_URL = "https://franesdev-shop.fourthwall.com" — reactivar con CTA tienda
 
 const platforms = [
   {
@@ -155,6 +155,7 @@ export default function SocialSection() {
           })}
         </div>
 
+        {/* CTA tienda — oculto hasta tener fotos reales de productos
         <motion.a
           href={SHOP_URL}
           target="_blank"
@@ -178,6 +179,7 @@ export default function SocialSection() {
             <ExternalLink className="h-4 w-4" />
           </span>
         </motion.a>
+        */}
       </div>
     </section>
   )

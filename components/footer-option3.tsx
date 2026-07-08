@@ -1,10 +1,10 @@
 "use client"
 
 import {
-  FaLinkedin,
   FaInstagram,
   FaYoutube,
-  FaTiktok
+  FaTiktok,
+  FaFacebookF,
 } from "react-icons/fa"
 import { Mail } from "lucide-react"
 import { useLanguageContext } from "@/contexts/LanguageContext"
@@ -43,10 +43,10 @@ export default function Footer() {
             <div className="flex justify-center gap-4">
               {[
                 { icon: FaYoutube, href: "https://youtube.com/@franesdev", label: "YouTube", hoverColor: "hover:text-red-500" },
-                { icon: FaLinkedin, href: "https://linkedin.com/in/franesdev", label: "LinkedIn", hoverColor: "hover:text-blue-500" },
                 { icon: FaInstagram, href: "https://instagram.com/franesdev", label: "Instagram", hoverColor: "hover:text-pink-500" },
                 { icon: FaTiktok, href: "https://tiktok.com/@franesdev", label: "TikTok", hoverColor: "hover:text-white" },
-              ].map((social, index) => (
+                { icon: FaFacebookF, href: "https://facebook.com/franesdev", label: "Facebook", hoverColor: "hover:text-blue-500" },
+              ].map((social) => (
                 <a
                   key={social.label}
                   href={social.href}

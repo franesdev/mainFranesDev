@@ -26,7 +26,7 @@ export default function MerchSection() {
       moreComing: "Más diseños próximamente",
       products: {
         hoodie: { name: "Hoodie Lógica", tag: "Pensar antes de actuar" },
-        tshirt: { name: "Camiseta Papá Dev", tag: "Piensa. Vive mejor." },
+        tshirt: { name: "Camiseta Papá Dev", tag: "Piensa como programador. Vive mejor." },
         mug: { name: "Taza Mentalidad", tag: "Café + claridad" },
       },
       comingSoon: "Próximamente",
@@ -41,7 +41,7 @@ export default function MerchSection() {
       moreComing: "More designs coming soon",
       products: {
         hoodie: { name: "Logic Hoodie", tag: "Think before you act" },
-        tshirt: { name: "Dad Dev Tee", tag: "Think. Live better." },
+        tshirt: { name: "Dad Dev Tee", tag: "Think like a programmer. Live better." },
         mug: { name: "Mindset Mug", tag: "Coffee + clarity" },
       },
       comingSoon: "Coming soon",

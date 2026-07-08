@@ -8,7 +8,8 @@ import PomodoroTool from "@/components/pomodoro-tool"
 import SocialSection from "@/components/home/social-section"
 import CtaSection from "@/components/home/cta-section"
 import ContactSection from "@/components/home/contact-section"
-import MerchSection from "@/components/home/merch-section"
+// TODO: Reactivar cuando haya fotos reales de productos (actualmente placeholders)
+// import MerchSection from "@/components/home/merch-section"
 import Footer from "@/components/footer-option3"
 import Loading from "@/components/loading-option3"
 
@@ -28,7 +29,7 @@ export default function Home() {
         <SocialSection />
         <CtaSection />
         <ContactSection />
-        <MerchSection />
+        {/* <MerchSection /> — oculto hasta tener fotos reales de productos */}
         <Footer />
       </Suspense>
     </main>

@@ -7,24 +7,24 @@ import { LanguageProvider } from '@/contexts/LanguageContext'
 
 export const metadata: Metadata = {
   title: 'FranesDev — Piensa como programador. Vive mejor.',
-  description: 'Acertijos de lógica, mentalidad y historias de Papá Dev. Ayudo a pensar mejor — sin necesidad de saber programar. Desarrollador full-time y padre desde Ecuador.',
+  description: 'Piensa como programador. Vive mejor. Acertijos de lógica, mentalidad y historias de Papá Dev. Ayudo a pensar mejor — sin necesidad de saber programar. Desarrollador full-time y padre desde Ecuador.',
   keywords: ['logica', 'acertijos', 'mentalidad', 'pensamiento', 'papa dev', 'franesdev', 'ecuador', 'pensar mejor', 'programador'],
   authors: [{ name: 'FranesDev', url: 'https://franes.dev' }],
   creator: 'FranesDev',
   metadataBase: new URL('https://franes.dev'),
   openGraph: {
     title: 'FranesDev — Piensa como programador. Vive mejor.',
-    description: 'Lógica, acertijos y mentalidad de programador para todos. No tutoriales de código — aprende a pensar mejor.',
+    description: 'Piensa como programador. Vive mejor. Lógica, acertijos y mentalidad de programador para todos. No tutoriales de código — aprende a pensar mejor.',
     url: 'https://franes.dev',
     siteName: 'FranesDev',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'FranesDev' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'FranesDev — Piensa como programador. Vive mejor.' }],
     locale: 'es_EC',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'FranesDev — Piensa como programador. Vive mejor.',
-    description: 'Lógica, acertijos y mentalidad de programador para todos. No tutoriales de código.',
+    description: 'Piensa como programador. Vive mejor. Lógica, acertijos y mentalidad de programador para todos. No tutoriales de código.',
     creator: '@franesdev',
     images: ['/og-image.jpg'],
   },
