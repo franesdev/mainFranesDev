@@ -2437,13 +2437,13 @@ video {
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
 }
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
 .py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
-}
-.py-16 {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
 }
 .py-2 {
   padding-top: 0.5rem;
@@ -3864,10 +3864,6 @@ html {
   background-color: rgb(132 204 22 / 0.2);
 }
 
-.group:hover .group-hover\:bg-brand\/15 {
-  background-color: rgb(119 184 0 / 0.15);
-}
-
 .group:hover .group-hover\:bg-brand\/20 {
   background-color: rgb(119 184 0 / 0.2);
 }
@@ -4912,14 +4908,9 @@ html {
     padding: 2rem;
   }
 
-  .md\:py-16 {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  .md\:py-20 {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+  .md\:py-14 {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
   }
 
   .md\:py-28 {

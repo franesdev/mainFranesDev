@@ -3,7 +3,6 @@ import SiteHeader from "@/components/home/site-header"
 import HeroHome from "@/components/home/hero-home"
 import AboutPapaDev from "@/components/home/about-papa-dev"
 import PillarsSection from "@/components/home/pillars-section"
-import ToolsIntro from "@/components/home/tools-intro"
 import PomodoroTool from "@/components/pomodoro-tool"
 import SocialSection from "@/components/home/social-section"
 import CtaSection from "@/components/home/cta-section"
@@ -22,11 +21,10 @@ export default function Home() {
         <HeroHome />
         <AboutPapaDev />
         <PillarsSection />
-        <ToolsIntro />
+        <SocialSection />
         <div id="pomodoro">
           <PomodoroTool />
         </div>
-        <SocialSection />
         <CtaSection />
         <ContactSection />
         {/* <MerchSection /> — oculto hasta tener fotos reales de productos */}

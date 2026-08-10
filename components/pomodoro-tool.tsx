@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Play, Pause, RotateCcw, SkipForward } from "lucide-react"
+import { Play, Pause, RotateCcw, SkipForward, Wrench } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguageContext } from "@/contexts/LanguageContext"
 import Image from "next/image"
@@ -25,9 +25,9 @@ export default function PomodoroTool() {
 
   const content = {
     en: {
+      label: "Tools · Extra",
       title: "Pomodoro",
-      subtitle: "A tool I use daily — shared here as a bonus",
-      intro: "Between work, family, and content, I need focused blocks. This timer is what I actually use. Take it, adapt it, no strings attached.",
+      subtitle: "The focus timer I use daily — free, no signup, no strings attached.",
       slogan: "Thinking like a dev",
       tagline: "25 minutes of focus, then a real break",
       work: "Work",
@@ -41,9 +41,9 @@ export default function PomodoroTool() {
       completed: "Done",
     },
     es: {
+      label: "Herramientas · Extra",
       title: "Pomodoro",
-      subtitle: "Una herramienta que uso a diario — compartida como extra",
-      intro: "Entre trabajo, familia y contenido, necesito bloques de enfoque. Este temporizador es el que uso de verdad. Úsalo, adáptalo, sin compromiso.",
+      subtitle: "El temporizador de enfoque que uso a diario — gratis, sin registro ni compromiso.",
       slogan: "Pensando como programador",
       tagline: "25 minutos de enfoque, luego un descanso real",
       work: "Trabajo",
@@ -134,7 +134,7 @@ export default function PomodoroTool() {
   const isBreakMode = mode !== "work"
 
   return (
-    <section key={language} className="relative py-12 md:py-16 px-4 overflow-hidden border-t border-zinc-800/50">
+    <section key={language} className="relative py-10 md:py-14 px-4 overflow-hidden border-t border-zinc-800/50">
       <div className="absolute inset-0 bg-zinc-950 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
@@ -143,13 +143,16 @@ export default function PomodoroTool() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-center mb-8"
         >
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-800/50 border border-zinc-700/50 text-zinc-500 text-xs font-mono uppercase tracking-widest mb-4">
+            <Wrench className="h-3.5 w-3.5" />
+            {t.label}
+          </div>
           <h2 className="text-2xl md:text-3xl font-bold mb-2 tracking-tight text-zinc-300">
             {t.title}
           </h2>
-          <p className="text-zinc-500 text-sm mb-3">{t.subtitle}</p>
-          <p className="text-zinc-600 text-xs max-w-md mx-auto leading-relaxed">{t.intro}</p>
+          <p className="text-zinc-500 text-sm max-w-md mx-auto leading-relaxed">{t.subtitle}</p>
         </motion.div>
 
         <motion.div
@@ -160,7 +163,7 @@ export default function PomodoroTool() {
           className="relative"
         >
           {/* Main container with glass effect */}
-          <div className="relative bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 md:p-10">
+          <div className="relative bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 md:p-8">
             {/* Profile image background - eccentric placement */}
             <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full overflow-hidden opacity-10 blur-2xl">
               <div className="w-full h-full bg-gradient-to-br from-brand to-brand-dark" />
