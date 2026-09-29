@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { FaYoutube, FaInstagram, FaTiktok, FaFacebookF } from "react-icons/fa"
 import { useLanguageContext } from "@/contexts/LanguageContext"
-import LanguageToggle from "@/components/language-toggle-option3"
+import LanguageToggle from "@/components/language-toggle"
 
 export default function SiteHeader() {
   const { language } = useLanguageContext()

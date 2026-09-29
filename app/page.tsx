@@ -9,10 +9,8 @@ import LatestVideos from "@/components/home/latest-videos"
 import ServicesSection from "@/components/home/services-section"
 import CtaSection from "@/components/home/cta-section"
 import ContactSection from "@/components/home/contact-section"
-// TODO: Reactivar cuando haya fotos reales de productos (actualmente placeholders)
-// import MerchSection from "@/components/home/merch-section"
-import Footer from "@/components/footer-option3"
-import Loading from "@/components/loading-option3"
+import Footer from "@/components/footer"
+import Loading from "@/components/loading"
 
 // Regenera la página cada hora para traer los videos nuevos de YouTube.
 export const revalidate = 3600
@@ -34,7 +32,6 @@ export default function Home() {
         </div>
         <CtaSection />
         <ContactSection />
-        {/* <MerchSection /> — oculto hasta tener fotos reales de productos */}
         <Footer />
       </Suspense>
     </main>
