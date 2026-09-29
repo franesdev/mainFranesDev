@@ -70,14 +70,6 @@ export async function subscribeToGuide(email: string) {
   )
 }
 
-export async function subscribeToNewsletter(email: string) {
-  await sendNewsletterEmail(
-    email,
-    "New subscriber to Dev Log newsletter",
-    "dev-log"
-  )
-}
-
 export async function sendContactForm(form: HTMLFormElement) {
   if (!EMAILJS_SERVICE_ID || !EMAILJS_PUBLIC_KEY || !EMAILJS_TEMPLATE_CONTACT) {
     throw new Error("EmailJS contact template is not configured.")
