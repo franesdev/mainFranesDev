@@ -5,12 +5,17 @@ import AboutPapaDev from "@/components/home/about-papa-dev"
 import PillarsSection from "@/components/home/pillars-section"
 import PomodoroTool from "@/components/pomodoro-tool"
 import SocialSection from "@/components/home/social-section"
+import LatestVideos from "@/components/home/latest-videos"
+import ServicesSection from "@/components/home/services-section"
 import CtaSection from "@/components/home/cta-section"
 import ContactSection from "@/components/home/contact-section"
 // TODO: Reactivar cuando haya fotos reales de productos (actualmente placeholders)
 // import MerchSection from "@/components/home/merch-section"
 import Footer from "@/components/footer-option3"
 import Loading from "@/components/loading-option3"
+
+// Regenera la página cada hora para traer los videos nuevos de YouTube.
+export const revalidate = 3600
 
 export default function Home() {
   return (
@@ -21,7 +26,9 @@ export default function Home() {
         <HeroHome />
         <AboutPapaDev />
         <PillarsSection />
+        <LatestVideos />
         <SocialSection />
+        <ServicesSection />
         <div id="pomodoro">
           <PomodoroTool />
         </div>

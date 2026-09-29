@@ -116,14 +116,14 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-28 px-4 bg-zinc-900/20 relative">
+    <section id="contact" className="py-14 md:py-20 px-4 bg-zinc-900/20 relative">
       <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t.title}</h2>
           <p className="text-zinc-400 text-lg">{t.subtitle}</p>
@@ -131,8 +131,8 @@ export default function ContactSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ x: -20 }}
+            whileInView={{ x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="lg:col-span-3 bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 md:p-8"
@@ -224,8 +224,8 @@ export default function ContactSection() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ x: 20 }}
+            whileInView={{ x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-2 space-y-4"

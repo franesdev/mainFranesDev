@@ -139,8 +139,8 @@ export default function PomodoroTool() {
 
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-8"
@@ -156,8 +156,8 @@ export default function PomodoroTool() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ scale: 0.97 }}
+          whileInView={{ scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
           className="relative"
@@ -174,8 +174,8 @@ export default function PomodoroTool() {
               <div className="flex-1 flex flex-col items-center">
                 {/* Slogan above timer */}
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ y: -10 }}
+                  animate={{ y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="mb-8 text-center"
                 >
@@ -191,8 +191,8 @@ export default function PomodoroTool() {
                 <div className="relative w-56 h-56 mb-8">
                   {/* FRANESDEV Logo - positioned top right */}
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    initial={{ scale: 0.8 }}
+                    animate={{ scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="absolute -top-8 -right-8 z-20 drop-shadow-lg"
                   >
@@ -250,8 +250,8 @@ export default function PomodoroTool() {
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <motion.div
                       key={formatTime(timeLeft)}
-                      initial={{ scale: 1.1, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
+                      initial={{ scale: 1.1 }}
+                      animate={{ scale: 1 }}
                       transition={{ duration: 0.3 }}
                       className="text-7xl md:text-8xl font-black text-white font-mono tracking-tighter leading-none"
                     >

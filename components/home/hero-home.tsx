@@ -43,8 +43,8 @@ export default function HeroHome() {
 
       <div className="container mx-auto max-w-5xl relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 24 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7 }}
           className="text-center"
         >
@@ -90,10 +90,7 @@ export default function HeroHome() {
           </div>
 
           <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.6 }}
-            onClick={() => scrollTo("about")}
+                        onClick={() => scrollTo("about")}
             className="mt-12 md:mt-16 flex flex-col items-center gap-2 text-zinc-500 hover:text-brand transition-colors mx-auto"
             aria-label={t.scroll}
           >

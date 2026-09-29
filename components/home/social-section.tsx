@@ -87,17 +87,17 @@ export default function SocialSection() {
   const t = content[language]
 
   return (
-    <section id="social" className="py-20 md:py-28 px-4 relative overflow-hidden">
+    <section id="social" className="py-14 md:py-20 px-4 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-zinc-900/30 to-transparent pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand/3 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-10"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-medium mb-5">
             <Users className="h-3.5 w-3.5" />
@@ -118,8 +118,8 @@ export default function SocialSection() {
                 href={platform.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 20 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className={`group relative bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${platform.borderHover} ${platform.glow}`}
@@ -160,8 +160,8 @@ export default function SocialSection() {
           href={SHOP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.35 }}
           className="group relative mt-6 flex flex-col sm:flex-row items-center gap-6 bg-gradient-to-r from-brand/15 via-zinc-900/80 to-brand/10 border border-brand/30 rounded-2xl p-6 md:p-8 hover:border-brand/50 hover:shadow-lg hover:shadow-brand/10 transition-all duration-300"

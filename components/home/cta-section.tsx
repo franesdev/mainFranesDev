@@ -82,27 +82,27 @@ export default function CtaSection() {
   }
 
   return (
-    <section id="cta" className="py-20 md:py-28 px-4 relative overflow-hidden">
+    <section id="cta" className="py-14 md:py-20 px-4 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-brand/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t.title}</h2>
           <p className="text-zinc-400 text-lg">{t.subtitle}</p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex justify-center mb-12"
+          className="flex justify-center mb-8"
         >
           <a
             href="https://youtube.com/@franesdev?sub_confirmation=1"
@@ -116,8 +116,8 @@ export default function CtaSection() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-8 md:p-10 relative overflow-hidden transition-all duration-500"

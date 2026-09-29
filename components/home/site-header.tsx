@@ -21,6 +21,7 @@ export default function SiteHeader() {
       instagram: "Instagram",
       tiktok: "TikTok",
       facebook: "Facebook",
+      services: "Servicios",
       contact: "Contacto",
     },
     en: {
@@ -30,6 +31,7 @@ export default function SiteHeader() {
       instagram: "Instagram",
       tiktok: "TikTok",
       facebook: "Facebook",
+      services: "Services",
       contact: "Contact",
     },
   }
@@ -61,6 +63,11 @@ export default function SiteHeader() {
 
   const navLinks = [
     ...socialLinks.map((link) => ({ ...link, external: true as const })),
+    {
+      label: t.services,
+      href: "#servicios",
+      external: false as const,
+    },
     {
       label: t.contact,
       href: "#contact",

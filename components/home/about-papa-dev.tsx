@@ -2,108 +2,93 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Briefcase, Heart } from "lucide-react"
 import { useLanguageContext } from "@/contexts/LanguageContext"
+import { ABOUT_PHOTO, aboutStats } from "@/lib/site-config"
 
 export default function AboutPapaDev() {
   const { language } = useLanguageContext()
 
+  // ✏️ Textos de la sección (ES/EN)
   const content = {
     es: {
       title: "Sobre mí",
-      tagline: "Piensa como programador. Vive mejor.",
       name: "Franklin Paute Machuca",
       role: "Papá Dev · Desarrollador Full Stack",
-      story:
-        "Soy desarrollador full-time de 8 a 5 y papá el resto del día. Desde Ecuador, comparto lo que aprendo sobre pensar con claridad — no solo en el trabajo, sino en la vida.",
-      detail:
-        "La programación me enseñó a descomponer problemas, cuestionar suposiciones y tomar mejores decisiones. Eso no es exclusivo de quien escribe código: es una forma de vivir mejor. Por eso creo contenido para todos, no solo para developers.",
-      devLabel: "8 a 5",
-      devDesc: "Desarrollador full-time",
-      dadLabel: "Después",
-      dadDesc: "Papá, creador, pensador",
+      photoAlt: "Franklin Paute, FranesDev",
+      bio: [
+        "Soy desarrollador full-stack desde 2014 y papá, desde Cuenca, Ecuador.",
+        "Programar me enseñó a descomponer problemas, cuestionar suposiciones y decidir con criterio. Uso esa misma forma de pensar para vivir mejor: en el trabajo, en casa y en las decisiones de cada día.",
+        "Aquí la comparto contigo, aunque nunca hayas escrito una línea de código.",
+      ],
     },
     en: {
       title: "About me",
-      tagline: "Think like a programmer. Live better.",
       name: "Franklin Paute Machuca",
       role: "Dad Dev · Full Stack Developer",
-      story:
-        "I'm a full-time developer from 9 to 5 and a dad the rest of the day. From Ecuador, I share what I learn about thinking clearly — not just at work, but in life.",
-      detail:
-        "Programming taught me to break down problems, question assumptions, and make better decisions. That's not exclusive to people who write code — it's a way to live better. That's why I create content for everyone, not just developers.",
-      devLabel: "9 to 5",
-      devDesc: "Full-time developer",
-      dadLabel: "After hours",
-      dadDesc: "Dad, creator, thinker",
+      photoAlt: "Franklin Paute, FranesDev",
+      bio: [
+        "I've been a full-stack developer since 2014, and I'm a dad from Cuenca, Ecuador.",
+        "Programming taught me to break down problems, question assumptions, and decide with judgment. I use that same way of thinking to live better: at work, at home, and in everyday decisions.",
+        "Here I share it with you, even if you've never written a line of code.",
+      ],
     },
   }
 
   const t = content[language]
 
   return (
-    <section id="about" className="py-20 md:py-28 px-4 bg-zinc-950 relative">
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">{t.title}</h2>
-          <div className="w-12 h-1 bg-brand rounded-full mx-auto" />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 md:p-10"
-        >
-          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
-            <div className="relative shrink-0">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden border-2 border-brand/30 bg-zinc-800">
-                <Image
-                  src="/logo.png"
-                  alt={`FranesDev — ${t.tagline}`}
-                  width={160}
-                  height={160}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-2 -right-2 bg-brand text-zinc-950 text-xs font-bold px-2.5 py-1 rounded-full">
-                Papá Dev
-              </div>
-            </div>
-
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl font-bold text-white mb-1">{t.name}</h3>
-              <p className="text-brand font-medium mb-5">{t.role}</p>
-              <p className="text-zinc-300 text-lg leading-relaxed mb-4">{t.story}</p>
-              <p className="text-zinc-500 leading-relaxed">{t.detail}</p>
-
-              <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start">
-                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-800/50 border border-zinc-700/50">
-                  <Briefcase className="h-5 w-5 text-brand shrink-0" />
-                  <div>
-                    <p className="text-white font-semibold text-sm">{t.devLabel}</p>
-                    <p className="text-zinc-500 text-xs">{t.devDesc}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-800/50 border border-zinc-700/50">
-                  <Heart className="h-5 w-5 text-brand shrink-0" />
-                  <div>
-                    <p className="text-white font-semibold text-sm">{t.dadLabel}</p>
-                    <p className="text-zinc-500 text-xs">{t.dadDesc}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <section id="about" className="py-14 md:py-20 px-4 bg-zinc-950 relative">
+      <motion.div
+        initial={{ y: 20 }}
+        whileInView={{ y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center"
+      >
+        <div className="md:col-span-2 relative max-w-xs w-full mx-auto md:max-w-none">
+          <div className="aspect-[4/5] rounded-2xl overflow-hidden border-2 border-brand/30 bg-zinc-800">
+            <Image
+              src={ABOUT_PHOTO}
+              alt={t.photoAlt}
+              width={800}
+              height={1000}
+              className="w-full h-full object-cover"
+            />
           </div>
-        </motion.div>
-      </div>
+          <div className="absolute -bottom-3 -right-3 bg-brand text-zinc-950 text-sm font-bold px-3 py-1.5 rounded-full shadow-lg">
+            Papá Dev
+          </div>
+        </div>
+
+        <div className="md:col-span-3 text-center md:text-left">
+          <p className="text-brand text-sm font-semibold uppercase tracking-wider mb-2">{t.title}</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-1">{t.name}</h2>
+          <p className="text-zinc-400 font-medium mb-6">{t.role}</p>
+
+          <div className="space-y-3 mb-8">
+            {t.bio.map((paragraph, i) => (
+              <p
+                key={i}
+                className={i === 0 ? "text-zinc-200 text-lg leading-relaxed" : "text-zinc-400 leading-relaxed"}
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-3 gap-3">
+            {aboutStats.map((stat) => (
+              <div
+                key={stat.value}
+                className="rounded-xl bg-zinc-900/60 border border-zinc-800 px-3 py-4 text-center md:text-left"
+              >
+                <p className="text-xl md:text-2xl font-bold text-brand leading-tight">{stat.value}</p>
+                <p className="text-zinc-500 text-xs mt-1">{stat.label[language]}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
     </section>
   )
 }
