@@ -4,10 +4,10 @@ import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Mail, MessageSquare, Phone, CheckCircle2, Send } from "lucide-react"
+import { Mail, MessageSquare, Phone, CheckCircle2, Send, Loader2 } from "lucide-react"
 import { FaInstagram } from "react-icons/fa"
 import { useLanguageContext } from "@/contexts/LanguageContext"
-import { sendContactForm } from "@/lib/email-subscriptions"
+import { sendContactForm, EMAIL_REGEX } from "@/lib/email-subscriptions"
 
 export default function ContactSection() {
   const { language } = useLanguageContext()
@@ -15,6 +15,7 @@ export default function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", message: "" })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<"" | "invalid" | "failed">("")
 
   const content = {
     es: {
@@ -26,6 +27,8 @@ export default function ContactSection() {
       message: "Tu mensaje...",
       send: "Enviar mensaje",
       success: "Mensaje enviado. Te responderé pronto.",
+      invalid: "Revisa que tu nombre, email y mensaje estén completos.",
+      failed: "No se pudo enviar el mensaje. Escríbeme directo por",
       quickTitle: "O contáctame directo",
       emailLabel: "Email",
       emailValue: "franesdev@gmail.com",
@@ -43,6 +46,8 @@ export default function ContactSection() {
       message: "Your message...",
       send: "Send message",
       success: "Message sent. I'll get back to you soon.",
+      invalid: "Please check your name, email and message.",
+      failed: "The message could not be sent. Reach me directly on",
       quickTitle: "Or reach me directly",
       emailLabel: "Email",
       emailValue: "franesdev@gmail.com",
@@ -83,18 +88,28 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.name || !form.email || !form.message) return
+    if (!form.name.trim() || !EMAIL_REGEX.test(form.email.trim()) || !form.message.trim()) {
+      setError("invalid")
+      return
+    }
+    if (!formRef.current) return
+
+    // Honeypot: los humanos no ven este campo; si viene lleno es un bot.
+    if (new FormData(formRef.current).get("website")) {
+      setSubmitted(true)
+      return
+    }
 
     setLoading(true)
+    setError("")
     try {
-      if (formRef.current) {
-        await sendContactForm(formRef.current)
-        setSubmitted(true)
-        setForm({ name: "", email: "", message: "" })
-        setTimeout(() => setSubmitted(false), 5000)
-      }
-    } catch (error) {
-      console.error("Error sending contact form:", error)
+      await sendContactForm(formRef.current)
+      setSubmitted(true)
+      setForm({ name: "", email: "", message: "" })
+      setTimeout(() => setSubmitted(false), 5000)
+    } catch (err) {
+      console.error("Error sending contact form:", err)
+      setError("failed")
     } finally {
       setLoading(false)
     }
@@ -127,30 +142,43 @@ export default function ContactSection() {
               {t.formTitle}
             </h3>
 
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+            <form ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-4">
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="hidden"
+              />
               <Input
                 type="text"
                 name="user_name"
+                aria-label={t.name}
+                autoComplete="name"
                 placeholder={t.name}
                 value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                onChange={(e) => { setError(""); setForm({ ...form, name: e.target.value }) }}
                 className="bg-zinc-800/80 border-zinc-700 text-white placeholder:text-zinc-500 focus-visible:ring-brand/50"
                 required
               />
               <Input
                 type="email"
                 name="user_email"
+                aria-label={t.email}
+                autoComplete="email"
                 placeholder={t.email}
                 value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                onChange={(e) => { setError(""); setForm({ ...form, email: e.target.value }) }}
                 className="bg-zinc-800/80 border-zinc-700 text-white placeholder:text-zinc-500 focus-visible:ring-brand/50"
                 required
               />
               <textarea
                 name="message"
+                aria-label={t.message}
                 placeholder={t.message}
                 value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                onChange={(e) => { setError(""); setForm({ ...form, message: e.target.value }) }}
                 className="w-full h-32 bg-zinc-800/80 border border-zinc-700 text-white placeholder:text-zinc-500 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand/50 resize-none"
                 required
               />
@@ -159,7 +187,9 @@ export default function ContactSection() {
                 disabled={loading || submitted}
                 className="w-full bg-brand hover:bg-brand-dark text-zinc-950 font-semibold py-5"
               >
-                {submitted ? (
+                {loading ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : submitted ? (
                   <CheckCircle2 className="h-5 w-5" />
                 ) : (
                   <>
@@ -169,15 +199,27 @@ export default function ContactSection() {
                 )}
               </Button>
 
-              {submitted && (
-                <motion.p
-                  initial={{ opacity: 0, y: -8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-brand text-sm text-center font-medium"
-                >
-                  {t.success}
-                </motion.p>
-              )}
+              <div aria-live="polite">
+                {submitted && (
+                  <p className="text-brand text-sm text-center font-medium">{t.success}</p>
+                )}
+                {error === "invalid" && (
+                  <p className="text-red-400 text-sm text-center">{t.invalid}</p>
+                )}
+                {error === "failed" && (
+                  <p className="text-red-400 text-sm text-center">
+                    {t.failed}{" "}
+                    <a
+                      href="https://wa.me/593997825115"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-red-300"
+                    >
+                      WhatsApp
+                    </a>
+                  </p>
+                )}
+              </div>
             </form>
           </motion.div>
 

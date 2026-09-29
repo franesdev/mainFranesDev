@@ -29,24 +29,37 @@ export async function saveEmailToSheets(email: string, source = "general") {
   })
 }
 
+export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+
 async function sendNewsletterEmail(email: string, message: string, source: string) {
-  ensureEmailJsReady()
+  // Sheets y EmailJS corren en paralelo: si uno falla, el lead igual queda capturado por el otro.
+  const results = await Promise.allSettled([
+    saveEmailToSheets(email, source),
+    (async () => {
+      ensureEmailJsReady()
+      await emailjs.send(
+        EMAILJS_SERVICE_ID!,
+        EMAILJS_TEMPLATE_NEWSLETTER!,
+        {
+          email,
+          user_email: email,
+          to_email: email,
+          reply_to: email,
+          message,
+          source,
+        },
+        EMAILJS_PUBLIC_KEY!
+      )
+    })(),
+  ])
 
-  await emailjs.send(
-    EMAILJS_SERVICE_ID!,
-    EMAILJS_TEMPLATE_NEWSLETTER!,
-    {
-      email,
-      user_email: email,
-      to_email: email,
-      reply_to: email,
-      message,
-      source,
-    },
-    EMAILJS_PUBLIC_KEY!
-  )
+  results
+    .filter((r): r is PromiseRejectedResult => r.status === "rejected")
+    .forEach((r) => console.error("Subscription channel failed:", r.reason))
 
-  await saveEmailToSheets(email, source)
+  if (results.every((r) => r.status === "rejected")) {
+    throw new Error("No se pudo registrar el email en ningún canal.")
+  }
 }
 
 export async function subscribeToGuide(email: string) {

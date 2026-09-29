@@ -7,7 +7,7 @@ import { Sparkles, Bell, CheckCircle2, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useLanguageContext } from "@/contexts/LanguageContext"
-import { subscribeToGuide } from "@/lib/email-subscriptions"
+import { subscribeToGuide, EMAIL_REGEX } from "@/lib/email-subscriptions"
 
 export default function CtaSection() {
   const { language } = useLanguageContext()
@@ -29,7 +29,8 @@ export default function CtaSection() {
       guideButton: "Avísame cuando esté lista",
       guideNote: "Sin spam. Solo un email cuando la guía esté disponible.",
       guideSuccess: "¡Listo! Te avisaré cuando la guía esté disponible.",
-      guideError: "Algo salió mal. Intenta de nuevo o escríbeme directo.",
+      guideError: "Algo salió mal. Intenta de nuevo o escríbeme directo por",
+      guideInvalid: "Revisa tu email, parece incompleto. ¿Dudas? Escríbeme por",
     },
     en: {
       title: "Ready to think differently?",
@@ -43,28 +44,38 @@ export default function CtaSection() {
       guideButton: "Notify me when it's ready",
       guideNote: "No spam. Just one email when the guide is available.",
       guideSuccess: "Done! I'll let you know when the guide is ready.",
-      guideError: "Something went wrong. Try again or reach out directly.",
+      guideError: "Something went wrong. Try again or reach me on",
+      guideInvalid: "Check your email, it looks incomplete. Questions? Reach me on",
     },
   }
 
   const t = content[language]
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (!email) return
+    const trimmed = email.trim()
+    if (!EMAIL_REGEX.test(trimmed)) {
+      setError(true)
+      return
+    }
+
+    // Honeypot: los humanos no ven este campo; si viene lleno es un bot.
+    const honeypot = new FormData(e.currentTarget).get("website")
+    if (honeypot) {
+      setSubmitted(true)
+      return
+    }
 
     setLoading(true)
     setError(false)
 
     try {
-      await subscribeToGuide(email)
+      await subscribeToGuide(trimmed)
       setSubmitted(true)
       setEmail("")
-      setTimeout(() => setSubmitted(false), 6000)
     } catch (err) {
       console.error("Guide subscription error:", err)
       setError(true)
-      setTimeout(() => setError(false), 4000)
     } finally {
       setLoading(false)
     }
@@ -128,13 +139,30 @@ export default function CtaSection() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+          <form onSubmit={handleSubmit} noValidate className="flex flex-col sm:flex-row gap-3">
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
+            <label htmlFor="guide-email" className="sr-only">
+              Email
+            </label>
             <Input
               id="guide-email"
+              name="email"
               type="email"
+              autoComplete="email"
               placeholder={t.guidePlaceholder}
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value)
+                if (error) setError(false)
+              }}
+              aria-invalid={error}
               disabled={loading || submitted}
               className="flex-1 bg-zinc-800/80 border-zinc-700 text-white placeholder:text-zinc-500 focus-visible:ring-brand/50 h-12"
               required
@@ -157,25 +185,25 @@ export default function CtaSection() {
             </Button>
           </form>
 
-          {submitted && (
-            <motion.p
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-brand text-sm font-medium mt-4"
-            >
-              {t.guideSuccess}
-            </motion.p>
-          )}
+          <div aria-live="polite">
+            {submitted && (
+              <p className="text-brand text-sm font-medium mt-4">{t.guideSuccess}</p>
+            )}
 
-          {error && (
-            <motion.p
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-red-400 text-sm mt-4"
-            >
-              {t.guideError}
-            </motion.p>
-          )}
+            {error && (
+              <p className="text-red-400 text-sm mt-4">
+                {EMAIL_REGEX.test(email.trim()) ? t.guideError : t.guideInvalid}{" "}
+                <a
+                  href="https://wa.me/593997825115"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-red-300"
+                >
+                  WhatsApp
+                </a>
+              </p>
+            )}
+          </div>
 
           <p className="text-zinc-600 text-xs mt-4">{t.guideNote}</p>
         </motion.div>
