@@ -1,20 +1,16 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
 import { FaYoutube } from "react-icons/fa"
 import { Sparkles, Bell, CheckCircle2, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useLanguageContext } from "@/contexts/LanguageContext"
-import { subscribeToGuide, EMAIL_REGEX } from "@/lib/email-subscriptions"
+import { useGuideSignup, honeypotInputProps } from "@/hooks/use-guide-signup"
 
 export default function CtaSection() {
   const { language } = useLanguageContext()
-  const [email, setEmail] = useState("")
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(false)
+  const { email, setEmail, submitted, loading, error, isInvalid, handleSubmit } = useGuideSignup()
 
   const content = {
     es: {
@@ -51,35 +47,6 @@ export default function CtaSection() {
 
   const t = content[language]
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const trimmed = email.trim()
-    if (!EMAIL_REGEX.test(trimmed)) {
-      setError(true)
-      return
-    }
-
-    // Honeypot: los humanos no ven este campo; si viene lleno es un bot.
-    const honeypot = new FormData(e.currentTarget).get("website")
-    if (honeypot) {
-      setSubmitted(true)
-      return
-    }
-
-    setLoading(true)
-    setError(false)
-
-    try {
-      await subscribeToGuide(trimmed)
-      setSubmitted(true)
-      setEmail("")
-    } catch (err) {
-      console.error("Guide subscription error:", err)
-      setError(true)
-    } finally {
-      setLoading(false)
-    }
-  }
 
   return (
     <section id="cta" className="py-14 md:py-20 px-4 relative overflow-hidden">
@@ -140,14 +107,7 @@ export default function CtaSection() {
           </div>
 
           <form onSubmit={handleSubmit} noValidate className="flex flex-col sm:flex-row gap-3">
-            <input
-              type="text"
-              name="website"
-              tabIndex={-1}
-              autoComplete="off"
-              aria-hidden="true"
-              className="hidden"
-            />
+            <input {...honeypotInputProps} />
             <label htmlFor="guide-email" className="sr-only">
               Email
             </label>
@@ -158,10 +118,7 @@ export default function CtaSection() {
               autoComplete="email"
               placeholder={t.guidePlaceholder}
               value={email}
-              onChange={(e) => {
-                setEmail(e.target.value)
-                if (error) setError(false)
-              }}
+              onChange={(e) => setEmail(e.target.value)}
               aria-invalid={error}
               disabled={loading || submitted}
               className="flex-1 bg-zinc-800/80 border-zinc-700 text-white placeholder:text-zinc-500 focus-visible:ring-brand/50 h-12"
@@ -192,7 +149,7 @@ export default function CtaSection() {
 
             {error && (
               <p className="text-red-400 text-sm mt-4">
-                {EMAIL_REGEX.test(email.trim()) ? t.guideError : t.guideInvalid}{" "}
+                {isInvalid ? t.guideInvalid : t.guideError}{" "}
                 <a
                   href="https://wa.me/593997825115"
                   target="_blank"

@@ -3,7 +3,7 @@ import SiteHeader from "@/components/home/site-header"
 import HeroHome from "@/components/home/hero-home"
 import AboutPapaDev from "@/components/home/about-papa-dev"
 import PillarsSection from "@/components/home/pillars-section"
-import PomodoroTool from "@/components/pomodoro-tool"
+import FocusCta from "@/components/home/focus-cta"
 import SocialSection from "@/components/home/social-section"
 import LatestVideos from "@/components/home/latest-videos"
 import ServicesSection from "@/components/home/services-section"
@@ -27,9 +27,7 @@ export default function Home() {
         <LatestVideos />
         <SocialSection />
         <ServicesSection />
-        <div id="pomodoro">
-          <PomodoroTool />
-        </div>
+        <FocusCta />
         <CtaSection />
         <ContactSection />
         <Footer />

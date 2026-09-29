@@ -57,3 +57,11 @@ export const landingExamples = [
   { image: "/landing-ejemplo-1.jpg", alt: { es: "Ejemplo de landing page para un negocio local", en: "Landing page example for a local business" } },
   { image: "/landing-ejemplo-2.jpg", alt: { es: "Ejemplo de landing page de servicios", en: "Services landing page example" } },
 ]
+
+// ✏️ Música de /enfoque: HolaBeats (copyright libre). Embeds oficiales, sin alojar audio.
+export const HOLABEATS = {
+  spotifyUrl: "https://open.spotify.com/artist/7CvWoscqVQJvqb0OcBRQO7",
+  spotifyEmbed: "https://open.spotify.com/embed/artist/7CvWoscqVQJvqb0OcBRQO7?utm_source=generator&theme=0",
+  youtubeUrl: "https://www.youtube.com/playlist?list=PLWpS2U83SbfilfcPqtKnYtrFe8ol3_sIw",
+  youtubeEmbed: "https://www.youtube-nocookie.com/embed/videoseries?list=PLWpS2U83SbfilfcPqtKnYtrFe8ol3_sIw",
+}

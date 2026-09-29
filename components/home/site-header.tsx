@@ -21,6 +21,7 @@ export default function SiteHeader() {
       instagram: "Instagram",
       tiktok: "TikTok",
       facebook: "Facebook",
+      focus: "Enfoque",
       services: "Servicios",
       contact: "Contacto",
     },
@@ -31,6 +32,7 @@ export default function SiteHeader() {
       instagram: "Instagram",
       tiktok: "TikTok",
       facebook: "Facebook",
+      focus: "Focus",
       services: "Services",
       contact: "Contact",
     },
@@ -63,6 +65,11 @@ export default function SiteHeader() {
 
   const navLinks = [
     ...socialLinks.map((link) => ({ ...link, external: true as const })),
+    {
+      label: t.focus,
+      href: "/enfoque",
+      external: false as const,
+    },
     {
       label: t.services,
       href: "#servicios",
@@ -149,6 +156,14 @@ export default function SiteHeader() {
                     {link.icon && <link.icon className="h-4 w-4" />}
                     {link.label}
                   </a>
+                ) : link.href.startsWith("/") ? (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-zinc-800/60 transition-all duration-200"
+                  >
+                    {link.label}
+                  </Link>
                 ) : (
                   <button
                     key={link.label}
@@ -194,6 +209,15 @@ export default function SiteHeader() {
                   {link.icon && <link.icon className="h-5 w-5 text-brand" />}
                   {link.label}
                 </a>
+              ) : link.href.startsWith("/") ? (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-zinc-300 hover:text-white hover:bg-zinc-800/60 transition-colors text-left"
+                >
+                  {link.label}
+                </Link>
               ) : (
                 <button
                   key={link.label}
