@@ -30,7 +30,11 @@ export async function getLatestVideos(): Promise<YoutubeVideo[]> {
     const res = await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${YOUTUBE_CHANNEL_ID}`, {
       next: { revalidate: REVALIDATE_SECONDS },
     })
-    if (!res.ok) return []
+    // El feed de YouTube a veces responde 404/500 por horas; la vista cae entonces al embed de subidas.
+    if (!res.ok) {
+      console.error(`YouTube RSS respondió ${res.status}`)
+      return []
+    }
 
     const xml = await res.text()
     return xml

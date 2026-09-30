@@ -19,39 +19,6 @@ export const aboutStats = [
   { value: "Papá Dev", label: { es: "Código y familia", en: "Code and family" } },
 ]
 
-// ✏️ Mejores reels: thumbnail vertical (540×960, 9:16) en /public y link al post.
-export const bestReels: {
-  thumbnail: string
-  href: string
-  platform: "instagram" | "tiktok"
-  title: { es: string; en: string }
-}[] = [
-  {
-    thumbnail: "/reel-1.jpg",
-    href: "https://instagram.com/franesdev",
-    platform: "instagram",
-    title: { es: "Reel destacado 1", en: "Featured reel 1" },
-  },
-  {
-    thumbnail: "/reel-2.jpg",
-    href: "https://tiktok.com/@franesdev",
-    platform: "tiktok",
-    title: { es: "Reel destacado 2", en: "Featured reel 2" },
-  },
-  {
-    thumbnail: "/reel-3.jpg",
-    href: "https://instagram.com/franesdev",
-    platform: "instagram",
-    title: { es: "Reel destacado 3", en: "Featured reel 3" },
-  },
-  {
-    thumbnail: "/reel-4.jpg",
-    href: "https://tiktok.com/@franesdev",
-    platform: "tiktok",
-    title: { es: "Reel destacado 4", en: "Featured reel 4" },
-  },
-]
-
 // ✏️ Páginas que venden: imágenes de ejemplo (1200×800, 3:2). Ilustrativas, no clientes reales.
 export const landingExamples = [
   { image: "/landing-ejemplo-1.jpg", alt: { es: "Ejemplo de landing page para un negocio local", en: "Landing page example for a local business" } },

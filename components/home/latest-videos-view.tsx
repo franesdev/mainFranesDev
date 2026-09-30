@@ -2,13 +2,16 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Play, PlayCircle, ExternalLink } from "lucide-react"
-import { FaYoutube, FaInstagram, FaTiktok } from "react-icons/fa"
+import { Play, PlayCircle } from "lucide-react"
+import { FaYoutube } from "react-icons/fa"
 import { useLanguageContext } from "@/contexts/LanguageContext"
-import { bestReels, YOUTUBE_CHANNEL_URL } from "@/lib/site-config"
+import { YOUTUBE_CHANNEL_ID, YOUTUBE_CHANNEL_URL } from "@/lib/site-config"
 import type { YoutubeVideo } from "@/lib/youtube"
 
 const thumb = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`
+
+// Playlist automática de "subidas" del canal (UC… → UU…). Plan B si el RSS no responde.
+const UPLOADS_EMBED = `https://www.youtube-nocookie.com/embed/videoseries?list=UU${YOUTUBE_CHANNEL_ID.slice(2)}`
 
 export default function LatestVideosView({ videos }: { videos: YoutubeVideo[] }) {
   const { language } = useLanguageContext()
@@ -22,8 +25,7 @@ export default function LatestVideosView({ videos }: { videos: YoutubeVideo[] })
       play: "Reproducir video",
       shorts: "Shorts recientes",
       channel: "Ver canal de YouTube",
-      empty: "Mira mis videos más recientes directamente en YouTube.",
-      reels: "Mis mejores reels",
+      uploads: "Últimos videos de FranesDev",
     },
     en: {
       label: "Latest",
@@ -32,8 +34,7 @@ export default function LatestVideosView({ videos }: { videos: YoutubeVideo[] })
       play: "Play video",
       shorts: "Recent Shorts",
       channel: "Visit YouTube channel",
-      empty: "Watch my latest videos directly on YouTube.",
-      reels: "My best reels",
+      uploads: "Latest FranesDev videos",
     },
   }
 
@@ -41,7 +42,7 @@ export default function LatestVideosView({ videos }: { videos: YoutubeVideo[] })
 
   // Destacado: el video largo más reciente (o el último, si solo hay Shorts).
   const featured = videos.find((v) => !v.isShort) ?? videos[0]
-  const shorts = videos.filter((v) => v.isShort && v.id !== featured?.id).slice(0, 3)
+  const shorts = videos.filter((v) => v.isShort && v.id !== featured?.id).slice(0, 4)
 
   const formatDate = (iso: string) =>
     iso
@@ -122,7 +123,7 @@ export default function LatestVideosView({ videos }: { videos: YoutubeVideo[] })
             {shorts.length > 0 && (
               <div className="lg:col-span-2">
                 <p className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-3">{t.shorts}</p>
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
                   {shorts.map((video) => (
                     <a
                       key={video.id}
@@ -147,47 +148,18 @@ export default function LatestVideosView({ videos }: { videos: YoutubeVideo[] })
             )}
           </div>
         ) : (
-          <a
-            href={YOUTUBE_CHANNEL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 p-8 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-brand/30 text-zinc-300 transition-colors"
-          >
-            <FaYoutube className="h-6 w-6 text-red-500" />
-            {t.empty}
-          </a>
+          // Plan B: si YouTube no respondió al RSS, se muestra la playlist de subidas del canal (siempre al día).
+          <div className="relative aspect-video rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900">
+            <iframe
+              src={UPLOADS_EMBED}
+              title={t.uploads}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            />
+          </div>
         )}
-
-        <h3 className="text-xl font-bold text-white mt-12 mb-4">{t.reels}</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {bestReels.map((reel) => {
-            const Icon = reel.platform === "instagram" ? FaInstagram : FaTiktok
-            return (
-              <a
-                key={reel.thumbnail}
-                href={reel.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative aspect-[9/16] rounded-2xl overflow-hidden border border-zinc-800 hover:border-brand/40 bg-zinc-900 transition-colors"
-              >
-                <img
-                  src={reel.thumbnail}
-                  alt={reel.title[language]}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent to-transparent" />
-                <span className="absolute top-3 right-3 w-8 h-8 rounded-full bg-zinc-950/70 flex items-center justify-center">
-                  <Icon className="h-4 w-4 text-white" />
-                </span>
-                <span className="absolute bottom-0 inset-x-0 p-3 flex items-end justify-between gap-2">
-                  <span className="text-white text-sm font-medium leading-snug">{reel.title[language]}</span>
-                  <ExternalLink className="h-4 w-4 text-zinc-400 group-hover:text-brand shrink-0 transition-colors" />
-                </span>
-              </a>
-            )
-          })}
-        </div>
       </div>
     </section>
   )
