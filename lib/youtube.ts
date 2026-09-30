@@ -1,4 +1,4 @@
-import { YOUTUBE_CHANNEL_ID } from "@/lib/site-config"
+import { YOUTUBE_CHANNEL_ID, YOUTUBE_SNAPSHOT } from "@/lib/site-config"
 
 export type YoutubeVideo = {
   id: string
@@ -20,12 +20,21 @@ const channelKey = YOUTUBE_CHANNEL_ID.slice(2)
 export const LONG_VIDEOS_PLAYLIST = `UULF${channelKey}`
 export const SHORTS_PLAYLIST = `UUSH${channelKey}`
 
-// Orden: YouTube Data API (si hay clave) → RSS público → vacío (la vista muestra los embeds de playlist).
+const hasBoth = (r: LatestVideos) => r.videos.length > 0 && r.shorts.length > 0
+
+// Orden: YouTube Data API (si hay clave) → RSS → páginas públicas de YouTube → copia fija en site-config.
+// Así la sección siempre muestra "último video + Shorts", aunque YouTube falle por alguna vía.
 export async function getLatestVideos(): Promise<LatestVideos> {
   if (!YOUTUBE_CHANNEL_ID) return EMPTY
-  const fromApi = await fromDataApi()
-  if (fromApi.videos.length || fromApi.shorts.length) return fromApi
-  return fromRss()
+  for (const source of [fromDataApi, fromRss, fromYoutubePages]) {
+    const result = await source()
+    if (hasBoth(result)) return result
+  }
+  console.error("YouTube: ninguna fuente respondió; se usa YOUTUBE_SNAPSHOT")
+  return {
+    videos: YOUTUBE_SNAPSHOT.videos.map((v) => ({ ...v, url: `https://www.youtube.com/watch?v=${v.id}` })),
+    shorts: YOUTUBE_SNAPSHOT.shorts.map((v) => ({ ...v, url: `https://www.youtube.com/shorts/${v.id}` })),
+  }
 }
 
 // ---------- YouTube Data API v3 (clave privada en YOUTUBE_API_KEY; ~2 unidades/hora de 10.000 gratis al día) ----------
@@ -85,6 +94,8 @@ const decodeEntities = (text: string) =>
     .replace(/&apos;/g, "'")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCharCode(parseInt(code, 16)))
     .replace(/&amp;/g, "&")
 
 const pick = (xml: string, pattern: RegExp) => xml.match(pattern)?.[1] ?? ""
@@ -120,6 +131,58 @@ async function fromRss(): Promise<LatestVideos> {
     }
   } catch (error) {
     console.error("YouTube RSS error:", error)
+    return EMPTY
+  }
+}
+
+// ---------- Páginas públicas de YouTube (sin clave): playlist → IDs, página del video → título y fecha ----------
+
+const BROWSER_HEADERS = {
+  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140 Safari/537.36",
+  "Accept-Language": "es",
+}
+
+async function idsFromPlaylist(playlistId: string, count: number): Promise<string[]> {
+  const res = await fetch(`https://www.youtube.com/playlist?list=${playlistId}`, {
+    headers: BROWSER_HEADERS,
+    next: { revalidate: REVALIDATE_SECONDS },
+  })
+  if (!res.ok) return []
+  const html = await res.text()
+  return [...new Set([...html.matchAll(/"videoId":"([\w-]{11})"/g)].map((m) => m[1]))].slice(0, count)
+}
+
+async function videoFromPage(id: string, isShort: boolean): Promise<YoutubeVideo | null> {
+  const res = await fetch(`https://www.youtube.com/watch?v=${id}`, {
+    headers: BROWSER_HEADERS,
+    next: { revalidate: REVALIDATE_SECONDS },
+  })
+  if (!res.ok) return null
+  const html = await res.text()
+  const title = pick(html, /<meta name="title" content="([^"]*)"/)
+  if (!title) return null
+  return {
+    id,
+    title: decodeEntities(title),
+    url: isShort ? `https://www.youtube.com/shorts/${id}` : `https://www.youtube.com/watch?v=${id}`,
+    published: pick(html, /"publishDate":"([^"]+)"/),
+  }
+}
+
+async function fromYoutubePages(): Promise<LatestVideos> {
+  try {
+    const [videoIds, shortIds] = await Promise.all([
+      idsFromPlaylist(LONG_VIDEOS_PLAYLIST, 1),
+      idsFromPlaylist(SHORTS_PLAYLIST, 3),
+    ])
+    const [videos, shorts] = await Promise.all([
+      Promise.all(videoIds.map((id) => videoFromPage(id, false))),
+      Promise.all(shortIds.map((id) => videoFromPage(id, true))),
+    ])
+    const valid = (list: (YoutubeVideo | null)[]) => list.filter((v): v is YoutubeVideo => v !== null)
+    return { videos: valid(videos), shorts: valid(shorts) }
+  } catch (error) {
+    console.error("YouTube páginas error:", error)
     return EMPTY
   }
 }

@@ -10,6 +10,27 @@ export const whatsappLink = (text?: string) =>
 export const YOUTUBE_CHANNEL_ID = "UCWvyzeQFEwiyDU1UYdLGaSQ"
 export const YOUTUBE_CHANNEL_URL = "https://youtube.com/@franesdev"
 
+// Copia de respaldo de "Lo último": solo se usa si YouTube no responde por ninguna vía.
+// La sección se actualiza sola; esto es únicamente para que nunca quede vacía.
+export const YOUTUBE_SNAPSHOT = {
+  videos: [
+    {
+      id: "iww7xKWAAm0",
+      title: "5 problemas de tu día que resuelves pensando como programador (sin escribir código)",
+      published: "2026-09-18T16:00:07-07:00",
+    },
+  ],
+  shorts: [
+    { id: "7mBubSuSXyU", title: "Cada \"sí\" que das es un \"no\" a otra cosa", published: "2026-09-23T16:15:32-07:00" },
+    {
+      id: "WkwlIhVlVls",
+      title: "Di el color, no la palabra — mira cómo se traba tu cerebro #franesdev #lifeisbutadream",
+      published: "2026-09-22T16:00:06-07:00",
+    },
+    { id: "_s_PC3RZvMM", title: "Mi hijo cree que arreglo computadoras. Le mostré la verdad", published: "2026-09-21T16:00:06-07:00" },
+  ],
+}
+
 // ✏️ Sobre mí: foto (800×1000, vertical 4:5) y 3 datos en tarjetas.
 export const ABOUT_PHOTO = "/sobre-mi-placeholder.jpg"
 
